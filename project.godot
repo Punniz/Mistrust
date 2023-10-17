@@ -11,13 +11,19 @@ config_version=5
 [application]
 
 config/name="Spoonky Jam"
+run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://miscellaneous/icon.svg"
+
+[autoload]
+
+Settings="*res://autoloads/scripts/settings.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [rendering]
