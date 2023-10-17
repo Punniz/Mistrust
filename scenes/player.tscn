@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bfu2peuf5fcxb"]
+[gd_scene load_steps=6 format=3 uid="uid://bfu2peuf5fcxb"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_tdkwl"]
 [ext_resource type="Texture2D" uid="uid://cjafqd3bsqiah" path="res://miscellaneous/icon.svg" id="2_2k7ev"]
@@ -8,34 +8,8 @@ size = Vector2(74, 113)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8hnw5"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v3vn1"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u8bi5"]
-animation = &"reload"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_68yol"]
-animation = &"roll_gun"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jgfng"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oplxj"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wp3ob"]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_88i8c"]
-switch_mode = 2
-
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_uowq0"]
-states/idle/node = SubResource("AnimationNodeAnimation_v3vn1")
-states/idle/position = Vector2(317, 100)
-states/reload/node = SubResource("AnimationNodeAnimation_u8bi5")
-states/reload/position = Vector2(492, 100)
-states/roll_gun/node = SubResource("AnimationNodeAnimation_68yol")
-states/roll_gun/position = Vector2(402, -1)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_jgfng"), "idle", "roll_gun", SubResource("AnimationNodeStateMachineTransition_oplxj"), "roll_gun", "reload", SubResource("AnimationNodeStateMachineTransition_wp3ob"), "reload", "idle", SubResource("AnimationNodeStateMachineTransition_88i8c")]
-graph_offset = Vector2(-126, -153)
+graph_offset = Vector2(-177, -127)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(105, 222)
@@ -55,7 +29,6 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_uowq0")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_2k7ev")
