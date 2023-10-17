@@ -1,3 +1,50 @@
-[gd_scene format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=6 format=3 uid="uid://b5s1myf1gwty8"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_fkopv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75es3"]
+size = Vector2(1272, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x14ss"]
+size = Vector2(758, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyur0"]
+size = Vector2(74, 113)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hgi8"]
+size = Vector2(37, 387)
 
 [node name="World" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(0, 711)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(645, -17)
+shape = SubResource("RectangleShape2D_75es3")
+
+[node name="Slope" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slope"]
+position = Vector2(993, 501)
+rotation = -0.523599
+shape = SubResource("RectangleShape2D_x14ss")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(117, -244)
+script = ExtResource("1_fkopv")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -54.5)
+shape = SubResource("RectangleShape2D_lyur0")
+
+[node name="Ladder" type="Node2D" parent="."]
+position = Vector2(385, 516)
+
+[node name="Area2D" type="Area2D" parent="Ladder"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder/Area2D"]
+position = Vector2(8.5, -42.5)
+shape = SubResource("RectangleShape2D_2hgi8")
