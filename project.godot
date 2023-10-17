@@ -21,8 +21,8 @@ Settings="*res://autoloads/scripts/settings.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/mode=3
 window/stretch/mode="canvas_items"
 
@@ -52,6 +52,13 @@ move_down={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":1,"axis_value":1.0,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Interactable"
+2d_physics/layer_3="Climbable"
+2d_physics/layer_4="Environment"
 
 [rendering]
 
