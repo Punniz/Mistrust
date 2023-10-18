@@ -24,11 +24,6 @@ var climb_speed: float = 150.0
 
 func _physics_process(delta: float) -> void:
 	
-	if self.velocity.x == 0:
-		# go to idle state
-		$AnimatedSprite2D.play()
-		
-	
 	if is_colliding_with_climbable:
 #	if $LadderChecker.is_colliding():
 		#print("Raycast colliding!")
