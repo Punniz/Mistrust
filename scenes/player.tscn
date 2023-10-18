@@ -1,7 +1,62 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfu2peuf5fcxb"]
+[gd_scene load_steps=18 format=3 uid="uid://bfu2peuf5fcxb"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_tdkwl"]
 [ext_resource type="Texture2D" uid="uid://cjafqd3bsqiah" path="res://miscellaneous/icon.svg" id="2_2k7ev"]
+[ext_resource type="Texture2D" uid="uid://dfybf0tt34kqy" path="res://assets/player/idle.png" id="2_rhs1s"]
+[ext_resource type="Script" path="res://autoloads/scripts/user_state_machine.gd" id="3_h3qdk"]
+[ext_resource type="Script" path="res://idle.gd" id="5_w1v2x"]
+[ext_resource type="Script" path="res://run.gd" id="6_54a5s"]
+[ext_resource type="Script" path="res://hide.gd" id="7_2n7qf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eumqx"]
+atlas = ExtResource("2_rhs1s")
+region = Rect2(0, 0, 20, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnj2q"]
+atlas = ExtResource("2_rhs1s")
+region = Rect2(20, 0, 20, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndv4o"]
+atlas = ExtResource("2_rhs1s")
+region = Rect2(40, 0, 20, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5fax"]
+atlas = ExtResource("2_rhs1s")
+region = Rect2(60, 0, 20, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_havh5"]
+atlas = ExtResource("2_rhs1s")
+region = Rect2(80, 0, 20, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sdnw"]
+atlas = ExtResource("2_rhs1s")
+region = Rect2(0, 40, 20, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vebqk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eumqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnj2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndv4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5fax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_havh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sdnw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lyur0"]
 size = Vector2(128, 128)
@@ -18,7 +73,13 @@ script = ExtResource("1_tdkwl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_vebqk")
+frame_progress = 0.0828258
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_2k7ev")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -39,3 +100,21 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_uowq0")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="UserStateMachine" type="Node" parent="."]
+script = ExtResource("3_h3qdk")
+
+[node name="IdleState" type="Node" parent="UserStateMachine" node_paths=PackedStringArray("actor", "animator")]
+script = ExtResource("5_w1v2x")
+actor = NodePath("../..")
+animator = NodePath("../../AnimatedSprite2D")
+
+[node name="RunState" type="Node" parent="UserStateMachine" node_paths=PackedStringArray("actor", "animator")]
+script = ExtResource("6_54a5s")
+actor = NodePath("../..")
+animator = NodePath("../../AnimatedSprite2D")
+
+[node name="HideState" type="Node" parent="UserStateMachine" node_paths=PackedStringArray("actor", "animator")]
+script = ExtResource("7_2n7qf")
+actor = NodePath("../..")
+animator = NodePath("../../AnimatedSprite2D")
