@@ -55,10 +55,10 @@ move_down={
 
 [layer_names]
 
-2d_physics/layer_1="Player"
+2d_physics/layer_1="Environment"
 2d_physics/layer_2="Interactable"
 2d_physics/layer_3="Climbable"
-2d_physics/layer_4="Environment"
+2d_physics/layer_4="Player"
 
 [rendering]
 

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cjafqd3bsqiah" path="res://miscellaneous/icon.svg" id="2_2k7ev"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lyur0"]
-size = Vector2(74, 113)
+size = Vector2(128, 128)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8hnw5"]
 
@@ -18,8 +18,18 @@ script = ExtResource("1_tdkwl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2k7ev")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lyur0")
+
+[node name="LadderChecker" type="RayCast2D" parent="."]
+target_position = Vector2(1, 65)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -29,6 +39,3 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_uowq0")
 anim_player = NodePath("../AnimationPlayer")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_2k7ev")

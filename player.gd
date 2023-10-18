@@ -21,8 +21,11 @@ var climb_speed: float = 150.0
 
 func _physics_process(delta: float) -> void:
 	if is_colliding_with_climbable:
+#	if $LadderChecker.is_colliding():
+		print("Raycast colliding!")
 		self.velocity.y = input_direction_y * climb_speed
 	else:
+#		print("Raycast NOT colliding!!")
 		self.velocity.y += gravity
 		if self.velocity.y >= max_gravity:
 			self.velocity.y = max_gravity

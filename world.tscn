@@ -1,16 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=8 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="PackedScene" uid="uid://bfu2peuf5fcxb" path="res://scenes/player.tscn" id="1_lr41f"]
-[ext_resource type="Script" path="res://climbable.gd" id="2_psamc"]
+[ext_resource type="PackedScene" uid="uid://2en76f76byyg" path="res://scenes/climbable.tscn" id="2_5y4qr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75es3"]
 size = Vector2(1272, 48)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q47e8"]
+size = Vector2(178, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_orwc2"]
+size = Vector2(876, 48)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x14ss"]
 size = Vector2(758, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hgi8"]
-size = Vector2(37, 975)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q8jtr"]
 radius = 91.7878
@@ -19,7 +22,7 @@ radius = 91.7878
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 711)
-collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(645, -17)
@@ -27,14 +30,18 @@ shape = SubResource("RectangleShape2D_75es3")
 
 [node name="Floor2" type="StaticBody2D" parent="."]
 position = Vector2(0, 324)
-collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
-position = Vector2(645, -17)
-shape = SubResource("RectangleShape2D_75es3")
+position = Vector2(94, -17)
+shape = SubResource("RectangleShape2D_q47e8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(843, -17)
+shape = SubResource("RectangleShape2D_orwc2")
 
 [node name="Slope" type="StaticBody2D" parent="."]
-collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slope"]
 position = Vector2(993, 501)
@@ -42,18 +49,11 @@ rotation = -0.523599
 shape = SubResource("RectangleShape2D_x14ss")
 
 [node name="Player" parent="." instance=ExtResource("1_lr41f")]
-collision_mask = 8
+position = Vector2(208, 599)
+collision_layer = 8
+collision_mask = 1
 
-[node name="Climbable" type="Node2D" parent="."]
-position = Vector2(285, 636)
-script = ExtResource("2_psamc")
-
-[node name="Area2D" type="Area2D" parent="Climbable"]
-collision_layer = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Climbable/Area2D"]
-position = Vector2(8.5, -336.5)
-shape = SubResource("RectangleShape2D_2hgi8")
+[node name="Climbable" parent="." instance=ExtResource("2_5y4qr")]
 
 [node name="Bush" type="Area2D" parent="."]
 modulate = Color(0.772549, 0.509804, 0, 1)
@@ -61,6 +61,3 @@ position = Vector2(685, 569)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bush"]
 shape = SubResource("CircleShape2D_q8jtr")
-
-[connection signal="body_entered" from="Climbable/Area2D" to="Climbable" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Climbable/Area2D" to="Climbable" method="_on_area_2d_body_exited"]
