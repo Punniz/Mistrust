@@ -2,16 +2,16 @@ class_name RunState
 extends State
 
 
-@export var actor: Player
-@export var animator: AnimatedSprite2D
+#@export var actor: Player
+#@export var animator: AnimatedSprite2D
 
 func _ready():
 	set_process(true)
-	animator.pause() # run is not added yet
+#	animator.pause() # run is not added yet
 	
 
 func enter_state() -> void:
-	animator.pause()
+#	animator.pause()
 	print("in run state")
 		
 func exit_state() -> void:

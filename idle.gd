@@ -1,23 +1,35 @@
 class_name IdleState
 extends State
 
-@export var actor: Player
-@export var animator: AnimatedSprite2D
+#@export var actor: Player
+#
+#@export var animation_tree: AnimationTree
+#@onready var animation_tree_sm_playback: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
+
+
 
 func _ready():
 	set_process(true)
-	
+	print(self.name, ": animation_tree: ", animation_tree)
+	print(self.name, ": animation_node_sm : ", animation_tree_sm_playback)
+
+
 func enter_state() -> void:
-	animator.play("default")
-	print("in idle state")
-		
+	print("enter idle state")
+
+#	animation_tree_sm_playback.travel("idle")
+
+
 func update_state() -> void:
-	animator.play("default") # run is not added yet
+#	animation_tree_sm_playback.travel("idle")
+	pass
+
 
 func exit_state():
 	print("exit idle state")
 	pass
 
-func _physics_process(delta): # probably can delete
+
+func _physics_process(delta: float) -> void: # probably can delete
 	# Idle logic here
 	pass

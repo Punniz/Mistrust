@@ -55,9 +55,11 @@ collision_mask = 1
 
 [node name="Climbable" parent="." instance=ExtResource("2_5y4qr")]
 
-[node name="Bush" type="Area2D" parent="."]
+[node name="HidingSpot" type="Node2D" parent="."]
+
+[node name="Bush" type="Area2D" parent="HidingSpot"]
 modulate = Color(0.772549, 0.509804, 0, 1)
 position = Vector2(685, 569)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bush"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HidingSpot/Bush"]
 shape = SubResource("CircleShape2D_q8jtr")

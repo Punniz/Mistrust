@@ -12,9 +12,13 @@ var is_colliding_with_climbable: bool = false
 var input_direction_x: float = 0.0
 var input_direction_y: float = 0.0
 
+
+@onready var animation_tree: AnimationTree = $AnimationTree
+
 func _ready():
-	
+	animation_tree.active = true
 	pass
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	input_direction_x = Input.get_axis("move_left", "move_right")
