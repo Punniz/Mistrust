@@ -61,10 +61,12 @@ interact={
 
 [layer_names]
 
-2d_physics/layer_1="Environment"
-2d_physics/layer_2="Interactable"
-2d_physics/layer_3="Climbable"
-2d_physics/layer_4="Player"
+2d_physics/layer_1="EnvironmentPlayer"
+2d_physics/layer_2="EnvironmentEnemies"
+2d_physics/layer_3="Interactable"
+2d_physics/layer_4="Climbable"
+2d_physics/layer_5="Player"
+2d_physics/layer_6="Enemies"
 
 [rendering]
 

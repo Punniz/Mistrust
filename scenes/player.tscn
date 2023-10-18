@@ -222,29 +222,22 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(40, -111)
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(105, 222)
-collision_mask = 12
+collision_layer = 16
+collision_mask = 9
 script = ExtResource("1_tdkwl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -77.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -77.5)
 texture = ExtResource("3_7bufd")
 hframes = 8
 vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, 8.5)
+position = Vector2(0, -69)
 shape = SubResource("RectangleShape2D_lyur0")
-
-[node name="LadderChecker" type="RayCast2D" parent="."]
-visible = false
-target_position = Vector2(1, 65)
-collision_mask = 4
-hit_from_inside = true
-collide_with_areas = true
-collide_with_bodies = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

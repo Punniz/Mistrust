@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=9 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="PackedScene" uid="uid://bfu2peuf5fcxb" path="res://scenes/player.tscn" id="1_lr41f"]
 [ext_resource type="PackedScene" uid="uid://2en76f76byyg" path="res://scenes/climbable.tscn" id="2_5y4qr"]
@@ -18,6 +18,9 @@ size = Vector2(758, 20)
 [sub_resource type="CircleShape2D" id="CircleShape2D_q8jtr"]
 radius = 91.7878
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1n54i"]
+radius = 33.9559
+
 [node name="World" type="Node2D"]
 
 [node name="Floor" type="StaticBody2D" parent="."]
@@ -33,11 +36,11 @@ position = Vector2(0, 324)
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
-position = Vector2(94, -17)
+position = Vector2(92, -15)
 shape = SubResource("RectangleShape2D_q47e8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor2"]
-position = Vector2(843, -17)
+position = Vector2(841, -15)
 shape = SubResource("RectangleShape2D_orwc2")
 
 [node name="Slope" type="StaticBody2D" parent="."]
@@ -49,11 +52,11 @@ rotation = -0.523599
 shape = SubResource("RectangleShape2D_x14ss")
 
 [node name="Player" parent="." instance=ExtResource("1_lr41f")]
-position = Vector2(208, 599)
-collision_layer = 8
-collision_mask = 1
+position = Vector2(188, 668)
+collision_mask = 5
 
 [node name="Climbable" parent="." instance=ExtResource("2_5y4qr")]
+position = Vector2(292, 789)
 
 [node name="HidingSpot" type="Node2D" parent="."]
 
@@ -63,3 +66,10 @@ position = Vector2(685, 569)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HidingSpot/Bush"]
 shape = SubResource("CircleShape2D_q8jtr")
+
+[node name="EnemyFakeToRemove" type="RigidBody2D" parent="."]
+position = Vector2(360, 239)
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyFakeToRemove"]
+shape = SubResource("CircleShape2D_1n54i")
