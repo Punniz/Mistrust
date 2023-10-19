@@ -12,6 +12,8 @@ var direction: Vector2 = Vector2(0.0, 0.0)
 
 var is_colliding_with_climbable: bool = false
 
+var is_hiding: bool = false
+
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 
@@ -38,5 +40,5 @@ func _physics_process(delta: float) -> void:
 	
 	self.move_and_slide()
 	
-#	print("direction: ", direction)
-#	print("velocity: ", velocity)
+	print("direction: ", direction)
+	print("velocity: ", velocity)
