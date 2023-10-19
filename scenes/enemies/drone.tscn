@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcdm5gabpcat0"]
+
+[ext_resource type="Script" path="res://scripts/enemies/drone.gd" id="1_s7l0p"]
+[ext_resource type="Texture2D" uid="uid://cjafqd3bsqiah" path="res://miscellaneous/icon.svg" id="2_l0jjn"]
+
+[node name="Drone" type="PathFollow2D"]
+position = Vector2(-4, 58)
+rotation = -0.487493
+rotates = false
+loop = false
+script = ExtResource("1_s7l0p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.487493
+texture = ExtResource("2_l0jjn")
+
+[node name="Area2D" type="Area2D" parent="."]
+rotation = 0.487493
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, 0, -100, 400, 100, 400)
+
+[node name="_Timer_17944" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

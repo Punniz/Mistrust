@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=12 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="PackedScene" uid="uid://bfu2peuf5fcxb" path="res://scenes/player.tscn" id="1_lr41f"]
 [ext_resource type="PackedScene" uid="uid://2en76f76byyg" path="res://scenes/climbable.tscn" id="2_5y4qr"]
-[ext_resource type="Script" path="res://drone.gd" id="3_ttkl1"]
+[ext_resource type="Script" path="res://scripts/enemies/drone.gd" id="3_81ti4"]
 [ext_resource type="Texture2D" uid="uid://cjafqd3bsqiah" path="res://miscellaneous/icon.svg" id="4_ax7it"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75es3"]
@@ -22,9 +22,6 @@ size = Vector2(758, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q8jtr"]
 radius = 91.7878
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_1n54i"]
-radius = 33.9559
 
 [sub_resource type="Curve2D" id="Curve2D_1ntm2"]
 _data = {
@@ -89,13 +86,6 @@ shape = SubResource("CircleShape2D_q8jtr")
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="EnemyFakeToRemove" type="RigidBody2D" parent="Enemies"]
-position = Vector2(360, 239)
-collision_layer = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/EnemyFakeToRemove"]
-shape = SubResource("CircleShape2D_1n54i")
-
 [node name="Path2D" type="Path2D" parent="Enemies"]
 position = Vector2(-19, 410)
 curve = SubResource("Curve2D_1ntm2")
@@ -105,7 +95,7 @@ position = Vector2(-4, 58)
 rotation = -0.487493
 rotates = false
 loop = false
-script = ExtResource("3_ttkl1")
+script = ExtResource("3_81ti4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemies/Path2D/Drone"]
 rotation = 0.487493
