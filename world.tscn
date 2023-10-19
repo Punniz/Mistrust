@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=11 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="PackedScene" uid="uid://bfu2peuf5fcxb" path="res://scenes/player.tscn" id="1_lr41f"]
 [ext_resource type="PackedScene" uid="uid://2en76f76byyg" path="res://scenes/climbable.tscn" id="2_5y4qr"]
-[ext_resource type="Script" path="res://scripts/enemies/drone.gd" id="3_81ti4"]
-[ext_resource type="Texture2D" uid="uid://cjafqd3bsqiah" path="res://miscellaneous/icon.svg" id="4_ax7it"]
+[ext_resource type="PackedScene" uid="uid://bcdm5gabpcat0" path="res://scenes/enemies/drone.tscn" id="3_qh2mk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75es3"]
 size = Vector2(1272, 48)
@@ -90,21 +89,4 @@ shape = SubResource("CircleShape2D_q8jtr")
 position = Vector2(-19, 410)
 curve = SubResource("Curve2D_1ntm2")
 
-[node name="Drone" type="PathFollow2D" parent="Enemies/Path2D"]
-position = Vector2(-4, 58)
-rotation = -0.487493
-rotates = false
-loop = false
-script = ExtResource("3_81ti4")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Path2D/Drone"]
-rotation = 0.487493
-texture = ExtResource("4_ax7it")
-
-[node name="Area2D" type="Area2D" parent="Enemies/Path2D/Drone"]
-rotation = 0.487493
-collision_layer = 0
-collision_mask = 16
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemies/Path2D/Drone/Area2D"]
-polygon = PackedVector2Array(0, 0, -100, 400, 100, 400)
+[node name="Drone" parent="Enemies/Path2D" instance=ExtResource("3_qh2mk")]
