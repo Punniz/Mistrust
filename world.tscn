@@ -141,7 +141,9 @@ speed = 40.0
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.0
 
-[node name="AmbientSound" type="AudioStreamPlayer" parent="."]
+[node name="Audio" type="Node" parent="."]
+
+[node name="AmbientSound" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("6_jttl5")
 autoplay = true
 bus = &"Ambient"
