@@ -1,9 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=21 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="PackedScene" uid="uid://bfu2peuf5fcxb" path="res://scenes/player.tscn" id="1_lr41f"]
 [ext_resource type="Texture2D" uid="uid://cjafqd3bsqiah" path="res://miscellaneous/icon.svg" id="1_sp1jv"]
 [ext_resource type="PackedScene" uid="uid://2en76f76byyg" path="res://scenes/climbable.tscn" id="2_5y4qr"]
-[ext_resource type="Texture2D" uid="uid://djw24iwowpwyv" path="res://assets/light_texture.png" id="3_f5h08"]
 [ext_resource type="PackedScene" uid="uid://bcdm5gabpcat0" path="res://scenes/enemies/drone.tscn" id="5_0vjn5"]
 [ext_resource type="PackedScene" uid="uid://c727h0gut6sfm" path="res://scenes/enemies/ground_scout.tscn" id="6_a4241"]
 [ext_resource type="AudioStream" uid="uid://c1udxmfm4t06d" path="res://assets/audio/forest_ambience.ogg" id="6_jttl5"]
@@ -124,16 +123,6 @@ position = Vector2(993, 501)
 rotation = -0.523599
 shape = SubResource("RectangleShape2D_x14ss")
 
-[node name="Player" parent="." instance=ExtResource("1_lr41f")]
-position = Vector2(797, 285)
-collision_mask = 5
-metadata/_edit_group_ = true
-
-[node name="PointLight2D" type="PointLight2D" parent="Player"]
-position = Vector2(0, -79)
-energy = 1.15
-texture = ExtResource("3_f5h08")
-
 [node name="Climbable" parent="." instance=ExtResource("2_5y4qr")]
 position = Vector2(292, 789)
 
@@ -147,24 +136,33 @@ position = Vector2(685, 569)
 position = Vector2(0, -385)
 shape = SubResource("CircleShape2D_q8jtr")
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Actors" type="Node2D" parent="."]
 
-[node name="Drone" parent="Enemies" instance=ExtResource("5_0vjn5")]
+[node name="Enemies" type="Node2D" parent="Actors"]
+
+[node name="Drone" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
 position = Vector2(383, 349)
 
-[node name="Drone2" parent="Enemies" instance=ExtResource("5_0vjn5")]
+[node name="Drone2" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
 position = Vector2(75, 123)
 curve = SubResource("Curve2D_j3jiy")
 script = SubResource("GDScript_h1osv")
 
-[node name="GroundScout" parent="Enemies" instance=ExtResource("6_a4241")]
+[node name="GroundScout" parent="Actors/Enemies" instance=ExtResource("6_a4241")]
+position = Vector2(1089, 285)
 
-[node name="PointLight2D" type="PointLight2D" parent="Enemies/GroundScout"]
+[node name="PointLight2D" type="PointLight2D" parent="Actors/Enemies/GroundScout"]
+visible = false
 position = Vector2(393.558, -89.9995)
 rotation = -1.57079
 scale = Vector2(0.987598, 2.90364)
 color = Color(0.505882, 0, 0.290196, 1)
 texture = ExtResource("7_djwb2")
+
+[node name="Player" parent="Actors" instance=ExtResource("1_lr41f")]
+position = Vector2(913, 275)
+collision_mask = 5
+metadata/_edit_group_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.168627, 0.168627, 0.168627, 1)
