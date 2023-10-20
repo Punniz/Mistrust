@@ -26,6 +26,10 @@ window/size/viewport_height=1080
 window/size/mode=3
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/vision_cone_2d/plugin.cfg")
+
 [input]
 
 move_left={

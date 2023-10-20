@@ -39,6 +39,3 @@ func _physics_process(delta: float) -> void:
 		self.velocity.x = direction.x * self.speed
 	
 	self.move_and_slide()
-	
-	print("direction: ", direction)
-	print("velocity: ", velocity)
