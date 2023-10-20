@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://bda2a3jqeustb"]
+
+[ext_resource type="Theme" uid="uid://bgl1w0ys3q4oe" path="res://resources/main_theme.tres" id="1_q5lqe"]
+[ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1_vj87k"]
+[ext_resource type="PackedScene" uid="uid://7vh2g36b8mwy" path="res://scenes/ui/quit_to_desktop_button.tscn" id="1_whxkf"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_q5lqe")
+script = ExtResource("1_vj87k")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.917647)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -359.0
+offset_top = -359.0
+offset_right = 359.0
+offset_bottom = 359.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="TitleLabel" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Pause"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Panel/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../QuitToDesktopButton")
+focus_neighbor_top = NodePath("../QuitToDesktopButton")
+focus_neighbor_right = NodePath("../QuitToDesktopButton")
+focus_neighbor_bottom = NodePath("../QuitToDesktopButton")
+focus_next = NodePath("../QuitToDesktopButton")
+focus_previous = NodePath("../QuitToDesktopButton")
+text = "Resume"
+
+[node name="QuitToDesktopButton" parent="Panel/VBoxContainer" instance=ExtResource("1_whxkf")]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../ResumeButton")
+focus_neighbor_top = NodePath("../ResumeButton")
+focus_neighbor_right = NodePath("../ResumeButton")
+focus_neighbor_bottom = NodePath("../ResumeButton")
+focus_next = NodePath("../ResumeButton")
+focus_previous = NodePath("../ResumeButton")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

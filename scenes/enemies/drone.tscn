@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/enemies/drone.gd" id="1_s7l0p"]
 [ext_resource type="Texture2D" uid="uid://7nkswarvlb02" path="res://assets/enemies/drone_spritesheet.png" id="2_uaesl"]
-[ext_resource type="Texture2D" path="res://light_cone_texture.png" id="3_x2l7k"]
-[ext_resource type="Texture2D" path="res://light_texture.png" id="4_e6p22"]
+[ext_resource type="Texture2D" uid="uid://ddmb3521gjqf" path="res://light_cone_texture.png" id="3_x2l7k"]
+[ext_resource type="Texture2D" uid="uid://djw24iwowpwyv" path="res://light_texture.png" id="4_e6p22"]
 
 [sub_resource type="Animation" id="Animation_da5xi"]
 resource_name = "RESET"

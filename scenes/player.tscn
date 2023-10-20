@@ -237,6 +237,7 @@ hframes = 8
 vframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -69)
 shape = SubResource("RectangleShape2D_lyur0")
 
