@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2h8t7lkpwm5f"
-path="res://.godot/imported/player_animations.png-51eb3fc5d021bbf875faf7ffec9f75ed.ctex"
+uid="uid://cinokcdgrbmt0"
+path="res://.godot/imported/tracked_scout_spritesheet.png-ab842d4eefc45545eebdfc459d446b23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/player_animations.png"
-dest_files=["res://.godot/imported/player_animations.png-51eb3fc5d021bbf875faf7ffec9f75ed.ctex"]
+source_file="res://assets/textures/enemies/tracked_scout_spritesheet.png"
+dest_files=["res://.godot/imported/tracked_scout_spritesheet.png-ab842d4eefc45545eebdfc459d446b23.ctex"]
 
 [params]
 

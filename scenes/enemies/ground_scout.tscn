@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://c727h0gut6sfm"]
+
+[ext_resource type="Script" path="res://scripts/ground_scout.gd" id="1_tugae"]
+[ext_resource type="Texture2D" uid="uid://cinokcdgrbmt0" path="res://assets/textures/enemies/tracked_scout_spritesheet.png" id="2_354ix"]
+[ext_resource type="PackedScene" uid="uid://42mretuad31m" path="res://scenes/enemies/player_detector.tscn" id="3_saeqq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktxay"]
+size = Vector2(129, 152)
+
+[sub_resource type="Animation" id="Animation_4uq7r"]
+resource_name = "move"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_102lt"]
+_data = {
+"move": SubResource("Animation_4uq7r")
+}
+
+[node name="GroundScout" type="CharacterBody2D"]
+position = Vector2(456, 285)
+script = ExtResource("1_tugae")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -78)
+texture = ExtResource("2_354ix")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.5, -76)
+shape = SubResource("RectangleShape2D_ktxay")
+
+[node name="PlayerDetector" parent="." instance=ExtResource("3_saeqq")]
+position = Vector2(56, -85)
+rotation = -1.57079
+
+[node name="CollisionPolygon2D" parent="PlayerDetector/Area2D" index="0"]
+polygon = PackedVector2Array(67, 3.99957, -85, 4.00049, -84.9984, 647.001, 67.0016, 647)
+
+[node name="RayCast2D" type="RayCast2D" parent="PlayerDetector/Raycasts" index="0"]
+position = Vector2(67, 3.99957)
+target_position = Vector2(0.00404358, 643)
+collision_mask = 17
+
+[node name="RayCast2D2" type="RayCast2D" parent="PlayerDetector/Raycasts" index="1"]
+position = Vector2(33, 3.99976)
+target_position = Vector2(0.002, 643)
+collision_mask = 17
+
+[node name="RayCast2D3" type="RayCast2D" parent="PlayerDetector/Raycasts" index="2"]
+position = Vector2(-6.99997, 4)
+target_position = Vector2(0.002, 643)
+collision_mask = 17
+
+[node name="RayCast2D4" type="RayCast2D" parent="PlayerDetector/Raycasts" index="3"]
+position = Vector2(-49, 4.00031)
+target_position = Vector2(0.002, 643)
+collision_mask = 17
+
+[node name="RayCast2D5" type="RayCast2D" parent="PlayerDetector/Raycasts" index="4"]
+position = Vector2(-85, 4.00049)
+target_position = Vector2(0.002, 643)
+collision_mask = 17
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "move"
+libraries = {
+"": SubResource("AnimationLibrary_102lt")
+}
+
+[editable path="PlayerDetector"]
