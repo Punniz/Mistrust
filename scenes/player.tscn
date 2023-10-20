@@ -259,11 +259,12 @@ script = ExtResource("5_w1v2x")
 actor = NodePath("../..")
 animation_tree = NodePath("../../AnimationTree")
 
-[node name="RunState" type="Node" parent="UserStateMachine" node_paths=PackedStringArray("actor")]
+[node name="RunState" type="Node" parent="UserStateMachine" node_paths=PackedStringArray("actor", "animation_tree")]
 script = ExtResource("6_54a5s")
 actor = NodePath("../..")
-animation_tree_sm_playback = null
+animation_tree = NodePath("../../AnimationTree")
 
-[node name="HideState" type="Node" parent="UserStateMachine" node_paths=PackedStringArray("actor")]
+[node name="HideState" type="Node" parent="UserStateMachine" node_paths=PackedStringArray("actor", "animation_tree")]
 script = ExtResource("7_2n7qf")
 actor = NodePath("../..")
+animation_tree = NodePath("../../AnimationTree")

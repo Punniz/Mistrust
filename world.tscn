@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=11 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="PackedScene" uid="uid://bfu2peuf5fcxb" path="res://scenes/player.tscn" id="1_lr41f"]
 [ext_resource type="PackedScene" uid="uid://2en76f76byyg" path="res://scenes/climbable.tscn" id="2_5y4qr"]
+[ext_resource type="PackedScene" uid="uid://bcdm5gabpcat0" path="res://scenes/enemies/drone.tscn" id="3_qh2mk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75es3"]
 size = Vector2(1272, 48)
@@ -12,14 +13,20 @@ size = Vector2(178, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orwc2"]
 size = Vector2(876, 48)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqxcf"]
+size = Vector2(26, 182)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x14ss"]
 size = Vector2(758, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q8jtr"]
 radius = 91.7878
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1n54i"]
-radius = 33.9559
+[sub_resource type="Curve2D" id="Curve2D_1ntm2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -4, 58, -188.871, 26.727, 188.871, -26.727, 228, -65, -121.162, -81.9627, 121.162, 81.9627, 470, 10, 0, 0, 0, 0, 1227, 33)
+}
+point_count = 4
 
 [node name="World" type="Node2D"]
 
@@ -43,6 +50,14 @@ shape = SubResource("RectangleShape2D_q47e8")
 position = Vector2(841, -15)
 shape = SubResource("RectangleShape2D_orwc2")
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(-10, -130)
+shape = SubResource("RectangleShape2D_yqxcf")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(1292, -130)
+shape = SubResource("RectangleShape2D_yqxcf")
+
 [node name="Slope" type="StaticBody2D" parent="."]
 collision_mask = 0
 
@@ -52,7 +67,7 @@ rotation = -0.523599
 shape = SubResource("RectangleShape2D_x14ss")
 
 [node name="Player" parent="." instance=ExtResource("1_lr41f")]
-position = Vector2(188, 668)
+position = Vector2(595, 663)
 collision_mask = 5
 
 [node name="Climbable" parent="." instance=ExtResource("2_5y4qr")]
@@ -65,11 +80,13 @@ modulate = Color(0.772549, 0.509804, 0, 1)
 position = Vector2(685, 569)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HidingSpot/Bush"]
+position = Vector2(0, -385)
 shape = SubResource("CircleShape2D_q8jtr")
 
-[node name="EnemyFakeToRemove" type="RigidBody2D" parent="."]
-position = Vector2(360, 239)
-collision_layer = 32
+[node name="Enemies" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyFakeToRemove"]
-shape = SubResource("CircleShape2D_1n54i")
+[node name="Path2D" type="Path2D" parent="Enemies"]
+position = Vector2(-19, 410)
+curve = SubResource("Curve2D_1ntm2")
+
+[node name="Drone" parent="Enemies/Path2D" instance=ExtResource("3_qh2mk")]
