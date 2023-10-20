@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=18 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="PackedScene" uid="uid://bfu2peuf5fcxb" path="res://scenes/player.tscn" id="1_lr41f"]
 [ext_resource type="Texture2D" uid="uid://cjafqd3bsqiah" path="res://miscellaneous/icon.svg" id="1_sp1jv"]
 [ext_resource type="PackedScene" uid="uid://2en76f76byyg" path="res://scenes/climbable.tscn" id="2_5y4qr"]
-[ext_resource type="Texture2D" uid="uid://djw24iwowpwyv" path="res://light_texture.png" id="3_miq34"]
+[ext_resource type="Texture2D" path="res://light_texture.png" id="3_miq34"]
 [ext_resource type="PackedScene" uid="uid://bcdm5gabpcat0" path="res://scenes/enemies/drone.tscn" id="3_qh2mk"]
+[ext_resource type="AudioStream" uid="uid://c1udxmfm4t06d" path="res://assets/audio/forest_ambience.ogg" id="6_jttl5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75es3"]
 size = Vector2(1272, 48)
@@ -139,3 +140,8 @@ speed = 40.0
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.0
+
+[node name="AmbientSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_jttl5")
+autoplay = true
+bus = &"Ambient"
