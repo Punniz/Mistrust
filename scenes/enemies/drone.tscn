@@ -1,17 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcdm5gabpcat0"]
+[gd_scene load_steps=10 format=3 uid="uid://bcdm5gabpcat0"]
 
 [ext_resource type="Script" path="res://scripts/enemies/drone.gd" id="1_s7l0p"]
 [ext_resource type="Texture2D" uid="uid://7nkswarvlb02" path="res://assets/enemies/drone_spritesheet.png" id="2_uaesl"]
-[ext_resource type="Script" path="res://scripts/player_detector.gd" id="3_5p8le"]
+[ext_resource type="PackedScene" uid="uid://42mretuad31m" path="res://scenes/enemies/player_detector.tscn" id="3_evsxm"]
 [ext_resource type="Texture2D" uid="uid://ddmb3521gjqf" path="res://light_cone_texture.png" id="3_x2l7k"]
 [ext_resource type="Texture2D" uid="uid://djw24iwowpwyv" path="res://light_texture.png" id="4_e6p22"]
 
+[sub_resource type="Curve2D" id="Curve2D_1ntm2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 232, 0)
+}
+point_count = 2
+
 [sub_resource type="Animation" id="Animation_da5xi"]
 resource_name = "RESET"
+length = 0.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("PathFollow2D/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -23,24 +31,24 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("LedLight:energy")
+tracks/1/path = NodePath("PathFollow2D/LedLight:energy")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [5.0]
+"values": [1.0]
 }
 
-[sub_resource type="Animation" id="Animation_xen6m"]
+[sub_resource type="Animation" id="Animation_bjvdb"]
 resource_name = "move"
 length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("PathFollow2D/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -52,11 +60,11 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("LedLight:energy")
-tracks/1/interp = 2
+tracks/1/path = NodePath("PathFollow2D/LedLight:energy")
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 5.0]
@@ -65,68 +73,50 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0b8hm"]
 _data = {
 "RESET": SubResource("Animation_da5xi"),
-"move": SubResource("Animation_xen6m")
+"move": SubResource("Animation_bjvdb")
 }
 
-[node name="Drone" type="PathFollow2D"]
-position = Vector2(-4, 58)
-rotates = false
-loop = false
+[node name="Drone" type="Path2D"]
+curve = SubResource("Curve2D_1ntm2")
 script = ExtResource("1_s7l0p")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+loop = false
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D"]
 texture = ExtResource("2_uaesl")
 hframes = 4
 
-[node name="PlayerDetector" type="Node2D" parent="."]
-script = ExtResource("3_5p8le")
+[node name="PlayerDetector" parent="PathFollow2D" instance=ExtResource("3_evsxm")]
 
-[node name="Area2D" type="Area2D" parent="PlayerDetector"]
-collision_layer = 0
-collision_mask = 16
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetector/Area2D"]
-polygon = PackedVector2Array(0, 0, -90, 250, 90, 250)
-
-[node name="Raycasts" type="Node2D" parent="PlayerDetector"]
-modulate = Color(0.764706, 0.764706, 0, 1)
-
-[node name="RayCast2D" type="RayCast2D" parent="PlayerDetector/Raycasts"]
-rotation = 0.151123
-target_position = Vector2(-49.3599, 260.399)
+[node name="RayCast2D" type="RayCast2D" parent="PathFollow2D/PlayerDetector/Raycasts" index="0"]
+target_position = Vector2(-90, 250)
 collision_mask = 17
-hit_from_inside = true
 
-[node name="RayCast2D4" type="RayCast2D" parent="PlayerDetector/Raycasts"]
-rotation = 0.151123
-target_position = Vector2(-7.83861, 254.076)
+[node name="RayCast2D2" type="RayCast2D" parent="PathFollow2D/PlayerDetector/Raycasts" index="1"]
+target_position = Vector2(-47, 250)
 collision_mask = 17
-hit_from_inside = true
 
-[node name="RayCast2D2" type="RayCast2D" parent="PlayerDetector/Raycasts"]
-target_position = Vector2(0, 250)
+[node name="RayCast2D3" type="RayCast2D" parent="PathFollow2D/PlayerDetector/Raycasts" index="2"]
+target_position = Vector2(-2, 250)
 collision_mask = 17
-hit_from_inside = true
 
-[node name="RayCast2D5" type="RayCast2D" parent="PlayerDetector/Raycasts"]
-target_position = Vector2(47, 250)
+[node name="RayCast2D4" type="RayCast2D" parent="PathFollow2D/PlayerDetector/Raycasts" index="3"]
+target_position = Vector2(46, 250)
 collision_mask = 17
-hit_from_inside = true
 
-[node name="RayCast2D3" type="RayCast2D" parent="PlayerDetector/Raycasts"]
-rotation = -0.220131
-target_position = Vector2(31.2871, 263.183)
+[node name="RayCast2D5" type="RayCast2D" parent="PathFollow2D/PlayerDetector/Raycasts" index="4"]
+target_position = Vector2(90, 250)
 collision_mask = 17
-hit_from_inside = true
 
-[node name="LedLight" type="PointLight2D" parent="."]
+[node name="LedLight" type="PointLight2D" parent="PathFollow2D"]
 position = Vector2(0, 12)
 scale = Vector2(0.414062, 0.0937499)
 color = Color(0.8, 0.0156863, 0, 1)
-energy = 5.0
 texture = ExtResource("4_e6p22")
 
-[node name="SpotLight" type="PointLight2D" parent="."]
+[node name="SpotLight" type="PointLight2D" parent="PathFollow2D"]
 position = Vector2(11, 168)
 scale = Vector2(1.52344, 1.52344)
 color = Color(0.862745, 0, 0, 1)
@@ -134,11 +124,11 @@ energy = 4.0
 shadow_enabled = true
 texture = ExtResource("3_x2l7k")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PathFollow2D"]
+root_node = NodePath("../..")
 autoplay = "move"
 libraries = {
 "": SubResource("AnimationLibrary_0b8hm")
 }
 
-[connection signal="body_entered" from="PlayerDetector/Area2D" to="PlayerDetector" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="PlayerDetector/Area2D" to="PlayerDetector" method="_on_area_2d_body_exited"]
+[editable path="PathFollow2D/PlayerDetector"]

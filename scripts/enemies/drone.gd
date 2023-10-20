@@ -1,16 +1,15 @@
-extends PathFollow2D
+extends Path2D
 class_name Drone
 
 
-@export var speed: float = 300.0
+@export var speed: float = 100.0
 
 
-func _ready() -> void:
-	assert(self.get_parent() is Path2D)
+@onready var path_follow: PathFollow2D = $PathFollow2D
 
 
 func _physics_process(delta: float) -> void:
-	if progress_ratio == 0 or progress_ratio == 1:
+	if path_follow.progress_ratio == 0 or path_follow.progress_ratio == 1:
 		speed = -speed
 	
-	progress += speed * delta
+	path_follow.progress += speed * delta
