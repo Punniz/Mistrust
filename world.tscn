@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=20 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="PackedScene" uid="uid://bfu2peuf5fcxb" path="res://scenes/player.tscn" id="1_lr41f"]
 [ext_resource type="Texture2D" uid="uid://cjafqd3bsqiah" path="res://miscellaneous/icon.svg" id="1_sp1jv"]
@@ -37,6 +37,30 @@ size = Vector2(758, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q8jtr"]
 radius = 91.7878
+
+[sub_resource type="Curve2D" id="Curve2D_j3jiy"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0)
+}
+point_count = 2
+
+[sub_resource type="GDScript" id="GDScript_h1osv"]
+script/source = "extends Path2D
+#class_name Drone
+
+
+@export var speed: float = 100.0
+
+
+@onready var path_follow: PathFollow2D = $PathFollow2D
+
+
+func _physics_process(delta: float) -> void:
+	if path_follow.progress_ratio == 0 or path_follow.progress_ratio == 1:
+		speed = -speed
+	
+	path_follow.progress += speed * delta
+"
 
 [node name="World" type="Node2D"]
 
@@ -127,6 +151,11 @@ color = Color(0.168627, 0.168627, 0.168627, 1)
 
 [node name="Drone" parent="Enemies" instance=ExtResource("5_0vjn5")]
 position = Vector2(383, 349)
+
+[node name="Drone2" parent="Enemies" instance=ExtResource("5_0vjn5")]
+position = Vector2(75, 123)
+curve = SubResource("Curve2D_j3jiy")
+script = SubResource("GDScript_h1osv")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.0
