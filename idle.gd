@@ -1,11 +1,12 @@
 class_name IdleState
 extends State
 
+
 #@export var actor: Player
 #
 #@export var animation_tree: AnimationTree
 #@onready var animation_tree_sm_playback: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
-
+@onready var animation_state_machine = animation_tree.get("parameters/playback")
 
 
 func _ready():
@@ -17,7 +18,7 @@ func _ready():
 func enter_state() -> void:
 	print("enter idle state")
 
-#	animation_tree_sm_playback.travel("idle")
+	animation_state_machine.travel("idle")
 
 
 func update_state() -> void:
