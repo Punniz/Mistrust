@@ -132,7 +132,7 @@ color = Color(0.168627, 0.168627, 0.168627, 1)
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Path2D" type="Path2D" parent="Enemies"]
-position = Vector2(390, 310)
+position = Vector2(322, 394)
 curve = SubResource("Curve2D_1ntm2")
 
 [node name="Drone" parent="Enemies/Path2D" instance=ExtResource("3_qh2mk")]
@@ -150,5 +150,6 @@ autoplay = true
 bus = &"Ambient"
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("7_2khjy")]
