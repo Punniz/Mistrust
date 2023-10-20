@@ -1,10 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=20 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="PackedScene" uid="uid://bfu2peuf5fcxb" path="res://scenes/player.tscn" id="1_lr41f"]
 [ext_resource type="Texture2D" uid="uid://cjafqd3bsqiah" path="res://miscellaneous/icon.svg" id="1_sp1jv"]
 [ext_resource type="PackedScene" uid="uid://2en76f76byyg" path="res://scenes/climbable.tscn" id="2_5y4qr"]
 [ext_resource type="Texture2D" uid="uid://djw24iwowpwyv" path="res://light_texture.png" id="3_miq34"]
-[ext_resource type="PackedScene" uid="uid://bcdm5gabpcat0" path="res://scenes/enemies/drone.tscn" id="3_qh2mk"]
+[ext_resource type="PackedScene" uid="uid://bcdm5gabpcat0" path="res://scenes/enemies/drone.tscn" id="5_0vjn5"]
 [ext_resource type="AudioStream" uid="uid://c1udxmfm4t06d" path="res://assets/audio/forest_ambience.ogg" id="6_jttl5"]
 [ext_resource type="PackedScene" uid="uid://bda2a3jqeustb" path="res://scenes/ui/pause_menu.tscn" id="7_2khjy"]
 
@@ -38,11 +38,29 @@ size = Vector2(758, 20)
 [sub_resource type="CircleShape2D" id="CircleShape2D_q8jtr"]
 radius = 91.7878
 
-[sub_resource type="Curve2D" id="Curve2D_1ntm2"]
+[sub_resource type="Curve2D" id="Curve2D_j3jiy"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 78, -25, 0, 0, 0, 0, 561, -25)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0)
 }
 point_count = 2
+
+[sub_resource type="GDScript" id="GDScript_h1osv"]
+script/source = "extends Path2D
+#class_name Drone
+
+
+@export var speed: float = 100.0
+
+
+@onready var path_follow: PathFollow2D = $PathFollow2D
+
+
+func _physics_process(delta: float) -> void:
+	if path_follow.progress_ratio == 0 or path_follow.progress_ratio == 1:
+		speed = -speed
+	
+	path_follow.progress += speed * delta
+"
 
 [node name="World" type="Node2D"]
 
@@ -131,13 +149,13 @@ color = Color(0.168627, 0.168627, 0.168627, 1)
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Path2D" type="Path2D" parent="Enemies"]
-position = Vector2(390, 310)
-curve = SubResource("Curve2D_1ntm2")
+[node name="Drone" parent="Enemies" instance=ExtResource("5_0vjn5")]
+position = Vector2(383, 349)
 
-[node name="Drone" parent="Enemies/Path2D" instance=ExtResource("3_qh2mk")]
-position = Vector2(78, -25)
-speed = 40.0
+[node name="Drone2" parent="Enemies" instance=ExtResource("5_0vjn5")]
+position = Vector2(75, 123)
+curve = SubResource("Curve2D_j3jiy")
+script = SubResource("GDScript_h1osv")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.0
@@ -150,5 +168,6 @@ autoplay = true
 bus = &"Ambient"
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("7_2khjy")]
