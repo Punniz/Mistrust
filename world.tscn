@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=21 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="PackedScene" uid="uid://bfu2peuf5fcxb" path="res://scenes/player.tscn" id="1_lr41f"]
 [ext_resource type="Texture2D" uid="uid://cjafqd3bsqiah" path="res://miscellaneous/icon.svg" id="1_sp1jv"]
 [ext_resource type="PackedScene" uid="uid://2en76f76byyg" path="res://scenes/climbable.tscn" id="2_5y4qr"]
 [ext_resource type="PackedScene" uid="uid://bcdm5gabpcat0" path="res://scenes/enemies/drone.tscn" id="5_0vjn5"]
+[ext_resource type="PackedScene" uid="uid://c727h0gut6sfm" path="res://scenes/enemies/ground_scout.tscn" id="6_a4241"]
 [ext_resource type="AudioStream" uid="uid://c1udxmfm4t06d" path="res://assets/audio/forest_ambience.ogg" id="6_jttl5"]
 [ext_resource type="PackedScene" uid="uid://bda2a3jqeustb" path="res://scenes/ui/pause_menu.tscn" id="7_2khjy"]
 
@@ -102,6 +103,11 @@ shape = SubResource("RectangleShape2D_yqxcf")
 position = Vector2(1292, -130)
 shape = SubResource("RectangleShape2D_yqxcf")
 
+[node name="TESTCollisionShape2D5TEST" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(962, -130)
+shape = SubResource("RectangleShape2D_yqxcf")
+debug_color = Color(0.223529, 0.839216, 0, 0.419608)
+
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Floor2"]
 occluder = SubResource("OccluderPolygon2D_dilwe")
 
@@ -124,14 +130,6 @@ position = Vector2(993, 501)
 rotation = -0.523599
 shape = SubResource("RectangleShape2D_x14ss")
 
-[node name="Player" parent="." instance=ExtResource("1_lr41f")]
-position = Vector2(595, 663)
-collision_mask = 5
-
-[node name="PointLight2D" type="PointLight2D" parent="Player"]
-position = Vector2(0, -79)
-energy = 1.15
-
 [node name="Climbable" parent="." instance=ExtResource("2_5y4qr")]
 position = Vector2(292, 789)
 
@@ -151,18 +149,28 @@ position = Vector2(685, 569)
 position = Vector2(0, -385)
 shape = SubResource("CircleShape2D_q8jtr")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.168627, 0.168627, 0.168627, 1)
+[node name="Actors" type="Node2D" parent="."]
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="Actors"]
 
-[node name="Drone" parent="Enemies" instance=ExtResource("5_0vjn5")]
+[node name="Drone" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
 position = Vector2(383, 349)
 
-[node name="Drone2" parent="Enemies" instance=ExtResource("5_0vjn5")]
-position = Vector2(75, 123)
+[node name="Drone2" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
+position = Vector2(75, 102)
 curve = SubResource("Curve2D_j3jiy")
 script = SubResource("GDScript_h1osv")
+
+[node name="GroundScout" parent="Actors/Enemies" instance=ExtResource("6_a4241")]
+position = Vector2(1089, 285)
+
+[node name="Player" parent="Actors" instance=ExtResource("1_lr41f")]
+position = Vector2(913, 275)
+collision_mask = 5
+metadata/_edit_group_ = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.168627, 0.168627, 0.168627, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.0

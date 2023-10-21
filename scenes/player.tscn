@@ -1,14 +1,15 @@
-[gd_scene load_steps=36 format=3 uid="uid://bfu2peuf5fcxb"]
+[gd_scene load_steps=37 format=3 uid="uid://bfu2peuf5fcxb"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_tdkwl"]
-[ext_resource type="Texture2D" uid="uid://2h8t7lkpwm5f" path="res://assets/player/player_animations.png" id="3_7bufd"]
+[ext_resource type="Texture2D" uid="uid://2h8t7lkpwm5f" path="res://assets/textures/player/player_animations.png" id="2_6wm3s"]
 [ext_resource type="Script" path="res://autoloads/scripts/user_state_machine.gd" id="3_h3qdk"]
 [ext_resource type="Script" path="res://idle.gd" id="5_w1v2x"]
 [ext_resource type="Script" path="res://run.gd" id="6_54a5s"]
 [ext_resource type="Script" path="res://hide.gd" id="7_2n7qf"]
+[ext_resource type="Texture2D" uid="uid://6ixs0jh1t3by" path="res://assets/light_texture.png" id="7_mcg1c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lyur0"]
-size = Vector2(48, 137)
+size = Vector2(48, 137.5)
 
 [sub_resource type="Animation" id="Animation_kjbdr"]
 resource_name = "RESET"
@@ -231,20 +232,19 @@ script = ExtResource("1_tdkwl")
 position = Vector2(0, -77.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -77.5)
-texture = ExtResource("3_7bufd")
+position = Vector2(0, -74)
+texture = ExtResource("2_6wm3s")
 hframes = 8
 vframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -69)
+position = Vector2(0, -68.75)
 shape = SubResource("RectangleShape2D_lyur0")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(0, -7)
 scale = Vector2(11, 1)
-target_position = Vector2(0, 7)
+target_position = Vector2(0, 9)
 collide_with_areas = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -276,3 +276,8 @@ animation_tree = NodePath("../../AnimationTree")
 script = ExtResource("7_2n7qf")
 actor = NodePath("../..")
 animation_tree = NodePath("../../AnimationTree")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -77)
+energy = 0.8
+texture = ExtResource("7_mcg1c")

@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://bcdm5gabpcat0"]
 
 [ext_resource type="Script" path="res://scripts/enemies/drone.gd" id="1_s7l0p"]
-[ext_resource type="Texture2D" uid="uid://7nkswarvlb02" path="res://assets/enemies/drone_spritesheet.png" id="2_uaesl"]
+[ext_resource type="Texture2D" uid="uid://7nkswarvlb02" path="res://assets/textures/enemies/drone_spritesheet.png" id="2_c6o5o"]
 [ext_resource type="PackedScene" uid="uid://42mretuad31m" path="res://scenes/enemies/player_detector.tscn" id="3_evsxm"]
 [ext_resource type="Texture2D" uid="uid://ddmb3521gjqf" path="res://light_cone_texture.png" id="3_x2l7k"]
-[ext_resource type="Texture2D" uid="uid://djw24iwowpwyv" path="res://light_texture.png" id="4_e6p22"]
+[ext_resource type="Texture2D" uid="uid://djw24iwowpwyv" path="res://assets/light_texture.png" id="4_4g7vp"]
 
 [sub_resource type="Curve2D" id="Curve2D_1ntm2"]
 _data = {
@@ -85,7 +85,7 @@ rotates = false
 loop = false
 
 [node name="Sprite2D" type="Sprite2D" parent="PathFollow2D"]
-texture = ExtResource("2_uaesl")
+texture = ExtResource("2_c6o5o")
 hframes = 4
 
 [node name="PlayerDetector" parent="PathFollow2D" instance=ExtResource("3_evsxm")]
@@ -114,7 +114,7 @@ collision_mask = 17
 position = Vector2(0, 12)
 scale = Vector2(0.414062, 0.0937499)
 color = Color(0.8, 0.0156863, 0, 1)
-texture = ExtResource("4_e6p22")
+texture = ExtResource("4_4g7vp")
 
 [node name="SpotLight" type="PointLight2D" parent="PathFollow2D"]
 position = Vector2(11, 168)
