@@ -6,13 +6,19 @@ class_name GroundScout
 
 @export var direction: Vector2 = Vector2(1.0, 0.0)
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@onready var obstacle_detector: RayCast2D = $ObstacleDetector
 
 func _physics_process(delta: float) -> void:
+	if is_on_wall():
+		self.direction.x *= -1
+	
 	self.velocity.x = direction.x * self.speed
 	
-	if obstacle_detector.is_colliding():
-		self.direction.x = -1
+	
+	if self.direction.x == 1:
+		animation_player.play("move_right")
+	elif self.direction.x == -1:
+		animation_player.play("move_left")
 	
 	self.move_and_slide()

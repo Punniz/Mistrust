@@ -101,6 +101,11 @@ shape = SubResource("RectangleShape2D_yqxcf")
 position = Vector2(1292, -130)
 shape = SubResource("RectangleShape2D_yqxcf")
 
+[node name="TESTCollisionShape2D5TEST" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(962, -130)
+shape = SubResource("RectangleShape2D_yqxcf")
+debug_color = Color(0.223529, 0.839216, 0, 0.419608)
+
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Floor2"]
 occluder = SubResource("OccluderPolygon2D_dilwe")
 
@@ -144,7 +149,7 @@ shape = SubResource("CircleShape2D_q8jtr")
 position = Vector2(383, 349)
 
 [node name="Drone2" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
-position = Vector2(75, 123)
+position = Vector2(75, 102)
 curve = SubResource("Curve2D_j3jiy")
 script = SubResource("GDScript_h1osv")
 
