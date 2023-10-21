@@ -6,6 +6,7 @@ var is_paused_in_climb = false
 #@export var actor: Player
 @onready var sprite_node = $"../../Sprite2D"
 @onready var animation_state_machine = animation_tree.get("parameters/playback")
+@onready var ray_cast = $"../../RayCast2D"
 
 func _ready():
 	set_process(true)
@@ -18,6 +19,15 @@ func exit_state() -> void:
 	pass
 
 func _physics_process(delta):
+	
+	var is_ray_hit = ray_cast.is_colliding()
+	
+	# Check for RayCast collision
+	if is_ray_hit and actor.velocity.y == 0 and actor.velocity.x == 0:
+		animation_state_machine.travel("idle")
+			
+
+	
 	# If climbing
 	if actor.velocity.y != 0 and actor.is_colliding_with_climbable:
 		animation_state_machine.travel("climb")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=21 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="PackedScene" uid="uid://bfu2peuf5fcxb" path="res://scenes/player.tscn" id="1_lr41f"]
 [ext_resource type="Texture2D" uid="uid://cjafqd3bsqiah" path="res://miscellaneous/icon.svg" id="1_sp1jv"]
@@ -34,6 +34,9 @@ polygon = PackedVector2Array(3, -39, 879, -39, 879, 9, 3, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x14ss"]
 size = Vector2(758, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b57gr"]
+size = Vector2(221.5, 27)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q8jtr"]
 radius = 91.7878
@@ -133,6 +136,12 @@ texture = ExtResource("3_miq34")
 
 [node name="Climbable" parent="." instance=ExtResource("2_5y4qr")]
 position = Vector2(292, 789)
+
+[node name="Area2D" type="Area2D" parent="Climbable"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Climbable/Area2D"]
+position = Vector2(-0.25, -490.5)
+shape = SubResource("RectangleShape2D_b57gr")
 
 [node name="HidingSpot" type="Node2D" parent="."]
 
