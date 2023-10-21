@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=22 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="PackedScene" uid="uid://bfu2peuf5fcxb" path="res://scenes/player.tscn" id="1_lr41f"]
 [ext_resource type="Texture2D" uid="uid://cjafqd3bsqiah" path="res://miscellaneous/icon.svg" id="1_sp1jv"]
 [ext_resource type="PackedScene" uid="uid://2en76f76byyg" path="res://scenes/climbable.tscn" id="2_5y4qr"]
+[ext_resource type="Texture2D" uid="uid://cqnl825my2gq7" path="res://assets/environment/ladder_tall.png" id="2_junlc"]
 [ext_resource type="PackedScene" uid="uid://bcdm5gabpcat0" path="res://scenes/enemies/drone.tscn" id="5_0vjn5"]
 [ext_resource type="PackedScene" uid="uid://c727h0gut6sfm" path="res://scenes/enemies/ground_scout.tscn" id="6_a4241"]
 [ext_resource type="AudioStream" uid="uid://c1udxmfm4t06d" path="res://assets/audio/forest_ambience.ogg" id="6_jttl5"]
@@ -72,53 +73,67 @@ position = Vector2(512, 436)
 scale = Vector2(20.0781, 20.0781)
 texture = ExtResource("1_sp1jv")
 
-[node name="Floor" type="StaticBody2D" parent="."]
+[node name="Ladders" type="Node2D" parent="."]
+
+[node name="Ladder1" type="Node2D" parent="Ladders"]
+
+[node name="Ladder" type="Sprite2D" parent="Ladders/Ladder1"]
+position = Vector2(291, 575)
+texture = ExtResource("2_junlc")
+
+[node name="Ladder2" type="Sprite2D" parent="Ladders/Ladder1"]
+position = Vector2(291, 383)
+texture = ExtResource("2_junlc")
+
+[node name="Floors" type="Node2D" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="Floors"]
 position = Vector2(0, 711)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor"]
 position = Vector2(645, -17)
 shape = SubResource("RectangleShape2D_75es3")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Floor"]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Floors/Floor"]
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
-[node name="Floor2" type="StaticBody2D" parent="."]
+[node name="Floor2" type="StaticBody2D" parent="Floors"]
 position = Vector2(0, 324)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor2"]
 position = Vector2(92, -15)
 shape = SubResource("RectangleShape2D_q47e8")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor2"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floors/Floor2"]
 position = Vector2(841, -15)
 shape = SubResource("RectangleShape2D_orwc2")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor2"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floors/Floor2"]
 position = Vector2(-10, -130)
 shape = SubResource("RectangleShape2D_yqxcf")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Floor2"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Floors/Floor2"]
 position = Vector2(1292, -130)
 shape = SubResource("RectangleShape2D_yqxcf")
 
-[node name="TESTCollisionShape2D5TEST" type="CollisionShape2D" parent="Floor2"]
+[node name="TESTCollisionShape2D5TEST" type="CollisionShape2D" parent="Floors/Floor2"]
 position = Vector2(962, -130)
 shape = SubResource("RectangleShape2D_yqxcf")
 debug_color = Color(0.223529, 0.839216, 0, 0.419608)
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Floor2"]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Floors/Floor2"]
 occluder = SubResource("OccluderPolygon2D_dilwe")
 
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="Floor2"]
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Floors/Floor2"]
 occluder = SubResource("OccluderPolygon2D_f1rj8")
 
-[node name="LightOccluder2D3" type="LightOccluder2D" parent="Floor2"]
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="Floors/Floor2"]
 position = Vector2(400, 0)
 occluder = SubResource("OccluderPolygon2D_4lxdi")
 
-[node name="LightOccluder2D4" type="LightOccluder2D" parent="Floor2"]
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="Floors/Floor2"]
 position = Vector2(1302, 0)
 occluder = SubResource("OccluderPolygon2D_dilwe")
 
