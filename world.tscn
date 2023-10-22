@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=47 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="Texture2D" uid="uid://bf32qs7alktqm" path="res://assets/background/green_tree2.png" id="1_bwuc1"]
 [ext_resource type="Texture2D" uid="uid://qpetavxrgxfk" path="res://assets/background/full_tree3.png" id="1_hn31e"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://b74ufrseinngy" path="res://assets/environment/wood_log.png" id="9_4on2a"]
 [ext_resource type="Texture2D" uid="uid://nhm2817qmybe" path="res://assets/background/black_tree1.png" id="9_gapgv"]
 [ext_resource type="Texture2D" uid="uid://c156kmabfopup" path="res://assets/environment/metal_wall_torn.png" id="9_usd4y"]
+[ext_resource type="Texture2D" uid="uid://oom702fbwn5n" path="res://assets/environment/bush.png" id="9_wsflm"]
 [ext_resource type="Texture2D" uid="uid://cnauhho7ehbln" path="res://assets/background/full_tree2.png" id="9_ycmcg"]
 [ext_resource type="Texture2D" uid="uid://bwb4ewhttdrkx" path="res://assets/background/green_tree5.png" id="10_r7tvg"]
 [ext_resource type="Texture2D" uid="uid://bh50giwtwx22x" path="res://assets/background/black_tree2.png" id="10_yhxob"]
@@ -67,6 +68,9 @@ size = Vector2(280, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b57gr"]
 size = Vector2(221.5, 27)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_q8jtr"]
+radius = 120.5
+
 [sub_resource type="Curve2D" id="Curve2D_j3jiy"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0)
@@ -90,9 +94,6 @@ func _physics_process(delta: float) -> void:
 	
 	path_follow.progress += speed * delta
 "
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_q8jtr"]
-radius = 91.7878
 
 [node name="World" type="Node2D"]
 
@@ -140,42 +141,49 @@ position = Vector2(8352.92, 1409.67)
 scale = Vector2(6, 6)
 texture = ExtResource("3_6p5f1")
 
-[node name="FullTree1" type="Sprite2D" parent="ParallaxBackground/Farthest"]
+[node name="Farther" type="CanvasLayer" parent="ParallaxBackground"]
+layer = -1
+scale = Vector2(0.59, 0.59)
+transform = Transform2D(0.59, 0, 0, 0.59, 0, 0)
+follow_viewport_enabled = true
+follow_viewport_scale = 0.7
+
+[node name="FullTree1" type="Sprite2D" parent="ParallaxBackground/Farther"]
 position = Vector2(-4771.33, 4.38232)
 scale = Vector2(6, 6)
 texture = ExtResource("8_vb3qg")
 
-[node name="FullTree2" type="Sprite2D" parent="ParallaxBackground/Farthest"]
+[node name="FullTree2" type="Sprite2D" parent="ParallaxBackground/Farther"]
 position = Vector2(4924.36, 297.141)
 scale = Vector2(6, 6)
 texture = ExtResource("9_ycmcg")
 
-[node name="FullTree3" type="Sprite2D" parent="ParallaxBackground/Farthest"]
+[node name="FullTree3" type="Sprite2D" parent="ParallaxBackground/Farther"]
 position = Vector2(-11693.5, -61.103)
 scale = Vector2(6, 6)
 texture = ExtResource("1_hn31e")
 
-[node name="LeafSplash" type="Sprite2D" parent="ParallaxBackground/Farthest"]
+[node name="LeafSplash" type="Sprite2D" parent="ParallaxBackground/Farther"]
 position = Vector2(-10823, -1983.29)
 scale = Vector2(6, 6)
 texture = ExtResource("11_vlumh")
 
-[node name="LeafSplash2" type="Sprite2D" parent="ParallaxBackground/Farthest"]
+[node name="LeafSplash2" type="Sprite2D" parent="ParallaxBackground/Farther"]
 position = Vector2(-5703.54, -1983.29)
 scale = Vector2(6, 6)
 texture = ExtResource("11_vlumh")
 
-[node name="LeafSplash3" type="Sprite2D" parent="ParallaxBackground/Farthest"]
+[node name="LeafSplash3" type="Sprite2D" parent="ParallaxBackground/Farther"]
 position = Vector2(-645.754, -1983.29)
 scale = Vector2(6, 6)
 texture = ExtResource("11_vlumh")
 
-[node name="LeafSplash4" type="Sprite2D" parent="ParallaxBackground/Farthest"]
+[node name="LeafSplash4" type="Sprite2D" parent="ParallaxBackground/Farther"]
 position = Vector2(4331.13, -1983.29)
 scale = Vector2(6, 6)
 texture = ExtResource("11_vlumh")
 
-[node name="LeafSplash5" type="Sprite2D" parent="ParallaxBackground/Farthest"]
+[node name="LeafSplash5" type="Sprite2D" parent="ParallaxBackground/Farther"]
 position = Vector2(9485.22, -1991)
 scale = Vector2(6, 6)
 texture = ExtResource("11_vlumh")
@@ -489,11 +497,6 @@ texture = ExtResource("2_junlc")
 position = Vector2(-1, -408)
 texture = ExtResource("2_junlc")
 
-[node name="MetalWallMedium" type="Sprite2D" parent="Fort"]
-z_index = 1
-position = Vector2(-2675, 188)
-texture = ExtResource("7_5o4s8")
-
 [node name="Floors" type="Node2D" parent="."]
 
 [node name="Floor3" type="StaticBody2D" parent="Floors"]
@@ -561,6 +564,63 @@ texture = ExtResource("2_junlc")
 position = Vector2(-1, -406)
 texture = ExtResource("2_junlc")
 
+[node name="HidingSpot" type="Node2D" parent="Climbable"]
+position = Vector2(-292, -789)
+
+[node name="Bush" type="Area2D" parent="Climbable/HidingSpot"]
+modulate = Color(0.772549, 0.509804, 0, 1)
+position = Vector2(685, 569)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Climbable/HidingSpot/Bush"]
+position = Vector2(0, -385)
+shape = SubResource("CircleShape2D_q8jtr")
+
+[node name="Bush2" type="Area2D" parent="Climbable/HidingSpot"]
+modulate = Color(0.772549, 0.509804, 0, 1)
+z_index = -1
+position = Vector2(-2676, 918)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Climbable/HidingSpot/Bush2"]
+z_index = -1
+position = Vector2(-7, -326)
+shape = SubResource("CircleShape2D_q8jtr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Climbable/HidingSpot/Bush2"]
+z_index = -1
+position = Vector2(-9, -330)
+texture = ExtResource("9_wsflm")
+
+[node name="Bush3" type="Area2D" parent="Climbable/HidingSpot"]
+modulate = Color(0.772549, 0.509804, 0, 1)
+z_index = -1
+position = Vector2(-3868, 903)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Climbable/HidingSpot/Bush3"]
+z_index = -1
+position = Vector2(-7, -326)
+shape = SubResource("CircleShape2D_q8jtr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Climbable/HidingSpot/Bush3"]
+z_index = -1
+position = Vector2(-9, -330)
+texture = ExtResource("9_wsflm")
+
+[node name="Tote" type="Area2D" parent="Climbable/HidingSpot"]
+modulate = Color(0.772549, 0.509804, 0, 1)
+z_index = -1
+position = Vector2(-2679, 532)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Climbable/HidingSpot/Tote"]
+z_index = -1
+position = Vector2(-7, -326)
+scale = Vector2(0.795, 0.795)
+shape = SubResource("CircleShape2D_q8jtr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Climbable/HidingSpot/Tote"]
+z_index = -1
+position = Vector2(-9, -330)
+texture = ExtResource("8_778d5")
+
 [node name="Actors" type="Node2D" parent="."]
 
 [node name="Enemies" type="Node2D" parent="Actors"]
@@ -581,18 +641,7 @@ position = Vector2(913, 275)
 collision_mask = 5
 metadata/_edit_group_ = true
 
-[node name="HidingSpot" type="Node2D" parent="."]
-
-[node name="Bush" type="Area2D" parent="HidingSpot"]
-modulate = Color(0.772549, 0.509804, 0, 1)
-position = Vector2(685, 569)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HidingSpot/Bush"]
-position = Vector2(0, -385)
-shape = SubResource("CircleShape2D_q8jtr")
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.168627, 0.168627, 0.168627, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
