@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://idle.gd" id="5_w1v2x"]
 [ext_resource type="Script" path="res://run.gd" id="6_54a5s"]
 [ext_resource type="Script" path="res://hide.gd" id="7_2n7qf"]
-[ext_resource type="Texture2D" uid="uid://6ixs0jh1t3by" path="res://assets/light_texture.png" id="7_mcg1c"]
+[ext_resource type="Texture2D" uid="uid://djw24iwowpwyv" path="res://assets/light_texture.png" id="7_mcg1c"]
 
 [sub_resource type="GDScript" id="GDScript_hcyft"]
 
