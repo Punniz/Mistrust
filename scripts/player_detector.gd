@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 		if raycast.is_colliding():
 			# Player caught, need to handle GAME OVER
 			if raycast.get_collider() is Player:
-#				print("Colliding with player: ", raycast.get_collider())
+				#print("Colliding with player: ", raycast.get_collider())
 				pass
 
 

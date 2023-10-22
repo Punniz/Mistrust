@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://idle.gd" id="5_w1v2x"]
 [ext_resource type="Script" path="res://run.gd" id="6_54a5s"]
 [ext_resource type="Script" path="res://hide.gd" id="7_2n7qf"]
-[ext_resource type="Texture2D" uid="uid://djw24iwowpwyv" path="res://assets/light_texture.png" id="7_mcg1c"]
+[ext_resource type="Texture2D" uid="uid://6ixs0jh1t3by" path="res://assets/light_texture.png" id="7_mcg1c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lyur0"]
 size = Vector2(48, 137.5)
@@ -240,6 +240,12 @@ vframes = 5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -68.75)
 shape = SubResource("RectangleShape2D_lyur0")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -7)
+scale = Vector2(11, 1)
+target_position = Vector2(0, 9)
+collide_with_areas = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
