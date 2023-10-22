@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bfu2peuf5fcxb"]
+[gd_scene load_steps=39 format=3 uid="uid://bfu2peuf5fcxb"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_tdkwl"]
 [ext_resource type="Texture2D" uid="uid://2h8t7lkpwm5f" path="res://assets/textures/player/player_animations.png" id="2_6wm3s"]
@@ -6,7 +6,8 @@
 [ext_resource type="Script" path="res://idle.gd" id="5_w1v2x"]
 [ext_resource type="Script" path="res://run.gd" id="6_54a5s"]
 [ext_resource type="Script" path="res://hide.gd" id="7_2n7qf"]
-[ext_resource type="Texture2D" uid="uid://djw24iwowpwyv" path="res://assets/light_texture.png" id="7_mcg1c"]
+[ext_resource type="Texture2D" uid="uid://6ixs0jh1t3by" path="res://assets/light_texture.png" id="7_mcg1c"]
+[ext_resource type="AudioStream" uid="uid://c5e0tp5qqh53m" path="res://assets/audio/player/MAIN_CHAR_Climb_SFX.wav" id="8_vv50h"]
 
 [sub_resource type="GDScript" id="GDScript_hcyft"]
 
@@ -284,3 +285,6 @@ animation_tree = NodePath("../../AnimationTree")
 position = Vector2(0, 224)
 energy = 0.8
 texture = ExtResource("7_mcg1c")
+
+[node name="ClimbStream" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_vv50h")
