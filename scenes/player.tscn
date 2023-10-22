@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bfu2peuf5fcxb"]
+[gd_scene load_steps=38 format=3 uid="uid://bfu2peuf5fcxb"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_tdkwl"]
 [ext_resource type="Texture2D" uid="uid://2h8t7lkpwm5f" path="res://assets/textures/player/player_animations.png" id="2_6wm3s"]
@@ -6,9 +6,7 @@
 [ext_resource type="Script" path="res://idle.gd" id="5_w1v2x"]
 [ext_resource type="Script" path="res://run.gd" id="6_54a5s"]
 [ext_resource type="Script" path="res://hide.gd" id="7_2n7qf"]
-[ext_resource type="Texture2D" uid="uid://6ixs0jh1t3by" path="res://assets/light_texture.png" id="7_mcg1c"]
-[ext_resource type="Texture2D" uid="uid://cdl0lgiw677gs" path="res://assets/background/TopBorders.png" id="9_4urvn"]
-[ext_resource type="Texture2D" uid="uid://d66vipr1ccee" path="res://assets/background/SideBorders.png" id="9_o2akk"]
+[ext_resource type="Texture2D" uid="uid://djw24iwowpwyv" path="res://assets/light_texture.png" id="7_mcg1c"]
 
 [sub_resource type="GDScript" id="GDScript_hcyft"]
 
@@ -231,22 +229,6 @@ graph_offset = Vector2(40, -111)
 collision_layer = 16
 collision_mask = 9
 script = ExtResource("1_tdkwl")
-
-[node name="Leafborder" type="Sprite2D" parent="."]
-position = Vector2(272, -77)
-scale = Vector2(1.01, 1.01)
-texture = ExtResource("9_o2akk")
-
-[node name="Leafborder2" type="Sprite2D" parent="."]
-position = Vector2(-272, -76)
-rotation = 3.14159
-scale = Vector2(1.01, -1.01)
-texture = ExtResource("9_o2akk")
-
-[node name="Leafborder3" type="Sprite2D" parent="."]
-position = Vector2(-4, -478)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("9_4urvn")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -77.5)

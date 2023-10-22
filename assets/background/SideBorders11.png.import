@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d5j0bhh0gxj6"
-path="res://.godot/imported/SideBorders.png-2b397909707e0573c78c924a86f475db.ctex"
+uid="uid://d66vipr1ccee"
+path="res://.godot/imported/SideBorders11.png-0c00cfeec230208c76d68da4c1196753.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/SideBorders.png"
-dest_files=["res://.godot/imported/SideBorders.png-2b397909707e0573c78c924a86f475db.ctex"]
+source_file="res://assets/background/SideBorders11.png"
+dest_files=["res://.godot/imported/SideBorders11.png-0c00cfeec230208c76d68da4c1196753.ctex"]
 
 [params]
 

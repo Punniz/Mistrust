@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=48 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="Texture2D" uid="uid://bf32qs7alktqm" path="res://assets/background/green_tree2.png" id="1_bwuc1"]
 [ext_resource type="Texture2D" uid="uid://qpetavxrgxfk" path="res://assets/background/full_tree3.png" id="1_hn31e"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://cxpmwrkxeyqj2" path="res://assets/environment/wood_log_tall.png" id="11_44ts1"]
 [ext_resource type="Texture2D" uid="uid://gvdbjij48ol8" path="res://assets/background/black_tree3.png" id="11_pvq70"]
 [ext_resource type="Texture2D" uid="uid://ckk4r81ivge5a" path="res://assets/background/leaf_splash.png" id="11_vlumh"]
+[ext_resource type="PackedScene" uid="uid://dosgnylult5j4" path="res://scenes/background/borders_layout.tscn" id="33_1v5es"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q47e8"]
 size = Vector2(178, 48)
@@ -239,6 +240,10 @@ texture = ExtResource("6_wu46v")
 z_index = -1
 position = Vector2(-4572, 678.391)
 texture = ExtResource("6_wu46v")
+
+[node name="Borders" type="CanvasLayer" parent="."]
+
+[node name="BlackBordersLayout" parent="Borders" instance=ExtResource("33_1v5es")]
 
 [node name="Building1" type="Node2D" parent="."]
 
@@ -653,6 +658,25 @@ energy = 0.0
 stream = ExtResource("6_jttl5")
 autoplay = true
 bus = &"Ambient"
+
+[node name="BackgroundColor" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="ColorRect" type="ColorRect" parent="BackgroundColor"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 0, 0.105882)
+
+[node name="ColorRect2" type="ColorRect" parent="BackgroundColor"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.686275, 0.129412)
 
 [node name="UI" type="CanvasLayer" parent="."]
 visible = false
