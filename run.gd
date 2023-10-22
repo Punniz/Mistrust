@@ -32,6 +32,7 @@ func _physics_process(delta):
 	# If climbing
 	if actor.velocity.y != 0 and actor.is_colliding_with_climbable:
 		animation_state_machine.travel("climb")
+		actor.velocity.x = 0 # Stop sliding off the damn ladder when run->climb lol
 		is_paused_in_climb = false  # Reset the flag
 		animation_tree.active = true  # Resume the animation
 		is_running = false
