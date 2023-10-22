@@ -20,7 +20,8 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	var is_moving: bool = Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")
 	var is_hiding: bool = Input.is_action_pressed("interact")
-
+	if Input.is_action_just_released("move_left") or Input.is_action_just_released("move_right") and Input.is_action_pressed("interact"):
+		change_state(States.HIDE)
 	if is_hiding and current_state != States.HIDE:
 		change_state(States.HIDE)
 	elif is_moving and current_state != States.RUN:
