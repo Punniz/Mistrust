@@ -253,7 +253,6 @@ texture = ExtResource("5_n6qbt")
 
 [node name="Closest" type="CanvasLayer" parent="ParallaxBackground"]
 layer = 0
-visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 1.15
 
@@ -1285,7 +1284,6 @@ collision_mask = 5
 metadata/_edit_group_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.168627, 0.168627, 0.168627, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
