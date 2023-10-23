@@ -31,6 +31,6 @@ func exit_state():
 	pass
 
 
-func _physics_process(delta: float) -> void: # probably can delete
+func _physics_process(_delta: float) -> void: # probably can delete
 	# Idle logic here
 	pass

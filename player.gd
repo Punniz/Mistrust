@@ -36,7 +36,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	pass
 
 
-func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
 #	if anim_name == "caught":
 #		Events.game_over.emit()
 #		print(self.name, ": Animation caught finished!")
@@ -50,12 +50,12 @@ func disable() -> void:
 	self.velocity = Vector2(0.0, 0.0)
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	direction.x = Input.get_axis("move_left", "move_right")
 	direction.y = Input.get_axis("move_up", "move_down")
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if is_colliding_with_climbable:
 		self.velocity.y = direction.y * climb_speed
 	else:

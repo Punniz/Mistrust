@@ -23,7 +23,7 @@ func stop() -> void:
 	move_track.stop()
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if is_on_wall():
 		self.direction.x *= -1
 	
