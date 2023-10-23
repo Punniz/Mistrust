@@ -37,7 +37,7 @@ mouse_cursor/custom_image="res://miscellaneous/mouse-cursors/cursor_arrow.png"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/vision_cone_2d/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 
