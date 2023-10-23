@@ -247,65 +247,65 @@ texture = ExtResource("6_wu46v")
 
 [node name="Building1" type="Node2D" parent="."]
 
-[node name="Floor2" type="StaticBody2D" parent="Building1"]
+[node name="woodFloor2" type="StaticBody2D" parent="Building1"]
 position = Vector2(0, 324)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Building1/Floor2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Building1/woodFloor2"]
 position = Vector2(92, -15)
 shape = SubResource("RectangleShape2D_q47e8")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Building1/Floor2"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Building1/woodFloor2"]
 position = Vector2(841, -15)
 shape = SubResource("RectangleShape2D_orwc2")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Building1/Floor2"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Building1/woodFloor2"]
 position = Vector2(-10, -130)
 shape = SubResource("RectangleShape2D_yqxcf")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Building1/Floor2"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Building1/woodFloor2"]
 position = Vector2(1292, -130)
 shape = SubResource("RectangleShape2D_yqxcf")
 
-[node name="TESTCollisionShape2D5TEST" type="CollisionShape2D" parent="Building1/Floor2"]
+[node name="TESTCollisionShape2D5TEST" type="CollisionShape2D" parent="Building1/woodFloor2"]
 position = Vector2(962, -130)
 shape = SubResource("RectangleShape2D_yqxcf")
 debug_color = Color(0.223529, 0.839216, 0, 0.419608)
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Building1/Floor2"]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Building1/woodFloor2"]
 occluder = SubResource("OccluderPolygon2D_dilwe")
 
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="Building1/Floor2"]
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Building1/woodFloor2"]
 occluder = SubResource("OccluderPolygon2D_f1rj8")
 
-[node name="LightOccluder2D3" type="LightOccluder2D" parent="Building1/Floor2"]
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="Building1/woodFloor2"]
 position = Vector2(400, 0)
 occluder = SubResource("OccluderPolygon2D_4lxdi")
 
-[node name="LightOccluder2D4" type="LightOccluder2D" parent="Building1/Floor2"]
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="Building1/woodFloor2"]
 position = Vector2(1302, 0)
 occluder = SubResource("OccluderPolygon2D_dilwe")
 
-[node name="Texture" type="Sprite2D" parent="Building1/Floor2"]
+[node name="Texture" type="Sprite2D" parent="Building1/woodFloor2"]
 position = Vector2(87, -8)
 texture = ExtResource("9_4on2a")
 
-[node name="Texture2" type="Sprite2D" parent="Building1/Floor2"]
+[node name="Texture2" type="Sprite2D" parent="Building1/woodFloor2"]
 position = Vector2(584, -4)
 texture = ExtResource("9_4on2a")
 
-[node name="Floor" type="StaticBody2D" parent="Building1"]
+[node name="grassFloor1" type="StaticBody2D" parent="Building1"]
 position = Vector2(0, 711)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Building1/Floor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Building1/grassFloor1"]
 position = Vector2(645, -17)
 shape = SubResource("RectangleShape2D_75es3")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Building1/Floor"]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Building1/grassFloor1"]
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
-[node name="Sprite2D" type="Sprite2D" parent="Building1/Floor"]
+[node name="Sprite2D" type="Sprite2D" parent="Building1/grassFloor1"]
 position = Vector2(93, -33)
 texture = ExtResource("3_u0onr")
 
@@ -425,63 +425,63 @@ texture = ExtResource("7_5o4s8")
 
 [node name="Fort" type="Node2D" parent="."]
 
-[node name="Floor" type="StaticBody2D" parent="Fort"]
+[node name="woodFloor1" type="StaticBody2D" parent="Fort"]
 position = Vector2(-3342, 319)
 collision_mask = 0
 
-[node name="WoodenFloor2" type="Sprite2D" parent="Fort/Floor"]
+[node name="WoodenFloor2" type="Sprite2D" parent="Fort/woodFloor1"]
 position = Vector2(298, -30)
 texture = ExtResource("3_u0onr")
 
-[node name="WoodenFloor3" type="Sprite2D" parent="Fort/Floor"]
+[node name="WoodenFloor3" type="Sprite2D" parent="Fort/woodFloor1"]
 position = Vector2(431, -30)
 texture = ExtResource("3_u0onr")
 
-[node name="WoodenFloor4" type="Sprite2D" parent="Fort/Floor"]
+[node name="WoodenFloor4" type="Sprite2D" parent="Fort/woodFloor1"]
 position = Vector2(597, -30)
 texture = ExtResource("3_u0onr")
 
-[node name="WoodenFloor5" type="Sprite2D" parent="Fort/Floor"]
+[node name="WoodenFloor5" type="Sprite2D" parent="Fort/woodFloor1"]
 position = Vector2(765, -30)
 texture = ExtResource("3_u0onr")
 
-[node name="Wall" type="Sprite2D" parent="Fort/Floor"]
+[node name="Wall" type="Sprite2D" parent="Fort/woodFloor1"]
 position = Vector2(228, -74)
 texture = ExtResource("11_4y058")
 
-[node name="Wall2" type="Sprite2D" parent="Fort/Floor"]
+[node name="Wall2" type="Sprite2D" parent="Fort/woodFloor1"]
 position = Vector2(835, -74)
 texture = ExtResource("11_4y058")
 
-[node name="floorbox" type="CollisionShape2D" parent="Fort/Floor"]
+[node name="floorbox" type="CollisionShape2D" parent="Fort/woodFloor1"]
 position = Vector2(280.75, -30)
 shape = SubResource("RectangleShape2D_jb3kw")
 
-[node name="floorbox2" type="CollisionShape2D" parent="Fort/Floor"]
+[node name="floorbox2" type="CollisionShape2D" parent="Fort/woodFloor1"]
 position = Vector2(709, -30)
 shape = SubResource("RectangleShape2D_l3e8s")
 
-[node name="Pillar1" type="Sprite2D" parent="Fort/Floor"]
+[node name="Pillar1" type="Sprite2D" parent="Fort/woodFloor1"]
 position = Vector2(256, 266)
 texture = ExtResource("11_44ts1")
 
-[node name="Pillar2" type="Sprite2D" parent="Fort/Floor"]
+[node name="Pillar2" type="Sprite2D" parent="Fort/woodFloor1"]
 position = Vector2(256, 122)
 texture = ExtResource("11_44ts1")
 
-[node name="Pillar3" type="Sprite2D" parent="Fort/Floor"]
+[node name="Pillar3" type="Sprite2D" parent="Fort/woodFloor1"]
 position = Vector2(256, 50)
 texture = ExtResource("11_44ts1")
 
-[node name="Pillar4" type="Sprite2D" parent="Fort/Floor"]
+[node name="Pillar4" type="Sprite2D" parent="Fort/woodFloor1"]
 position = Vector2(806, 266)
 texture = ExtResource("11_44ts1")
 
-[node name="Pillar5" type="Sprite2D" parent="Fort/Floor"]
+[node name="Pillar5" type="Sprite2D" parent="Fort/woodFloor1"]
 position = Vector2(806, 122)
 texture = ExtResource("11_44ts1")
 
-[node name="Pillar6" type="Sprite2D" parent="Fort/Floor"]
+[node name="Pillar6" type="Sprite2D" parent="Fort/woodFloor1"]
 position = Vector2(806, 50)
 texture = ExtResource("11_44ts1")
 
@@ -504,41 +504,41 @@ texture = ExtResource("2_junlc")
 
 [node name="Floors" type="Node2D" parent="."]
 
-[node name="Floor3" type="StaticBody2D" parent="Floors"]
+[node name="grassFloor2" type="StaticBody2D" parent="Floors"]
 position = Vector2(-1272, 711)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/grassFloor2"]
 position = Vector2(645, -17)
 shape = SubResource("RectangleShape2D_75es3")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Floors/Floor3"]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Floors/grassFloor2"]
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
-[node name="Sprite2D" type="Sprite2D" parent="Floors/Floor3"]
+[node name="Sprite2D" type="Sprite2D" parent="Floors/grassFloor2"]
 position = Vector2(93, -33)
 texture = ExtResource("3_u0onr")
 
-[node name="Floor4" type="StaticBody2D" parent="Floors"]
+[node name="grassFloor3" type="StaticBody2D" parent="Floors"]
 position = Vector2(-2544, 711)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/grassFloor3"]
 position = Vector2(645, -17)
 shape = SubResource("RectangleShape2D_75es3")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Floors/Floor4"]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Floors/grassFloor3"]
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
-[node name="Floor5" type="StaticBody2D" parent="Floors"]
+[node name="grassFloor4" type="StaticBody2D" parent="Floors"]
 position = Vector2(-3816, 711)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/grassFloor4"]
 position = Vector2(645, -17)
 shape = SubResource("RectangleShape2D_75es3")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Floors/Floor5"]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Floors/grassFloor4"]
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="Floor6" type="StaticBody2D" parent="Floors"]
