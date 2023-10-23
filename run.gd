@@ -55,12 +55,17 @@ func _physics_process(delta):
 		climb_audio_player.stop()
 		is_climb_audio_playing = false
 	
+	# Enter climb 
 	if actor.velocity.y != 0 and actor.is_colliding_with_climbable:
 		animation_state_machine.travel("climb")
 		actor.velocity.x = 0
 		is_paused_in_climb = false
 		animation_tree.active = true
 		is_running = false
+		
+		# Stop grass and wood audio players when climbing
+		grass_audio_player.stop()
+		wood_audio_player.stop()
 		
 		if not is_climb_audio_playing:
 			climb_audio_player.play()

@@ -35,7 +35,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/vision_cone_2d/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 
