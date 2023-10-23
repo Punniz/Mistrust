@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://q0k06l8pvoiq"]
+
+[ext_resource type="Script" path="res://climbable.gd" id="1_ateoy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygyff"]
+size = Vector2(4, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hgi8"]
+size = Vector2(4, 339)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4w0g"]
+size = Vector2(222, 27)
+
+[node name="Climbable" type="Node2D"]
+script = ExtResource("1_ateoy")
+
+[node name="DropThroughArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropThroughArea"]
+position = Vector2(0, -514)
+shape = SubResource("RectangleShape2D_ygyff")
+
+[node name="ClimbArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClimbArea"]
+position = Vector2(0, -334.5)
+shape = SubResource("RectangleShape2D_2hgi8")
+
+[node name="StaticBodyPlayer" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyPlayer"]
+position = Vector2(0, -490.5)
+shape = SubResource("RectangleShape2D_m4w0g")
+one_way_collision = true
+
+[node name="StaticBodyEnemies" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyEnemies"]
+position = Vector2(0, -490.5)
+shape = SubResource("RectangleShape2D_m4w0g")
+debug_color = Color(0.811765, 0.00392157, 0.988235, 0.419608)
+
+[connection signal="body_entered" from="DropThroughArea" to="." method="_on_drop_through_area_body_entered"]
+[connection signal="body_exited" from="DropThroughArea" to="." method="_on_drop_through_area_body_exited"]
+[connection signal="body_entered" from="ClimbArea" to="." method="_on_climb_area_body_entered"]
+[connection signal="body_exited" from="ClimbArea" to="." method="_on_climb_area_body_exited"]
