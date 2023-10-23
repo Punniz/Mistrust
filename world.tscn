@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=60 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="Texture2D" uid="uid://bf32qs7alktqm" path="res://assets/background/green_tree2.png" id="1_bwuc1"]
 [ext_resource type="Texture2D" uid="uid://qpetavxrgxfk" path="res://assets/background/full_tree3.png" id="1_hn31e"]
@@ -1317,7 +1317,7 @@ script = SubResource("GDScript_h1osv")
 position = Vector2(1089, 285)
 
 [node name="Player" parent="Actors" instance=ExtResource("1_lr41f")]
-position = Vector2(-18416, 330)
+position = Vector2(-18074, 670)
 collision_mask = 5
 metadata/_edit_group_ = true
 
