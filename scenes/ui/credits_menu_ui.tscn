@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc6oragev1qit"]
+[gd_scene load_steps=3 format=3 uid="uid://cojsxxfk8j0hm"]
 
 [ext_resource type="Theme" uid="uid://bgl1w0ys3q4oe" path="res://resources/main_theme.tres" id="1_ryrkb"]
+[ext_resource type="Script" path="res://scripts/ui/credits_menu_ui.gd" id="2_d6qnf"]
 
-[node name="CreditsUI" type="Control"]
+[node name="CreditsMenuUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ryrkb")
+script = ExtResource("2_d6qnf")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -72,7 +74,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Project Manager / Lead Dev"
 
-[node name="TeamMemberLink3" type="LinkButton" parent="VBoxContainer"]
+[node name="TeamMemberLink7" type="LinkButton" parent="VBoxContainer"]
 layout_mode = 2
 text = "CTN Phaco"
 uri = "https://ctn-phaco.itch.io/"
