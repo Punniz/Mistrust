@@ -7,6 +7,20 @@ class_name GroundScout
 @export var direction: Vector2 = Vector2(1.0, 0.0)
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var move_track: AudioStreamPlayer2D = $MoveTrack
+
+
+func _ready() -> void:
+	Events.player_caught.connect(on_player_caught)
+
+
+func on_player_caught() -> void:
+	self.stop()
+
+
+func stop() -> void:
+	self.set_physics_process(false)
+	move_track.stop()
 
 
 func _physics_process(delta: float) -> void:

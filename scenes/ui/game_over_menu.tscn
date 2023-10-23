@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi5t1tvwbiuag"]
+
+[ext_resource type="Script" path="res://scripts/ui/game_over_menu.gd" id="1_ik8cq"]
+[ext_resource type="Theme" uid="uid://bgl1w0ys3q4oe" path="res://resources/main_theme.tres" id="1_rm5ae"]
+[ext_resource type="Texture2D" uid="uid://ckboxhiphscjg" path="res://assets/textures/game_over_texture.png" id="2_lduk0"]
+[ext_resource type="AudioStream" uid="uid://bxofauq341trr" path="res://assets/audio/other/game_over_stinger.ogg" id="4_dbnpl"]
+[ext_resource type="AudioStream" uid="uid://b48hbe478r6ep" path="res://assets/audio/other/game_over.ogg" id="5_vsmsf"]
+
+[node name="GameOverMenu" type="Control" node_paths=PackedStringArray("first_element_to_focus")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_rm5ae")
+script = ExtResource("1_ik8cq")
+first_element_to_focus = NodePath("HBoxContainer/RetryButton")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_lduk0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 104.0
+offset_top = 804.0
+offset_right = -1020.0
+offset_bottom = -171.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+
+[node name="RetryButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Retry"
+
+[node name="QuitToMainMenuButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quit To Main Menu"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GameOverStingerTrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_dbnpl")
+bus = &"Music"
+
+[node name="GameOverLoopTrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_vsmsf")
+bus = &"Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/QuitToMainMenuButton" to="." method="_on_quit_to_main_menu_button_pressed"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c727h0gut6sfm"]
+[gd_scene load_steps=11 format=3 uid="uid://c727h0gut6sfm"]
 
 [ext_resource type="Script" path="res://scripts/ground_scout.gd" id="1_tugae"]
 [ext_resource type="Texture2D" uid="uid://cinokcdgrbmt0" path="res://assets/textures/enemies/tracked_scout_spritesheet.png" id="2_354ix"]
 [ext_resource type="Texture2D" uid="uid://ddmb3521gjqf" path="res://light_cone_texture.png" id="3_7lxkp"]
 [ext_resource type="PackedScene" uid="uid://42mretuad31m" path="res://scenes/enemies/player_detector.tscn" id="3_saeqq"]
+[ext_resource type="AudioStream" uid="uid://b4exb8wfamhs5" path="res://assets/audio/enemies/ground_scout_moving.ogg" id="5_sis18"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktxay"]
 size = Vector2(129, 152)
@@ -334,6 +335,12 @@ collision_mask = 17
 position = Vector2(-85, 4.00049)
 target_position = Vector2(0.002, 643)
 collision_mask = 17
+
+[node name="MoveTrack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_sis18")
+volume_db = -7.0
+autoplay = true
+bus = &"Sound Effects"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

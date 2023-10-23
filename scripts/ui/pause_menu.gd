@@ -7,14 +7,20 @@ class_name PauseMenu
 
 func _ready() -> void:
 	self.hide()
+	
+	Events.player_caught.connect(on_player_caught)
+
+
+func on_player_caught() -> void:
+	set_process_unhandled_key_input(false)
 
 
 func _on_visibility_changed() -> void:
 	if self.visible:
-		get_tree().paused = true
+		get_tree().set_deferred("paused", true)
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
-		get_tree().paused = false
+		get_tree().set_deferred("paused", false)
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
