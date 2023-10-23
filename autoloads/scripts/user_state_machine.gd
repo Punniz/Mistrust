@@ -1,7 +1,6 @@
 class_name UserStateMachine
 extends Node
 
-
 enum States {
 	IDLE,
 	RUN,
@@ -11,29 +10,24 @@ enum States {
 
 var current_state: States = States.IDLE
 
-
 func _ready() -> void:
 	# Initialize the state
 	change_state(States.IDLE)
 
-
 func _unhandled_input(event: InputEvent) -> void:
 	var is_moving: bool = Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")
 	var is_hiding: bool = Input.is_action_pressed("interact")
-	if Input.is_action_just_released("move_left") or Input.is_action_just_released("move_right") and Input.is_action_pressed("interact"):
-		change_state(States.HIDE)
-	if is_hiding and current_state != States.HIDE:
+
+	if is_hiding and current_state != States.HIDE and not Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_up") and not Input.is_action_pressed("move_down"):
 		change_state(States.HIDE)
 	elif is_moving and current_state != States.RUN:
 		change_state(States.RUN)
 	elif not is_moving and not is_hiding and current_state != States.IDLE:
 		change_state(States.IDLE)
 
-
 @export var idle_state_node: IdleState
 @export var run_state_node: RunState
 @export var hide_state_node: HideState
-
 
 func change_state(new_state: States) -> void:
 	# Exit the current state
@@ -47,7 +41,7 @@ func change_state(new_state: States) -> void:
 		States.HIDE:
 			hide_state_node.exit_state()
 			hide_state_node.set_process(false)
-
+			
 	# Enter the new state
 	match new_state:
 		States.IDLE:
