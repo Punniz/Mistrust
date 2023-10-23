@@ -15,7 +15,7 @@ run/main_scene="res://scenes/main_menu_world.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 boot_splash/bg_color=Color(0.0313726, 0.0313726, 0.0313726, 1)
 boot_splash/image="res://miscellaneous/logo_512x512.png"
-config/icon="res://miscellaneous/icon.svg"
+config/icon="res://miscellaneous/logo_512x512.png"
 config/windows_native_icon="res://miscellaneous/logo_512x512.ico"
 config/version="0.1"
 
@@ -33,6 +33,7 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="res://miscellaneous/mouse-cursors/cursor_arrow.png"
 
 [editor_plugins]
 

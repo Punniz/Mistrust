@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvnc8com7j7cu"]
+[gd_scene load_steps=11 format=3 uid="uid://dvnc8com7j7cu"]
 
-[ext_resource type="PackedScene" path="res://scenes/ui/game_title.tscn" id="1_c0qpc"]
+[ext_resource type="PackedScene" uid="uid://o5misck2b5gm" path="res://scenes/ui/game_title.tscn" id="1_c0qpc"]
 [ext_resource type="Theme" uid="uid://bgl1w0ys3q4oe" path="res://resources/main_theme.tres" id="1_mdijf"]
 [ext_resource type="PackedScene" uid="uid://7vh2g36b8mwy" path="res://scenes/ui/quit_to_desktop_button.tscn" id="2_3wner"]
 [ext_resource type="Script" path="res://scripts/ui/main_menu_ui.gd" id="2_vyax6"]
 [ext_resource type="PackedScene" uid="uid://cre5ssegyqc7v" path="res://scenes/ui/cutscene.tscn" id="3_yyg7m"]
+[ext_resource type="PackedScene" uid="uid://cojsxxfk8j0hm" path="res://scenes/ui/credits_menu_ui.tscn" id="4_dh56c"]
 [ext_resource type="PackedScene" uid="uid://c841gddj4tpv5" path="res://scenes/ui/version_label.tscn" id="5_ecf6o"]
 
 [sub_resource type="Animation" id="Animation_cba55"]
@@ -90,17 +91,35 @@ alignment = 1
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../QuitToDesktopButton")
+focus_neighbor_top = NodePath("../QuitToDesktopButton")
+focus_neighbor_right = NodePath("../CreditsButton")
+focus_neighbor_bottom = NodePath("../CreditsButton")
+focus_next = NodePath("../CreditsButton")
+focus_previous = NodePath("../QuitToDesktopButton")
 text = "Play"
 
 [node name="CreditsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../PlayButton")
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_right = NodePath("../QuitToDesktopButton")
+focus_neighbor_bottom = NodePath("../QuitToDesktopButton")
+focus_next = NodePath("../QuitToDesktopButton")
+focus_previous = NodePath("../PlayButton")
 text = "Credits
 "
 
 [node name="QuitToDesktopButton" parent="VBoxContainer" instance=ExtResource("2_3wner")]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../CreditsButton")
+focus_neighbor_top = NodePath("../CreditsButton")
+focus_neighbor_right = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../PlayButton")
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../CreditsButton")
 
 [node name="VersionLabel" parent="." instance=ExtResource("5_ecf6o")]
 layout_mode = 1
@@ -128,6 +147,14 @@ libraries = {
 "": SubResource("AnimationLibrary_350tf")
 }
 
+[node name="CreditsMenuUI" parent="." instance=ExtResource("4_dh56c")]
+visible = false
+layout_mode = 1
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="CreditsMenuUI/BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="CreditsMenuUI"]
