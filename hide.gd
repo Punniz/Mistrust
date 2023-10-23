@@ -26,6 +26,6 @@ func exit_state() -> void:
 	animation_state_machine.travel("reveal")
 	#print("exit hide state")
 
-func _physics_process(delta):
+func _physics_process(_delta) -> void:
 	# Hide logic here (if any)
 	pass

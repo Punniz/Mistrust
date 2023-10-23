@@ -23,7 +23,7 @@ func _on_video_stream_player_finished() -> void:
 	self.transition_to_next_scene()
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_cancel"):
 		self.transition_to_next_scene()
 

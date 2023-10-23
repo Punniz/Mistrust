@@ -16,7 +16,7 @@ func disable() -> void:
 		raycast.enabled = false
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	for raycast in raycasts.get_children():
 		if raycast.is_colliding():
 			if raycast.get_collider() is Player:
@@ -24,11 +24,11 @@ func _physics_process(delta: float) -> void:
 				Events.player_caught.emit()
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	for raycast in raycasts.get_children():
 		raycast.enabled = true
 
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_body_exited(_body: Node2D) -> void:
 	for raycast in raycasts.get_children():
 		raycast.enabled = false

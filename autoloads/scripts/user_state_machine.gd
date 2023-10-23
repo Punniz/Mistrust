@@ -14,7 +14,7 @@ func _ready() -> void:
 	# Initialize the state
 	change_state(States.IDLE)
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	var is_moving: bool = Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")
 	var is_hiding: bool = Input.is_action_pressed("interact")
 

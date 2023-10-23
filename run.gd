@@ -24,7 +24,7 @@ func enter_state() -> void:
 func exit_state() -> void:
 	pass
 
-func _physics_process(delta):
+func _physics_process(_delta) -> void:
 	var is_ray_hit = ray_cast.is_colliding()
 	
 	# Check if the actor is idle
