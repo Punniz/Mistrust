@@ -14,9 +14,10 @@ config/name="Mistrust"
 run/main_scene="res://scenes/main_menu_world.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 boot_splash/bg_color=Color(0.0313726, 0.0313726, 0.0313726, 1)
-boot_splash/image="res://miscellaneous/logo_512x512.png"
-config/icon="res://miscellaneous/logo_512x512.png"
-config/windows_native_icon="res://miscellaneous/logo_512x512.ico"
+boot_splash/image="res://miscellaneous/icon_512x512.png"
+config/icon="res://miscellaneous/icon_512x512.png"
+config/macos_native_icon="res://miscellaneous/icon_512x512.icns"
+config/windows_native_icon="res://miscellaneous/icon_512x512.ico"
 config/version="0.1"
 
 [audio]
