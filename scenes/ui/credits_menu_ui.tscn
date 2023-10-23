@@ -121,7 +121,7 @@ uri = "https://ctn-phaco.itch.io/"
 [node name="RoleLabel4" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Music"
+text = "Music Composer"
 
 [node name="TeamMemberLink5" type="LinkButton" parent="VBoxContainer"]
 layout_mode = 2
@@ -138,7 +138,7 @@ uri = "https://maximinlianx.itch.io/"
 [node name="RoleLabel5" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Sound Effects"
+text = "Sound Designer"
 
 [node name="TeamMemberLink6" type="LinkButton" parent="VBoxContainer"]
 layout_mode = 2
