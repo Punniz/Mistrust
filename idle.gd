@@ -16,7 +16,7 @@ func _ready():
 
 
 func enter_state() -> void:
-	print("enter idle state")
+	#print("enter idle state")
 
 	animation_state_machine.travel("idle")
 
@@ -27,7 +27,7 @@ func update_state() -> void:
 
 
 func exit_state():
-	print("exit idle state")
+	#print("exit idle state")
 	pass
 
 

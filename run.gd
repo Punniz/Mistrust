@@ -4,12 +4,15 @@ extends State
 var is_paused_in_climb = false
 var is_running = false
 var is_climb_audio_playing = false
+var is_idle = false  # Add this flag to identify when the actor is idle
 
 #@export var actor: Player
 @onready var sprite_node = $"../../Sprite2D"
 @onready var animation_state_machine = animation_tree.get("parameters/playback")
 @onready var ray_cast = $"../../RayCast2D"
 @onready var climb_audio_player = $"../../ClimbStream"
+@onready var wood_audio_player = $"../../WoodRunStream"
+@onready var grass_audio_player = $"../../GrassRunStream"
 
 func _ready():
 	set_process(true)
@@ -23,6 +26,29 @@ func exit_state() -> void:
 
 func _physics_process(delta):
 	var is_ray_hit = ray_cast.is_colliding()
+	
+	if actor.velocity.x == 0 and actor.velocity.y == 0:
+		is_idle = true  # Set the flag to true when idle
+	else:
+		is_idle = false  # Set the flag to false otherwise
+	
+	if actor.velocity.x == 0:
+		if wood_audio_player.is_playing():
+			wood_audio_player.stop()
+		if grass_audio_player.is_playing():
+			grass_audio_player.stop()
+	
+	if is_ray_hit:
+		var collider = ray_cast.get_collider()
+		print(collider.name)
+		if "wood" in collider.name and is_running and not is_idle:  # Added not is_idle
+			grass_audio_player.stop()  # Stop grass audio if it's playing
+			if not wood_audio_player.is_playing():
+				wood_audio_player.play()
+		elif "grass" in collider.name and is_running and not is_idle:  # Added not is_idle
+			wood_audio_player.stop()  # Stop wood audio if it's playing
+			if not grass_audio_player.is_playing():
+				grass_audio_player.play()
 	
 	# Check for RayCast collision
 	if is_ray_hit and actor.velocity.y == 0 and actor.velocity.x == 0 and not is_running:
