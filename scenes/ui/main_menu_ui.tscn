@@ -1,0 +1,160 @@
+[gd_scene load_steps=11 format=3 uid="uid://dvnc8com7j7cu"]
+
+[ext_resource type="PackedScene" uid="uid://o5misck2b5gm" path="res://scenes/ui/game_title.tscn" id="1_c0qpc"]
+[ext_resource type="Theme" uid="uid://bgl1w0ys3q4oe" path="res://resources/main_theme.tres" id="1_mdijf"]
+[ext_resource type="PackedScene" uid="uid://7vh2g36b8mwy" path="res://scenes/ui/quit_to_desktop_button.tscn" id="2_3wner"]
+[ext_resource type="Script" path="res://scripts/ui/main_menu_ui.gd" id="2_vyax6"]
+[ext_resource type="PackedScene" uid="uid://cre5ssegyqc7v" path="res://scenes/ui/cutscene.tscn" id="3_yyg7m"]
+[ext_resource type="PackedScene" uid="uid://cojsxxfk8j0hm" path="res://scenes/ui/credits_menu_ui.tscn" id="4_dh56c"]
+[ext_resource type="PackedScene" uid="uid://c841gddj4tpv5" path="res://scenes/ui/version_label.tscn" id="5_ecf6o"]
+
+[sub_resource type="Animation" id="Animation_cba55"]
+resource_name = "RESET"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jvotm"]
+resource_name = "play_button_pressed"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_350tf"]
+_data = {
+"RESET": SubResource("Animation_cba55"),
+"play_button_pressed": SubResource("Animation_jvotm")
+}
+
+[node name="MainMenuUI" type="Control" node_paths=PackedStringArray("first_element_to_focus")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_mdijf")
+script = ExtResource("2_vyax6")
+scene_to_load = ExtResource("3_yyg7m")
+first_element_to_focus = NodePath("VBoxContainer/PlayButton")
+
+[node name="GameTitle" parent="." instance=ExtResource("1_c0qpc")]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 204.0
+offset_top = 85.0
+offset_right = -204.0
+offset_bottom = 111.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 120
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -427.0
+offset_top = -193.0
+offset_right = 428.0
+offset_bottom = 338.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../QuitToDesktopButton")
+focus_neighbor_top = NodePath("../QuitToDesktopButton")
+focus_neighbor_right = NodePath("../CreditsButton")
+focus_neighbor_bottom = NodePath("../CreditsButton")
+focus_next = NodePath("../CreditsButton")
+focus_previous = NodePath("../QuitToDesktopButton")
+text = "Play"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../PlayButton")
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_right = NodePath("../QuitToDesktopButton")
+focus_neighbor_bottom = NodePath("../QuitToDesktopButton")
+focus_next = NodePath("../QuitToDesktopButton")
+focus_previous = NodePath("../PlayButton")
+text = "Credits
+"
+
+[node name="QuitToDesktopButton" parent="VBoxContainer" instance=ExtResource("2_3wner")]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../CreditsButton")
+focus_neighbor_top = NodePath("../CreditsButton")
+focus_neighbor_right = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../PlayButton")
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../CreditsButton")
+
+[node name="VersionLabel" parent="." instance=ExtResource("5_ecf6o")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -121.5
+offset_top = -109.0
+offset_right = 121.5
+offset_bottom = -64.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_350tf")
+}
+
+[node name="CreditsMenuUI" parent="." instance=ExtResource("4_dh56c")]
+visible = false
+layout_mode = 1
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="CreditsMenuUI/BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="CreditsMenuUI"]

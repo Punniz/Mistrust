@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bf32qs7alktqm" path="res://assets/background/green_tree2.png" id="1_bwuc1"]
 [ext_resource type="Texture2D" uid="uid://qpetavxrgxfk" path="res://assets/background/full_tree3.png" id="1_hn31e"]
 [ext_resource type="PackedScene" uid="uid://bfu2peuf5fcxb" path="res://scenes/player.tscn" id="1_lr41f"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_oe8lk"]
 [ext_resource type="PackedScene" uid="uid://2en76f76byyg" path="res://scenes/climbable.tscn" id="2_5y4qr"]
 [ext_resource type="Texture2D" uid="uid://ceeub3k3ei7je" path="res://assets/background/green_tree3.png" id="2_8xtnj"]
 [ext_resource type="Texture2D" uid="uid://c5tnd4vtrghfe" path="res://assets/background/green_tree6.png" id="2_d1ow5"]
@@ -118,7 +119,44 @@ func _physics_process(delta: float) -> void:
 	path_follow.progress += speed * delta
 "
 
+[sub_resource type="Animation" id="Animation_lqyoh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vjgiv"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uu84f"]
+_data = {
+"RESET": SubResource("Animation_lqyoh"),
+"start": SubResource("Animation_vjgiv")
+}
+
 [node name="World" type="Node2D"]
+script = ExtResource("1_oe8lk")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -1305,6 +1343,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 1, 0, 0.105882)
 
 [node name="ColorRect2" type="ColorRect" parent="BackgroundColor"]
@@ -1313,9 +1352,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0.686275, 0.129412)
 
 [node name="UI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("7_2khjy")]
+
+[node name="SceneTransition" type="ColorRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/SceneTransition"]
+autoplay = "start"
+libraries = {
+"": SubResource("AnimationLibrary_uu84f")
+}
