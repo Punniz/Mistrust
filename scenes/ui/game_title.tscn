@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://o5misck2b5gm"]
+
+[ext_resource type="Script" path="res://scripts/ui/game_title.gd" id="1_fhlac"]
+
+[node name="GameTitle" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Game Title"
+script = ExtResource("1_fhlac")

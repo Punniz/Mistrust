@@ -1,0 +1,166 @@
+[gd_scene load_steps=3 format=3 uid="uid://cojsxxfk8j0hm"]
+
+[ext_resource type="Theme" uid="uid://bgl1w0ys3q4oe" path="res://resources/main_theme.tres" id="1_ryrkb"]
+[ext_resource type="Script" path="res://scripts/ui/credits_menu_ui.gd" id="2_d6qnf"]
+
+[node name="CreditsMenuUI" type="Control" node_paths=PackedStringArray("first_element_to_focus")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ryrkb")
+script = ExtResource("2_d6qnf")
+first_element_to_focus = NodePath("BackButton")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -103.0
+offset_top = 89.0
+offset_right = 103.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -526.0
+offset_top = -262.0
+offset_right = 526.0
+offset_bottom = 262.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="RoleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Graphics Designers"
+
+[node name="TeamMemberLink" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../BackButton")
+focus_neighbor_top = NodePath("../../BackButton")
+focus_neighbor_right = NodePath("../TeamMemberLink2")
+focus_neighbor_bottom = NodePath("../TeamMemberLink2")
+focus_next = NodePath("../TeamMemberLink2")
+focus_previous = NodePath("../../BackButton")
+focus_mode = 2
+text = "Puniz"
+uri = "https://punniz.itch.io/"
+
+[node name="TeamMemberLink2" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../TeamMemberLink")
+focus_neighbor_top = NodePath("../TeamMemberLink")
+focus_neighbor_right = NodePath("../TeamMemberLink3")
+focus_neighbor_bottom = NodePath("../TeamMemberLink3")
+focus_next = NodePath("../TeamMemberLink3")
+focus_previous = NodePath("../TeamMemberLink")
+focus_mode = 2
+text = "Soiiwa"
+uri = "https://soiiwa.itch.io/"
+
+[node name="RoleLabel2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Programmer
+"
+
+[node name="TeamMemberLink3" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../TeamMemberLink2")
+focus_neighbor_top = NodePath("../TeamMemberLink2")
+focus_neighbor_right = NodePath("../TeamMemberLink4")
+focus_neighbor_bottom = NodePath("../TeamMemberLink4")
+focus_next = NodePath("../TeamMemberLink4")
+focus_previous = NodePath("../TeamMemberLink2")
+focus_mode = 2
+text = "B0rked"
+uri = "https://b0rked.itch.io/"
+
+[node name="RoleLabel3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Project Manager / Lead Dev"
+
+[node name="TeamMemberLink4" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../TeamMemberLink3")
+focus_neighbor_top = NodePath("../TeamMemberLink3")
+focus_neighbor_right = NodePath("../TeamMemberLink5")
+focus_neighbor_bottom = NodePath("../TeamMemberLink5")
+focus_next = NodePath("../TeamMemberLink5")
+focus_previous = NodePath("../TeamMemberLink3")
+focus_mode = 2
+text = "CTN Phaco"
+uri = "https://ctn-phaco.itch.io/"
+
+[node name="RoleLabel4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Music"
+
+[node name="TeamMemberLink5" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../TeamMemberLink4")
+focus_neighbor_top = NodePath("../TeamMemberLink4")
+focus_neighbor_right = NodePath("../TeamMemberLink6")
+focus_neighbor_bottom = NodePath("../TeamMemberLink6")
+focus_next = NodePath("../TeamMemberLink6")
+focus_previous = NodePath("../TeamMemberLink4")
+focus_mode = 2
+text = "Maximinlianx"
+uri = "https://maximinlianx.itch.io/"
+
+[node name="RoleLabel5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Sound Effects"
+
+[node name="TeamMemberLink6" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../TeamMemberLink5")
+focus_neighbor_top = NodePath("../TeamMemberLink5")
+focus_neighbor_right = NodePath("../../BackButton")
+focus_neighbor_bottom = NodePath("../../BackButton")
+focus_next = NodePath("../../BackButton")
+focus_previous = NodePath("../TeamMemberLink5")
+focus_mode = 2
+text = "Rafunzel"
+uri = "https://rafunzel.itch.io/"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -203.0
+offset_top = -132.0
+offset_right = 203.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_neighbor_left = NodePath("../VBoxContainer/TeamMemberLink6")
+focus_neighbor_top = NodePath("../VBoxContainer/TeamMemberLink6")
+focus_neighbor_right = NodePath("../VBoxContainer/TeamMemberLink")
+focus_neighbor_bottom = NodePath("../VBoxContainer/TeamMemberLink")
+focus_next = NodePath("../VBoxContainer/TeamMemberLink")
+focus_previous = NodePath("../VBoxContainer/TeamMemberLink6")
+text = "Back"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
