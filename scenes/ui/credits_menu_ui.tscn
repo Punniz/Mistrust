@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cojsxxfk8j0hm"]
+[gd_scene load_steps=3 format=3 uid="uid://dv1cc4v70ivb3"]
 
 [ext_resource type="Theme" uid="uid://bgl1w0ys3q4oe" path="res://resources/main_theme.tres" id="1_ryrkb"]
 [ext_resource type="Script" path="res://scripts/ui/credits_menu_ui.gd" id="2_d6qnf"]
@@ -13,6 +13,16 @@ grow_vertical = 2
 theme = ExtResource("1_ryrkb")
 script = ExtResource("2_d6qnf")
 first_element_to_focus = NodePath("BackButton")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1

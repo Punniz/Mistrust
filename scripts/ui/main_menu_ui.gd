@@ -7,6 +7,7 @@ class_name MainMenuUI
 
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var music_track: AudioStreamPlayer = $MusicTrack
 
 
 func _ready() -> void:
@@ -19,6 +20,9 @@ func _ready() -> void:
 func _on_play_button_pressed() -> void:
 	self.animation_player.play("play_button_pressed")
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	music_track.stop()
+	
+#	TO DO: REMOVE FOCUS AND MOUSE FILTER!
 
 
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:

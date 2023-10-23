@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bfu2peuf5fcxb"]
+[gd_scene load_steps=51 format=3 uid="uid://bfu2peuf5fcxb"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_tdkwl"]
 [ext_resource type="Texture2D" uid="uid://2h8t7lkpwm5f" path="res://assets/textures/player/player_animations.png" id="2_6wm3s"]
@@ -6,9 +6,10 @@
 [ext_resource type="Script" path="res://idle.gd" id="5_w1v2x"]
 [ext_resource type="Script" path="res://run.gd" id="6_54a5s"]
 [ext_resource type="Script" path="res://hide.gd" id="7_2n7qf"]
-[ext_resource type="Texture2D" uid="uid://djw24iwowpwyv" path="res://assets/light_texture.png" id="7_mcg1c"]
+[ext_resource type="Texture2D" uid="uid://6ixs0jh1t3by" path="res://assets/light_texture.png" id="7_mcg1c"]
 [ext_resource type="AudioStream" uid="uid://c5e0tp5qqh53m" path="res://assets/audio/player/MAIN_CHAR_Climb_SFX.wav" id="8_vv50h"]
 [ext_resource type="AudioStream" uid="uid://5lonfkdq0y23" path="res://assets/audio/player/MAIN_CHAR_Grass_Run_LP.wav" id="9_2f7o6"]
+[ext_resource type="AudioStream" uid="uid://bbkqxlg3kcpf6" path="res://assets/audio/player/main_character_caught.wav" id="9_c7akt"]
 [ext_resource type="AudioStream" uid="uid://2ojp0woxnc17" path="res://assets/audio/player/MAIN_CHAR_Wood_Run_LP.wav" id="10_ld2rc"]
 [ext_resource type="AudioStream" uid="uid://dhfl2xi4y8xo7" path="res://assets/audio/player/MAIN_CHAR_Hide_SFX.wav" id="11_1uoav"]
 [ext_resource type="AudioStream" uid="uid://b7lkp0brbrg6a" path="res://assets/audio/player/MAIN_CHAR_Show_SFX.wav" id="12_8mirb"]
@@ -44,6 +45,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6c1tp"]
+resource_name = "caught"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [32]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CaughtStream:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_1m18w"]
@@ -162,6 +191,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8hnw5"]
 _data = {
 "RESET": SubResource("Animation_kjbdr"),
+"caught": SubResource("Animation_6c1tp"),
 "climb": SubResource("Animation_1m18w"),
 "hide": SubResource("Animation_n1atl"),
 "idle": SubResource("Animation_0xa8q"),
@@ -169,6 +199,9 @@ _data = {
 "run": SubResource("Animation_sqqtx"),
 "walk": SubResource("Animation_3042p")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3xkrr"]
+animation = &"caught"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oh7io"]
 animation = &"climb"
@@ -214,9 +247,21 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qdccx"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cu7hc"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ajdjg"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aeafl"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4mrj4"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bi3k8"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_uowq0"]
 states/End/position = Vector2(937, 180)
 states/Start/position = Vector2(180, 180)
+states/caught/node = SubResource("AnimationNodeAnimation_3xkrr")
+states/caught/position = Vector2(512, 192)
 states/climb/node = SubResource("AnimationNodeAnimation_oh7io")
 states/climb/position = Vector2(833, 100)
 states/hide/node = SubResource("AnimationNodeAnimation_nkhrb")
@@ -227,8 +272,8 @@ states/reveal/node = SubResource("AnimationNodeAnimation_7iure")
 states/reveal/position = Vector2(1017, -57)
 states/run/node = SubResource("AnimationNodeAnimation_jpmqb")
 states/run/position = Vector2(325, -57)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_rpf77"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_shdoa"), "idle", "climb", SubResource("AnimationNodeStateMachineTransition_3eu1w"), "idle", "hide", SubResource("AnimationNodeStateMachineTransition_jv450"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_58h0j"), "run", "hide", SubResource("AnimationNodeStateMachineTransition_f01t6"), "run", "climb", SubResource("AnimationNodeStateMachineTransition_mrv0u"), "climb", "idle", SubResource("AnimationNodeStateMachineTransition_32ytx"), "climb", "run", SubResource("AnimationNodeStateMachineTransition_sqa3y"), "climb", "hide", SubResource("AnimationNodeStateMachineTransition_n0hml"), "hide", "run", SubResource("AnimationNodeStateMachineTransition_qmyeb"), "hide", "climb", SubResource("AnimationNodeStateMachineTransition_pprej"), "hide", "reveal", SubResource("AnimationNodeStateMachineTransition_b0plq"), "reveal", "idle", SubResource("AnimationNodeStateMachineTransition_qdccx")]
-graph_offset = Vector2(40, -111)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_rpf77"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_shdoa"), "idle", "climb", SubResource("AnimationNodeStateMachineTransition_3eu1w"), "idle", "hide", SubResource("AnimationNodeStateMachineTransition_jv450"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_58h0j"), "run", "hide", SubResource("AnimationNodeStateMachineTransition_f01t6"), "run", "climb", SubResource("AnimationNodeStateMachineTransition_mrv0u"), "climb", "idle", SubResource("AnimationNodeStateMachineTransition_32ytx"), "climb", "run", SubResource("AnimationNodeStateMachineTransition_sqa3y"), "climb", "hide", SubResource("AnimationNodeStateMachineTransition_n0hml"), "hide", "run", SubResource("AnimationNodeStateMachineTransition_qmyeb"), "hide", "climb", SubResource("AnimationNodeStateMachineTransition_pprej"), "hide", "reveal", SubResource("AnimationNodeStateMachineTransition_b0plq"), "reveal", "idle", SubResource("AnimationNodeStateMachineTransition_qdccx"), "idle", "caught", SubResource("AnimationNodeStateMachineTransition_cu7hc"), "run", "caught", SubResource("AnimationNodeStateMachineTransition_ajdjg"), "hide", "caught", SubResource("AnimationNodeStateMachineTransition_aeafl"), "climb", "caught", SubResource("AnimationNodeStateMachineTransition_4mrj4"), "reveal", "caught", SubResource("AnimationNodeStateMachineTransition_bi3k8")]
+graph_offset = Vector2(84, 36)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 16
@@ -263,14 +308,26 @@ texture = ExtResource("7_mcg1c")
 [node name="ClimbStream" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, -203.5)
 stream = ExtResource("8_vv50h")
+bus = &"Sound Effects"
 
 [node name="GrassRunStream" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, -203.5)
 stream = ExtResource("9_2f7o6")
+bus = &"Sound Effects"
 
 [node name="WoodRunStream" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, -203.5)
 stream = ExtResource("10_ld2rc")
+bus = &"Sound Effects"
+
+[node name="HideStream" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_1uoav")
+
+[node name="RevealStream" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_8mirb")
+
+[node name="CaughtStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_c7akt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -302,8 +359,5 @@ script = ExtResource("7_2n7qf")
 actor = NodePath("../..")
 animation_tree = NodePath("../../AnimationTree")
 
-[node name="HideStream" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11_1uoav")
-
-[node name="RevealStream" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("12_8mirb")
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]

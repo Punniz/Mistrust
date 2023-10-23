@@ -38,7 +38,7 @@ func _physics_process(delta):
 	# Audio handling based on surface
 	if is_ray_hit:
 		var collider = ray_cast.get_collider()
-		print(collider.name)
+
 		if "wood" in collider.name and is_running and not is_idle:
 			grass_audio_player.stop()
 			if not wood_audio_player.is_playing():

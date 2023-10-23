@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvnc8com7j7cu"]
+[gd_scene load_steps=13 format=3 uid="uid://m174jo30upk5"]
 
-[ext_resource type="PackedScene" uid="uid://o5misck2b5gm" path="res://scenes/ui/game_title.tscn" id="1_c0qpc"]
+[ext_resource type="PackedScene" path="res://scenes/ui/game_title.tscn" id="1_c0qpc"]
 [ext_resource type="Theme" uid="uid://bgl1w0ys3q4oe" path="res://resources/main_theme.tres" id="1_mdijf"]
 [ext_resource type="PackedScene" uid="uid://7vh2g36b8mwy" path="res://scenes/ui/quit_to_desktop_button.tscn" id="2_3wner"]
 [ext_resource type="Script" path="res://scripts/ui/main_menu_ui.gd" id="2_vyax6"]
-[ext_resource type="PackedScene" uid="uid://cre5ssegyqc7v" path="res://scenes/ui/cutscene.tscn" id="3_yyg7m"]
-[ext_resource type="PackedScene" uid="uid://cojsxxfk8j0hm" path="res://scenes/ui/credits_menu_ui.tscn" id="4_dh56c"]
-[ext_resource type="PackedScene" uid="uid://c841gddj4tpv5" path="res://scenes/ui/version_label.tscn" id="5_ecf6o"]
+[ext_resource type="PackedScene" uid="uid://bmvyt47t7t0k3" path="res://scenes/ui/cutscene.tscn" id="3_yyg7m"]
+[ext_resource type="PackedScene" uid="uid://dv1cc4v70ivb3" path="res://scenes/ui/credits_menu_ui.tscn" id="4_dh56c"]
+[ext_resource type="PackedScene" path="res://scenes/ui/version_label.tscn" id="5_ecf6o"]
+[ext_resource type="AudioStream" uid="uid://dlny46egfv46o" path="res://assets/audio/other/main_menu_music.ogg" id="8_jxm4s"]
+[ext_resource type="AudioStream" uid="uid://c4cwrsonsr2n8" path="res://assets/audio/other/start_game.wav" id="9_advbd"]
 
 [sub_resource type="Animation" id="Animation_cba55"]
 resource_name = "RESET"
@@ -14,7 +16,7 @@ length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/path = NodePath("FadeColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -26,18 +28,30 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_jvotm"]
 resource_name = "play_button_pressed"
-length = 3.0
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/path = NodePath("FadeColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StartGameTrack:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_350tf"]
@@ -58,6 +72,16 @@ theme = ExtResource("1_mdijf")
 script = ExtResource("2_vyax6")
 scene_to_load = ExtResource("3_yyg7m")
 first_element_to_focus = NodePath("VBoxContainer/PlayButton")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="GameTitle" parent="." instance=ExtResource("1_c0qpc")]
 layout_mode = 1
@@ -131,8 +155,7 @@ offset_top = -109.0
 offset_right = 121.5
 offset_bottom = -64.0
 
-[node name="ColorRect" type="ColorRect" parent="."]
-modulate = Color(0, 0, 0, 0)
+[node name="FadeColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -140,7 +163,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -150,6 +173,15 @@ libraries = {
 [node name="CreditsMenuUI" parent="." instance=ExtResource("4_dh56c")]
 visible = false
 layout_mode = 1
+
+[node name="MusicTrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_jxm4s")
+autoplay = true
+bus = &"Music"
+
+[node name="StartGameTrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_advbd")
+bus = &"Sound Effects"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

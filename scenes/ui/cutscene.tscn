@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cre5ssegyqc7v"]
+[gd_scene load_steps=9 format=3 uid="uid://bmvyt47t7t0k3"]
 
 [ext_resource type="Theme" uid="uid://bgl1w0ys3q4oe" path="res://resources/main_theme.tres" id="1_cjji1"]
 [ext_resource type="Script" path="res://scripts/ui/cutscene.gd" id="1_crdtw"]
 [ext_resource type="PackedScene" uid="uid://b5s1myf1gwty8" path="res://world.tscn" id="2_8y87v"]
+[ext_resource type="VideoStream" path="res://assets/cutscene.ogv" id="4_v22ro"]
 
 [sub_resource type="Animation" id="Animation_hwhgs"]
 length = 0.001
@@ -19,6 +20,22 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_rw7p1"]
+resource_name = "end"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_blie7"]
 resource_name = "start"
 tracks/0/type = "value"
@@ -32,22 +49,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_rw7p1"]
-resource_name = "end"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sb3qy"]
@@ -76,6 +77,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+stream = ExtResource("4_v22ro")
+autoplay = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

@@ -5,18 +5,17 @@ class_name Cutscene
 @export var scene_to_load: PackedScene
 
 @onready var video_stream_player: VideoStreamPlayer = $VideoStreamPlayer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _ready() -> void:
 	assert(self.scene_to_load != null)
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	
+
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "start":
-		self.video_stream_player.play()
-	elif anim_name == "end":
+	if anim_name == "end":
 		get_tree().change_scene_to_packed(self.scene_to_load)
 
 
@@ -28,7 +27,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_cancel"):
 		self.transition_to_next_scene()
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func transition_to_next_scene() -> void:
 	self.animation_player.play("end")

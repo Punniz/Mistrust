@@ -10,13 +10,18 @@ func _ready() -> void:
 	assert(self.raycasts.get_child_count() != 0)
 
 
+func disable() -> void:
+	$Area2D/CollisionPolygon2D.disabled = true
+	for raycast in raycasts.get_children():
+		raycast.enabled = false
+
+
 func _physics_process(delta: float) -> void:
 	for raycast in raycasts.get_children():
 		if raycast.is_colliding():
-			# Player caught, need to handle GAME OVER
 			if raycast.get_collider() is Player:
-				#print("Colliding with player: ", raycast.get_collider())
-				pass
+				self.disable()
+				Events.player_caught.emit()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

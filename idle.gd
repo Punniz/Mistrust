@@ -11,8 +11,8 @@ extends State
 
 func _ready():
 	set_process(true)
-	print(self.name, ": animation_tree: ", animation_tree)
-	print(self.name, ": animation_node_sm : ", animation_tree_sm_playback)
+#	print(self.name, ": animation_tree: ", animation_tree)
+#	print(self.name, ": animation_node_sm : ", animation_tree_sm_playback)
 
 
 func enter_state() -> void:
