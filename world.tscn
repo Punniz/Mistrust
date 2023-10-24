@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=92 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="Texture2D" uid="uid://bf32qs7alktqm" path="res://assets/background/green_tree2.png" id="1_bwuc1"]
 [ext_resource type="Texture2D" uid="uid://qpetavxrgxfk" path="res://assets/background/full_tree3.png" id="1_hn31e"]
@@ -59,7 +59,7 @@ polygon = PackedVector2Array(-23, -221, 3, -221, 3, -39, -23, -39)
 polygon = PackedVector2Array(3, -39, 181, -39, 181, 9, 3, 9)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4lxdi"]
-polygon = PackedVector2Array(3, -39, 879, -39, 879, 9, 3, 9)
+polygon = PackedVector2Array(-415, -191, 828, -191, 828, 121, 812, 121, 812, -175, -399, -175, -400, 121, -415, 121)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75es3"]
 size = Vector2(1272, 48)
@@ -67,11 +67,23 @@ size = Vector2(1272, 48)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nmv5l"]
 polygon = PackedVector2Array(9, -41, 1281, -41, 1281, 7, 9, 7)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mkkjj"]
+load_path = "res://.godot/imported/wood_floor.png-7d7d477d36b06220fb4852a8d486d166.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7ogo"]
+size = Vector2(165.676, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ho3ia"]
+size = Vector2(42.6493, 16)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jb3kw"]
 size = Vector2(114.375, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3e8s"]
 size = Vector2(280, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hlv6t"]
+polygon = PackedVector2Array(-237, -88, -237, -72, 43, -72, 43, -88)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b57gr"]
 size = Vector2(221.5, 27)
@@ -135,6 +147,15 @@ polygon = PackedVector2Array(-601, -353.5, -376, -353.5, -376, -337.5, -601, -33
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3xfkm"]
 polygon = PackedVector2Array(-741, -146.5, -237, -146.5, -237, -130.5, -741, -130.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_b8naf"]
+polygon = PackedVector2Array(-154, -353.5, 14, -353.5, 14, -337.5, -154, -337.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_u156u"]
+polygon = PackedVector2Array(97, -559.5, 468, -559.5, 468, -542.5, 97, -543.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fjbfb"]
+polygon = PackedVector2Array(551, -353.5, 833, -353.5, 833, -337.5, 551, -337.5)
 
 [sub_resource type="Curve2D" id="Curve2D_ffjx6"]
 _data = {
@@ -386,15 +407,6 @@ shape = SubResource("RectangleShape2D_orwc2")
 position = Vector2(-10, -130)
 shape = SubResource("RectangleShape2D_yqxcf")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Environment/Building1/woodFloor2"]
-position = Vector2(1292, -130)
-shape = SubResource("RectangleShape2D_yqxcf")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Environment/Building1/woodFloor2"]
-position = Vector2(962, -130)
-shape = SubResource("RectangleShape2D_yqxcf")
-debug_color = Color(0.223529, 0.839216, 0, 0.419608)
-
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Environment/Building1/woodFloor2"]
 occluder = SubResource("OccluderPolygon2D_dilwe")
 
@@ -404,10 +416,6 @@ occluder = SubResource("OccluderPolygon2D_f1rj8")
 [node name="LightOccluder2D3" type="LightOccluder2D" parent="Environment/Building1/woodFloor2"]
 position = Vector2(400, 0)
 occluder = SubResource("OccluderPolygon2D_4lxdi")
-
-[node name="LightOccluder2D4" type="LightOccluder2D" parent="Environment/Building1/woodFloor2"]
-position = Vector2(1302, 0)
-occluder = SubResource("OccluderPolygon2D_dilwe")
 
 [node name="Texture" type="Sprite2D" parent="Environment/Building1/woodFloor2"]
 position = Vector2(87, -8)
@@ -539,6 +547,53 @@ rotation = -3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("7_5o4s8")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Building1"]
+position = Vector2(613.5, 141)
+scale = Vector2(7.31548, 1)
+collision_layer = 3
+collision_mask = 0
+
+[node name="WoodenFloor15" type="Sprite2D" parent="Environment/Building1/StaticBody2D"]
+position = Vector2(-1.02522, 0)
+scale = Vector2(0.986168, 1)
+texture = SubResource("CompressedTexture2D_mkkjj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Building1/StaticBody2D"]
+position = Vector2(-1.02522, 0)
+shape = SubResource("RectangleShape2D_g7ogo")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Environment/Building1"]
+position = Vector2(-7, 141)
+rotation = 1.57079
+scale = Vector2(7.31548, 1)
+collision_layer = 3
+collision_mask = 0
+
+[node name="WoodenFloor15" type="Sprite2D" parent="Environment/Building1/StaticBody2D2"]
+position = Vector2(20.2198, 0)
+scale = Vector2(0.253943, 1)
+texture = SubResource("CompressedTexture2D_mkkjj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Building1/StaticBody2D2"]
+position = Vector2(20.2311, 4.76837e-07)
+shape = SubResource("RectangleShape2D_ho3ia")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Environment/Building1"]
+position = Vector2(1220, 141)
+rotation = 1.57079
+scale = Vector2(7.31548, 1)
+collision_layer = 3
+collision_mask = 0
+
+[node name="WoodenFloor15" type="Sprite2D" parent="Environment/Building1/StaticBody2D3"]
+position = Vector2(20.2198, 0)
+scale = Vector2(0.253943, 1)
+texture = SubResource("CompressedTexture2D_mkkjj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Building1/StaticBody2D3"]
+position = Vector2(20.2311, 4.76837e-07)
+shape = SubResource("RectangleShape2D_ho3ia")
+
 [node name="Fort3" type="Node2D" parent="Environment"]
 
 [node name="woodFloor1" type="StaticBody2D" parent="Environment/Fort3"]
@@ -601,6 +656,10 @@ texture = ExtResource("11_44ts1")
 [node name="Pillar6" type="Sprite2D" parent="Environment/Fort3/woodFloor1"]
 position = Vector2(806, 50)
 texture = ExtResource("11_44ts1")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Environment/Fort3/woodFloor1"]
+position = Vector2(806, 50)
+occluder = SubResource("OccluderPolygon2D_hlv6t")
 
 [node name="Ladder" parent="Environment/Fort3" instance=ExtResource("2_5y4qr")]
 position = Vector2(-2884, 785)
@@ -1207,59 +1266,6 @@ shape = SubResource("RectangleShape2D_75es3")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Environment/Floors/grassFloor19"]
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
-[node name="Climbable" parent="Environment" instance=ExtResource("2_5y4qr")]
-position = Vector2(292, 789)
-
-[node name="Area2D" type="Area2D" parent="Environment/Climbable"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Climbable/Area2D"]
-position = Vector2(-0.25, -490.5)
-shape = SubResource("RectangleShape2D_b57gr")
-
-[node name="Ladder" type="Sprite2D" parent="Environment/Climbable"]
-position = Vector2(-1, -214)
-texture = ExtResource("2_junlc")
-
-[node name="Ladder2" type="Sprite2D" parent="Environment/Climbable"]
-position = Vector2(-1, -406)
-texture = ExtResource("2_junlc")
-
-[node name="Climbable2" parent="Environment" instance=ExtResource("2_5y4qr")]
-position = Vector2(292, 792)
-
-[node name="Area2D" type="Area2D" parent="Environment/Climbable2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Climbable2/Area2D"]
-position = Vector2(-0.25, -490.5)
-shape = SubResource("RectangleShape2D_b57gr")
-
-[node name="Ladder" type="Sprite2D" parent="Environment/Climbable2"]
-position = Vector2(-1, -214)
-texture = ExtResource("2_junlc")
-
-[node name="Ladder2" type="Sprite2D" parent="Environment/Climbable2"]
-position = Vector2(-1, -406)
-texture = ExtResource("2_junlc")
-
-[node name="Climbable" parent="Environment/Climbable2" instance=ExtResource("2_5y4qr")]
-position = Vector2(-11157, -226)
-
-[node name="Ladder3" type="Sprite2D" parent="Environment/Climbable2"]
-position = Vector2(-11159, -442)
-texture = ExtResource("2_junlc")
-
-[node name="Ladder4" type="Sprite2D" parent="Environment/Climbable2"]
-position = Vector2(-11159, -634)
-texture = ExtResource("2_junlc")
-
-[node name="Ladder5" type="Sprite2D" parent="Environment/Climbable2"]
-position = Vector2(-11159, -250)
-texture = ExtResource("2_junlc")
-
-[node name="Ladder6" type="Sprite2D" parent="Environment/Climbable2"]
-position = Vector2(-11159, -58)
-texture = ExtResource("2_junlc")
-
 [node name="HidingSpots" type="Node2D" parent="Environment"]
 position = Vector2(17, 42)
 
@@ -1512,6 +1518,18 @@ occluder = SubResource("OccluderPolygon2D_gpb2u")
 position = Vector2(-5615, 582.5)
 occluder = SubResource("OccluderPolygon2D_3xfkm")
 
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="Environment/Fort4/woodFloor5"]
+position = Vector2(-5615, 582.5)
+occluder = SubResource("OccluderPolygon2D_b8naf")
+
+[node name="LightOccluder2D5" type="LightOccluder2D" parent="Environment/Fort4/woodFloor5"]
+position = Vector2(-5615, 582.5)
+occluder = SubResource("OccluderPolygon2D_u156u")
+
+[node name="LightOccluder2D6" type="LightOccluder2D" parent="Environment/Fort4/woodFloor5"]
+position = Vector2(-5615, 582.5)
+occluder = SubResource("OccluderPolygon2D_fjbfb")
+
 [node name="Wall" type="Sprite2D" parent="Environment/Fort4"]
 position = Vector2(-6760, 317)
 texture = ExtResource("11_44ts1")
@@ -1605,9 +1623,6 @@ position = Vector2(-6474, 689)
 [node name="Barricade10" parent="Environment" instance=ExtResource("11_a0mlc")]
 position = Vector2(-5618, 672)
 
-[node name="Barricade17" parent="Environment" instance=ExtResource("12_heuap")]
-position = Vector2(7, 288)
-
 [node name="Barricade16" parent="Environment" instance=ExtResource("11_a0mlc")]
 position = Vector2(-2497, 282)
 
@@ -1616,12 +1631,6 @@ position = Vector2(-3079, 281)
 
 [node name="Barricade14" parent="Environment" instance=ExtResource("11_a0mlc")]
 position = Vector2(-4476, 289)
-
-[node name="Barricade21" parent="Environment" instance=ExtResource("12_heuap")]
-position = Vector2(1217, 298)
-
-[node name="Barricade22" parent="Environment" instance=ExtResource("12_heuap")]
-position = Vector2(883, 298)
 
 [node name="Actors" type="Node2D" parent="."]
 
@@ -1666,14 +1675,11 @@ position = Vector2(-4152, 491)
 curve = SubResource("Curve2D_y1hw6")
 script = SubResource("GDScript_w8gnn")
 
-[node name="GroundScout" parent="Actors/Enemies" instance=ExtResource("6_a4241")]
-position = Vector2(1089, 285)
-
 [node name="GroundScout2" parent="Actors/Enemies" instance=ExtResource("6_a4241")]
 position = Vector2(-14895, 670)
 
 [node name="Player" parent="Actors" instance=ExtResource("1_lr41f")]
-position = Vector2(-6914, 670)
+position = Vector2(-17614, 670)
 collision_mask = 5
 metadata/_edit_group_ = true
 
@@ -2011,6 +2017,7 @@ texture = ExtResource("6_wu46v")
 [node name="Borders" type="CanvasLayer" parent="."]
 
 [node name="BlackBordersLayout" parent="Borders" instance=ExtResource("33_1v5es")]
+metadata/_edit_lock_ = true
 
 [node name="BackgroundColor" type="CanvasLayer" parent="."]
 layer = -2
@@ -2023,6 +2030,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 1, 0, 0.105882)
+metadata/_edit_lock_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="BackgroundColor"]
 anchors_preset = 15
@@ -2032,6 +2040,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0.686275, 0.129412)
+metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 visible = false
