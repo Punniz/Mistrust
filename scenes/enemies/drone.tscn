@@ -127,7 +127,7 @@ texture = ExtResource("3_x2l7k")
 
 [node name="MoveTrack" type="AudioStreamPlayer2D" parent="PathFollow2D"]
 stream = ExtResource("6_bwswv")
-volume_db = -7.0
+volume_db = -4.0
 autoplay = true
 bus = &"Sound Effects"
 
