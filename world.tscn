@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=75 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="Texture2D" uid="uid://bf32qs7alktqm" path="res://assets/background/green_tree2.png" id="1_bwuc1"]
 [ext_resource type="Texture2D" uid="uid://qpetavxrgxfk" path="res://assets/background/full_tree3.png" id="1_hn31e"]
@@ -29,8 +29,10 @@
 [ext_resource type="Texture2D" uid="uid://bh50giwtwx22x" path="res://assets/background/black_tree2.png" id="10_yhxob"]
 [ext_resource type="Texture2D" uid="uid://cqet2kdioda3b" path="res://assets/environment/wood_log_short.png" id="11_4y058"]
 [ext_resource type="Texture2D" uid="uid://cxpmwrkxeyqj2" path="res://assets/environment/wood_log_tall.png" id="11_44ts1"]
+[ext_resource type="PackedScene" uid="uid://vbpiry85h2py" path="res://scenes/barricade.tscn" id="11_a0mlc"]
 [ext_resource type="Texture2D" uid="uid://gvdbjij48ol8" path="res://assets/background/black_tree3.png" id="11_pvq70"]
 [ext_resource type="Texture2D" uid="uid://ckk4r81ivge5a" path="res://assets/background/leaf_splash.png" id="11_vlumh"]
+[ext_resource type="PackedScene" uid="uid://dycs0q2lutdr1" path="res://scenes/barricade_2.tscn" id="12_heuap"]
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="16_x2hlv"]
 [ext_resource type="AudioStream" uid="uid://c1udxmfm4t06d" path="res://assets/audio/other/forest_ambience.ogg" id="17_l7df0"]
 [ext_resource type="AudioStream" uid="uid://dto41b03quvi0" path="res://assets/audio/other/world_music.ogg" id="18_ow35r"]
@@ -72,9 +74,6 @@ size = Vector2(280, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b57gr"]
 size = Vector2(221.5, 27)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipjdw"]
-size = Vector2(27.75, 111.75)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oto6s"]
 size = Vector2(876, 16)
 
@@ -92,6 +91,9 @@ size = Vector2(649, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7j1ad"]
 size = Vector2(135, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipjdw"]
+size = Vector2(27.75, 111.75)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q8jtr"]
 radius = 120.5
@@ -622,14 +624,6 @@ texture = ExtResource("11_44ts1")
 position = Vector2(1778, 122)
 texture = ExtResource("11_44ts1")
 
-[node name="Wall" type="CollisionShape2D" parent="Environment/Fort1/woodFloor1"]
-position = Vector2(898, 276)
-shape = SubResource("RectangleShape2D_ipjdw")
-
-[node name="Wall2" type="CollisionShape2D" parent="Environment/Fort1/woodFloor1"]
-position = Vector2(1202, 274)
-shape = SubResource("RectangleShape2D_ipjdw")
-
 [node name="bridge" type="CollisionShape2D" parent="Environment/Fort1/woodFloor1"]
 position = Vector2(1018, 42)
 shape = SubResource("RectangleShape2D_oto6s")
@@ -641,6 +635,9 @@ texture = ExtResource("2_junlc")
 [node name="Ladder2" type="Sprite2D" parent="Environment/Fort1"]
 position = Vector2(-16147, 445)
 texture = ExtResource("2_junlc")
+
+[node name="Barricade" parent="Environment/Fort1" instance=ExtResource("11_a0mlc")]
+position = Vector2(-20253, 654)
 
 [node name="Fort2" type="Node2D" parent="Environment"]
 position = Vector2(4166, 17)
@@ -1515,6 +1512,60 @@ texture = ExtResource("11_44ts1")
 position = Vector2(-4574, 605)
 texture = ExtResource("11_44ts1")
 
+[node name="Barricade2" parent="Environment" instance=ExtResource("12_heuap")]
+position = Vector2(-15722, 666)
+
+[node name="Barricade3" parent="Environment" instance=ExtResource("12_heuap")]
+position = Vector2(-16323, 375)
+
+[node name="Barricade" parent="Environment" instance=ExtResource("11_a0mlc")]
+position = Vector2(-14854, 375)
+
+[node name="Barricade4" parent="Environment" instance=ExtResource("12_heuap")]
+position = Vector2(-11163, 666)
+
+[node name="Barricade6" parent="Environment" instance=ExtResource("12_heuap")]
+position = Vector2(-12151, 373)
+
+[node name="Barricade20" parent="Environment" instance=ExtResource("12_heuap")]
+position = Vector2(-10647, 78)
+
+[node name="Barricade11" parent="Environment" instance=ExtResource("12_heuap")]
+position = Vector2(-4841, 50)
+
+[node name="Barricade5" parent="Environment" instance=ExtResource("11_a0mlc")]
+position = Vector2(-11144, 375)
+
+[node name="Barricade7" parent="Environment" instance=ExtResource("11_a0mlc")]
+position = Vector2(-11144, 375)
+
+[node name="Barricade19" parent="Environment" instance=ExtResource("11_a0mlc")]
+position = Vector2(-12013, 78)
+
+[node name="Barricade8" parent="Environment" instance=ExtResource("11_a0mlc")]
+position = Vector2(-5823, 50)
+
+[node name="Barricade9" parent="Environment" instance=ExtResource("11_a0mlc")]
+position = Vector2(-6739, 245)
+
+[node name="Barricade10" parent="Environment" instance=ExtResource("11_a0mlc")]
+position = Vector2(-5618, 672)
+
+[node name="Barricade17" parent="Environment" instance=ExtResource("12_heuap")]
+position = Vector2(7, 288)
+
+[node name="Barricade18" parent="Environment" instance=ExtResource("12_heuap")]
+position = Vector2(1364, 332)
+
+[node name="Barricade16" parent="Environment" instance=ExtResource("11_a0mlc")]
+position = Vector2(-2497, 282)
+
+[node name="Barricade15" parent="Environment" instance=ExtResource("11_a0mlc")]
+position = Vector2(-3079, 281)
+
+[node name="Barricade14" parent="Environment" instance=ExtResource("11_a0mlc")]
+position = Vector2(-4476, 289)
+
 [node name="Actors" type="Node2D" parent="."]
 
 [node name="Enemies" type="Node2D" parent="Actors"]
@@ -1573,7 +1624,7 @@ script = SubResource("GDScript_w8gnn")
 position = Vector2(1089, 285)
 
 [node name="Player" parent="Actors" instance=ExtResource("1_lr41f")]
-position = Vector2(-17788, 632)
+position = Vector2(-123, 632)
 collision_mask = 5
 metadata/_edit_group_ = true
 
@@ -1632,6 +1683,26 @@ position = Vector2(-8064.65, 508.286)
 scale = Vector2(6, 6)
 texture = ExtResource("2_8xtnj")
 
+[node name="GreenTree9" type="Sprite2D" parent="ParallaxBackground/Farthest"]
+position = Vector2(-14964, 458.208)
+scale = Vector2(6, 6)
+texture = ExtResource("1_bwuc1")
+
+[node name="GreenTree10" type="Sprite2D" parent="ParallaxBackground/Farthest"]
+position = Vector2(-19058.7, 508.286)
+scale = Vector2(6, 6)
+texture = ExtResource("2_8xtnj")
+
+[node name="GreenTree11" type="Sprite2D" parent="ParallaxBackground/Farthest"]
+position = Vector2(-25223.4, 458.208)
+scale = Vector2(6, 6)
+texture = ExtResource("1_bwuc1")
+
+[node name="GreenTree12" type="Sprite2D" parent="ParallaxBackground/Farthest"]
+position = Vector2(-31077.2, 508.286)
+scale = Vector2(6, 6)
+texture = ExtResource("2_8xtnj")
+
 [node name="GreenTree4" type="Sprite2D" parent="ParallaxBackground/Farthest"]
 position = Vector2(-1350.47, 458.208)
 scale = Vector2(6, 6)
@@ -1657,6 +1728,36 @@ position = Vector2(8352.92, 1409.67)
 scale = Vector2(6, 6)
 texture = ExtResource("3_6p5f1")
 
+[node name="GreenTree13" type="Sprite2D" parent="ParallaxBackground/Farthest"]
+position = Vector2(-6979.97, 465.913)
+scale = Vector2(6, 6)
+texture = ExtResource("6_y4gjj")
+
+[node name="GreenTree14" type="Sprite2D" parent="ParallaxBackground/Farthest"]
+position = Vector2(-4108.92, 1409.67)
+scale = Vector2(6, 6)
+texture = ExtResource("3_6p5f1")
+
+[node name="GreenTree15" type="Sprite2D" parent="ParallaxBackground/Farthest"]
+position = Vector2(-20684.4, 465.913)
+scale = Vector2(6, 6)
+texture = ExtResource("6_y4gjj")
+
+[node name="GreenTree16" type="Sprite2D" parent="ParallaxBackground/Farthest"]
+position = Vector2(-15102.8, 1409.67)
+scale = Vector2(6, 6)
+texture = ExtResource("3_6p5f1")
+
+[node name="GreenTree17" type="Sprite2D" parent="ParallaxBackground/Farthest"]
+position = Vector2(-27962.2, 465.913)
+scale = Vector2(6, 6)
+texture = ExtResource("6_y4gjj")
+
+[node name="GreenTree18" type="Sprite2D" parent="ParallaxBackground/Farthest"]
+position = Vector2(-31675.7, 1409.67)
+scale = Vector2(6, 6)
+texture = ExtResource("3_6p5f1")
+
 [node name="Farther" type="CanvasLayer" parent="ParallaxBackground"]
 layer = -1
 scale = Vector2(0.59, 0.59)
@@ -1679,8 +1780,43 @@ position = Vector2(-11693.5, -61.103)
 scale = Vector2(6, 6)
 texture = ExtResource("1_hn31e")
 
+[node name="FullTree4" type="Sprite2D" parent="ParallaxBackground/Farther"]
+position = Vector2(-23021.8, -61.103)
+scale = Vector2(6, 6)
+texture = ExtResource("1_hn31e")
+
+[node name="FullTree5" type="Sprite2D" parent="ParallaxBackground/Farther"]
+position = Vector2(-35416.5, -61.103)
+scale = Vector2(6, 6)
+texture = ExtResource("1_hn31e")
+
 [node name="LeafSplash" type="Sprite2D" parent="ParallaxBackground/Farther"]
 position = Vector2(-10823, -1983.29)
+scale = Vector2(6, 6)
+texture = ExtResource("11_vlumh")
+
+[node name="LeafSplash6" type="Sprite2D" parent="ParallaxBackground/Farther"]
+position = Vector2(-15680.4, -1983.29)
+scale = Vector2(6, 6)
+texture = ExtResource("11_vlumh")
+
+[node name="LeafSplash7" type="Sprite2D" parent="ParallaxBackground/Farther"]
+position = Vector2(-20893.5, -1983.29)
+scale = Vector2(6, 6)
+texture = ExtResource("11_vlumh")
+
+[node name="LeafSplash8" type="Sprite2D" parent="ParallaxBackground/Farther"]
+position = Vector2(-25983, -1983.29)
+scale = Vector2(6, 6)
+texture = ExtResource("11_vlumh")
+
+[node name="LeafSplash9" type="Sprite2D" parent="ParallaxBackground/Farther"]
+position = Vector2(-31065.4, -1983.29)
+scale = Vector2(6, 6)
+texture = ExtResource("11_vlumh")
+
+[node name="LeafSplash10" type="Sprite2D" parent="ParallaxBackground/Farther"]
+position = Vector2(-36050.8, -1983.29)
 scale = Vector2(6, 6)
 texture = ExtResource("11_vlumh")
 
@@ -1710,6 +1846,10 @@ follow_viewport_enabled = true
 
 [node name="MainGrass2" type="Sprite2D" parent="ParallaxBackground/Playerlevel"]
 position = Vector2(2254, 724)
+texture = ExtResource("5_n6qbt")
+
+[node name="MainGrass11" type="Sprite2D" parent="ParallaxBackground/Playerlevel"]
+position = Vector2(4842, 724)
 texture = ExtResource("5_n6qbt")
 
 [node name="MainGrass" type="Sprite2D" parent="ParallaxBackground/Playerlevel"]
@@ -1744,6 +1884,10 @@ texture = ExtResource("5_n6qbt")
 position = Vector2(-18450, 723)
 texture = ExtResource("5_n6qbt")
 
+[node name="MainGrass10" type="Sprite2D" parent="ParallaxBackground/Playerlevel"]
+position = Vector2(-21038, 723)
+texture = ExtResource("5_n6qbt")
+
 [node name="Closest" type="CanvasLayer" parent="ParallaxBackground"]
 layer = 0
 follow_viewport_enabled = true
@@ -1768,6 +1912,10 @@ texture = ExtResource("9_gapgv")
 
 [node name="Leafborder5" type="Sprite2D" parent="ParallaxBackground/Closest"]
 position = Vector2(600, 678.391)
+texture = ExtResource("6_wu46v")
+
+[node name="Leafborder15" type="Sprite2D" parent="ParallaxBackground/Closest"]
+position = Vector2(3182.61, 678.391)
 texture = ExtResource("6_wu46v")
 
 [node name="Leafborder6" type="Sprite2D" parent="ParallaxBackground/Closest"]
@@ -1810,6 +1958,11 @@ z_index = -1
 position = Vector2(-17511.3, 678.261)
 texture = ExtResource("6_wu46v")
 
+[node name="Leafborder14" type="Sprite2D" parent="ParallaxBackground/Closest"]
+z_index = -1
+position = Vector2(-20099.1, 678.261)
+texture = ExtResource("6_wu46v")
+
 [node name="Borders" type="CanvasLayer" parent="."]
 
 [node name="BlackBordersLayout" parent="Borders" instance=ExtResource("33_1v5es")]
@@ -1836,6 +1989,7 @@ mouse_filter = 2
 color = Color(0, 0, 0.686275, 0.129412)
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("7_2khjy")]
 
