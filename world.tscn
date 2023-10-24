@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=105 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="Texture2D" uid="uid://bf32qs7alktqm" path="res://assets/background/green_tree2.png" id="1_bwuc1"]
 [ext_resource type="Texture2D" uid="uid://qpetavxrgxfk" path="res://assets/background/full_tree3.png" id="1_hn31e"]
@@ -36,8 +36,10 @@
 [ext_resource type="PackedScene" uid="uid://by8f5xx1yhbwn" path="res://scenes/hiding-spots/hiding_spot_bush.tscn" id="15_1foga"]
 [ext_resource type="PackedScene" uid="uid://ctfmlfvh2u2lt" path="res://scenes/hiding-spots/hiding_spot_tole.tscn" id="16_b2h5y"]
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="16_x2hlv"]
+[ext_resource type="Texture2D" uid="uid://cv73mhaudmpyb" path="res://assets/environment/wooden_background.png" id="16_yciqr"]
 [ext_resource type="AudioStream" uid="uid://c1udxmfm4t06d" path="res://assets/audio/other/forest_ambience.ogg" id="17_l7df0"]
 [ext_resource type="AudioStream" uid="uid://dto41b03quvi0" path="res://assets/audio/other/world_music.ogg" id="18_ow35r"]
+[ext_resource type="Texture2D" uid="uid://bbqogrgsruoqo" path="res://assets/mom_spreadsheet.png" id="20_bu5h1"]
 [ext_resource type="Texture2D" uid="uid://bgq0s5duy6tx3" path="res://assets/background/background.png" id="26_vg4cr"]
 [ext_resource type="PackedScene" uid="uid://q0k06l8pvoiq" path="res://scenes/climbable_short.tscn" id="27_rdv44"]
 [ext_resource type="PackedScene" uid="uid://dosgnylult5j4" path="res://scenes/background/borders_layout.tscn" id="33_1v5es"]
@@ -301,6 +303,120 @@ func _physics_process(delta: float) -> void:
 	path_follow.progress += speed * delta
 "
 
+[sub_resource type="GDScript" id="GDScript_8oerr"]
+script/source = "extends CharacterBody2D
+
+
+@export var speed: float = 200.0
+
+@export var direction: Vector2 = Vector2(1.0, 0.0)
+
+
+
+func _ready() -> void:
+	Events.player_caught.connect(on_player_caught)
+	$AnimatedSprite2D.play()
+
+func on_player_caught() -> void:
+	self.stop()
+
+
+func stop() -> void:
+	self.set_physics_process(false)
+
+
+func _physics_process(_delta: float) -> void:
+	
+	self.velocity.x = direction.x * self.speed
+	
+	self.move_and_slide()
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpnfv"]
+atlas = ExtResource("20_bu5h1")
+region = Rect2(0, 471, 487, 471)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mr3q"]
+atlas = ExtResource("20_bu5h1")
+region = Rect2(487, 471, 487, 471)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlyhh"]
+atlas = ExtResource("20_bu5h1")
+region = Rect2(974, 471, 487, 471)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_binfx"]
+atlas = ExtResource("20_bu5h1")
+region = Rect2(1461, 471, 487, 471)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdcrl"]
+atlas = ExtResource("20_bu5h1")
+region = Rect2(1948, 471, 487, 471)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lj60y"]
+atlas = ExtResource("20_bu5h1")
+region = Rect2(2435, 471, 487, 471)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t1lh"]
+atlas = ExtResource("20_bu5h1")
+region = Rect2(2922, 471, 487, 471)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcbsp"]
+atlas = ExtResource("20_bu5h1")
+region = Rect2(3409, 471, 487, 471)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efuyj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpnfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mr3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlyhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_binfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdcrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lj60y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t1lh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcbsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t1lh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lj60y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdcrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_binfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlyhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mr3q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kt67r"]
+size = Vector2(141, 116)
+
 [sub_resource type="Animation" id="Animation_lqyoh"]
 length = 0.001
 tracks/0/type = "value"
@@ -342,57 +458,6 @@ script = ExtResource("1_oe8lk")
 
 [node name="EndLevelArea" parent="." instance=ExtResource("2_2n8mu")]
 position = Vector2(2057, 189)
-
-[node name="Backgrounds" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Backgrounds"]
-position = Vector2(-19453, 0)
-scale = Vector2(2, 2)
-texture = ExtResource("26_vg4cr")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D2" type="Sprite2D" parent="Backgrounds"]
-position = Vector2(-15613, 0)
-scale = Vector2(2, 2)
-texture = ExtResource("26_vg4cr")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D3" type="Sprite2D" parent="Backgrounds"]
-position = Vector2(-11774, 0)
-scale = Vector2(2, 2)
-texture = ExtResource("26_vg4cr")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D4" type="Sprite2D" parent="Backgrounds"]
-position = Vector2(-7934, 0)
-scale = Vector2(2, 2)
-texture = ExtResource("26_vg4cr")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D5" type="Sprite2D" parent="Backgrounds"]
-position = Vector2(-4094, 0)
-scale = Vector2(2, 2)
-texture = ExtResource("26_vg4cr")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D6" type="Sprite2D" parent="Backgrounds"]
-position = Vector2(-254, 0)
-scale = Vector2(2, 2)
-texture = ExtResource("26_vg4cr")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D7" type="Sprite2D" parent="Backgrounds"]
-position = Vector2(3586, 0)
-scale = Vector2(2, 2)
-texture = ExtResource("26_vg4cr")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D8" type="Sprite2D" parent="Backgrounds"]
-position = Vector2(7426, 0)
-scale = Vector2(2, 2)
-texture = ExtResource("26_vg4cr")
-metadata/_edit_lock_ = true
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -1575,6 +1640,86 @@ texture = ExtResource("11_44ts1")
 position = Vector2(-4574, 605)
 texture = ExtResource("11_44ts1")
 
+[node name="Sprite2D" type="Sprite2D" parent="Environment"]
+position = Vector2(-16175, 302)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("16_yciqr")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Environment"]
+position = Vector2(-16303, 302)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("16_yciqr")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Environment"]
+position = Vector2(-16303, 302)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("16_yciqr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Environment"]
+position = Vector2(-16047, 302)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("16_yciqr")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Environment"]
+position = Vector2(-16047, 302)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("16_yciqr")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Environment"]
+position = Vector2(-15919, 302)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("16_yciqr")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Environment"]
+position = Vector2(-15791, 302)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("16_yciqr")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Environment"]
+position = Vector2(-15663, 302)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("16_yciqr")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Environment"]
+position = Vector2(-15535, 302)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("16_yciqr")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Environment"]
+position = Vector2(-15407, 302)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("16_yciqr")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Environment"]
+position = Vector2(-15279, 302)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("16_yciqr")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Environment"]
+position = Vector2(-15151, 302)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("16_yciqr")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Environment"]
+position = Vector2(-15023, 301)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("16_yciqr")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Environment"]
+position = Vector2(-15023, 301)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("16_yciqr")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Environment"]
+position = Vector2(-14895, 302)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("16_yciqr")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Environment"]
+position = Vector2(-14885, 302)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("16_yciqr")
+
 [node name="Barricade2" parent="Environment" instance=ExtResource("12_heuap")]
 position = Vector2(-15765, 678)
 
@@ -1676,13 +1821,26 @@ script = SubResource("GDScript_w8gnn")
 position = Vector2(-14895, 690)
 direction = Vector2(-1, 0)
 
+[node name="GroundScout3" parent="Actors/Enemies" instance=ExtResource("6_a4241")]
+position = Vector2(-15497, 704)
+script = SubResource("GDScript_8oerr")
+speed = 200.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Actors/Enemies/GroundScout3"]
+position = Vector2(-5204, -270)
+rotation = 0.000738099
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_efuyj")
+frame_progress = 0.118457
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Actors/Enemies/GroundScout3"]
+position = Vector2(-5104, -199)
+shape = SubResource("RectangleShape2D_kt67r")
+
 [node name="Player" parent="Actors" instance=ExtResource("1_lr41f")]
-position = Vector2(-17587, 690)
+position = Vector2(-19977, 594)
 collision_mask = 5
 metadata/_edit_group_ = true
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.0784314, 0.0784314, 0.0784314, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0, 0, 0, 1)
@@ -1705,7 +1863,6 @@ bus = &"Music"
 
 [node name="Background" type="CanvasLayer" parent="ParallaxBackground"]
 layer = -1
-visible = false
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Background"]
 anchors_preset = 15
@@ -1714,6 +1871,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("26_vg4cr")
+expand_mode = 1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="ParallaxBackground/Background/TextureRect"]
+color = Color(0.45098, 0.45098, 0.45098, 1)
 
 [node name="Farthest" type="CanvasLayer" parent="ParallaxBackground"]
 layer = -1
@@ -1808,6 +1969,9 @@ position = Vector2(-31675.7, 1409.67)
 scale = Vector2(6, 6)
 texture = ExtResource("3_6p5f1")
 
+[node name="CanvasModulate" type="CanvasModulate" parent="ParallaxBackground/Farthest"]
+color = Color(0.45098, 0.45098, 0.45098, 1)
+
 [node name="Farther" type="CanvasLayer" parent="ParallaxBackground"]
 layer = -1
 scale = Vector2(0.59, 0.59)
@@ -1830,8 +1994,23 @@ position = Vector2(-11693.5, -61.103)
 scale = Vector2(6, 6)
 texture = ExtResource("1_hn31e")
 
+[node name="FullTree6" type="Sprite2D" parent="ParallaxBackground/Farther"]
+position = Vector2(-16573.8, 1111.38)
+scale = Vector2(6, 6)
+texture = ExtResource("9_ycmcg")
+
+[node name="FullTree7" type="Sprite2D" parent="ParallaxBackground/Farther"]
+position = Vector2(-125.91, 476.998)
+scale = Vector2(6, 6)
+texture = ExtResource("9_ycmcg")
+
+[node name="FullTree8" type="Sprite2D" parent="ParallaxBackground/Farther"]
+position = Vector2(-30111.4, 399.516)
+scale = Vector2(6, 6)
+texture = ExtResource("9_ycmcg")
+
 [node name="FullTree4" type="Sprite2D" parent="ParallaxBackground/Farther"]
-position = Vector2(-23021.8, -61.103)
+position = Vector2(-25372.9, 576.271)
 scale = Vector2(6, 6)
 texture = ExtResource("1_hn31e")
 
@@ -1890,6 +2069,9 @@ position = Vector2(9485.22, -1991)
 scale = Vector2(6, 6)
 texture = ExtResource("11_vlumh")
 
+[node name="CanvasModulate" type="CanvasModulate" parent="ParallaxBackground/Farther"]
+color = Color(0.45098, 0.45098, 0.45098, 1)
+
 [node name="Playerlevel" type="CanvasLayer" parent="ParallaxBackground"]
 layer = -1
 follow_viewport_enabled = true
@@ -1938,6 +2120,9 @@ texture = ExtResource("5_n6qbt")
 position = Vector2(-21038, 723)
 texture = ExtResource("5_n6qbt")
 
+[node name="CanvasModulate" type="CanvasModulate" parent="ParallaxBackground/Playerlevel"]
+color = Color(0.721569, 0.721569, 0.721569, 1)
+
 [node name="Closest" type="CanvasLayer" parent="ParallaxBackground"]
 layer = 0
 follow_viewport_enabled = true
@@ -1947,8 +2132,17 @@ follow_viewport_scale = 1.15
 position = Vector2(1806.96, 384.348)
 texture = ExtResource("11_pvq70")
 
+[node name="BlackTree9" type="Sprite2D" parent="ParallaxBackground/Closest"]
+position = Vector2(6066.96, 401.739)
+texture = ExtResource("11_pvq70")
+
 [node name="BlackTree2" type="Sprite2D" parent="ParallaxBackground/Closest"]
 position = Vector2(-1170, 366.667)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("10_yhxob")
+
+[node name="BlackTree13" type="Sprite2D" parent="ParallaxBackground/Closest"]
+position = Vector2(-19019.1, 0.869566)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("10_yhxob")
 
@@ -1956,8 +2150,36 @@ texture = ExtResource("10_yhxob")
 position = Vector2(-4780.87, 375.652)
 texture = ExtResource("11_pvq70")
 
+[node name="BlackTree10" type="Sprite2D" parent="ParallaxBackground/Closest"]
+position = Vector2(-13545.2, 393.043)
+texture = ExtResource("11_pvq70")
+
+[node name="BlackTree12" type="Sprite2D" parent="ParallaxBackground/Closest"]
+position = Vector2(-13545.2, 393.043)
+texture = ExtResource("11_pvq70")
+
+[node name="BlackTree7" type="Sprite2D" parent="ParallaxBackground/Closest"]
+position = Vector2(-7966.96, 375.652)
+texture = ExtResource("11_pvq70")
+
+[node name="BlackTree11" type="Sprite2D" parent="ParallaxBackground/Closest"]
+position = Vector2(359.13, 287.826)
+texture = ExtResource("11_pvq70")
+
+[node name="BlackTree8" type="Sprite2D" parent="ParallaxBackground/Closest"]
+position = Vector2(-20966.1, 235.652)
+texture = ExtResource("11_pvq70")
+
+[node name="BlackTree5" type="Sprite2D" parent="ParallaxBackground/Closest"]
+position = Vector2(-15587.8, 578.261)
+texture = ExtResource("11_pvq70")
+
 [node name="BlackTree4" type="Sprite2D" parent="ParallaxBackground/Closest"]
 position = Vector2(-3614.44, 371.111)
+texture = ExtResource("9_gapgv")
+
+[node name="BlackTree6" type="Sprite2D" parent="ParallaxBackground/Closest"]
+position = Vector2(-11188.7, 495.652)
 texture = ExtResource("9_gapgv")
 
 [node name="Leafborder5" type="Sprite2D" parent="ParallaxBackground/Closest"]
@@ -2013,9 +2235,14 @@ z_index = -1
 position = Vector2(-20099.1, 678.261)
 texture = ExtResource("6_wu46v")
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.226707, 0.226707, 0.226707, 1)
+
 [node name="Borders" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="BlackBordersLayout" parent="Borders" instance=ExtResource("33_1v5es")]
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="BackgroundColor" type="CanvasLayer" parent="."]
@@ -2069,7 +2296,7 @@ offset_left = -17340.0
 offset_top = 477.0
 offset_right = -16784.0
 offset_bottom = 651.0
-theme_override_colors/font_color = Color(0.0313726, 0.243137, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 40
 text = "Movement:
 AD / ←→ to go left and right.
@@ -2082,7 +2309,7 @@ offset_left = -14882.0
 offset_top = 477.0
 offset_right = -14326.0
 offset_bottom = 651.0
-theme_override_colors/font_color = Color(0.0313726, 0.243137, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 40
 text = "Hiding:
 While in a green light object
