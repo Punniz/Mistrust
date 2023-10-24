@@ -281,7 +281,8 @@ collision_mask = 9
 script = ExtResource("1_tdkwl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -204)
+position = Vector2(0, -404)
+limit_bottom = 1100
 script = SubResource("GDScript_hcyft")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

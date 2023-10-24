@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=62 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="Texture2D" uid="uid://bf32qs7alktqm" path="res://assets/background/green_tree2.png" id="1_bwuc1"]
 [ext_resource type="Texture2D" uid="uid://qpetavxrgxfk" path="res://assets/background/full_tree3.png" id="1_hn31e"]
@@ -34,6 +34,7 @@
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="16_x2hlv"]
 [ext_resource type="AudioStream" uid="uid://c1udxmfm4t06d" path="res://assets/audio/other/forest_ambience.ogg" id="17_l7df0"]
 [ext_resource type="AudioStream" uid="uid://dto41b03quvi0" path="res://assets/audio/other/world_music.ogg" id="18_ow35r"]
+[ext_resource type="Texture2D" uid="uid://bgq0s5duy6tx3" path="res://assets/background/background.png" id="26_vg4cr"]
 [ext_resource type="PackedScene" uid="uid://q0k06l8pvoiq" path="res://scenes/climbable_short.tscn" id="27_rdv44"]
 [ext_resource type="PackedScene" uid="uid://dosgnylult5j4" path="res://scenes/background/borders_layout.tscn" id="33_1v5es"]
 [ext_resource type="PackedScene" uid="uid://bi5t1tvwbiuag" path="res://scenes/ui/game_over_menu.tscn" id="35_6bwmo"]
@@ -1088,7 +1089,7 @@ position = Vector2(107, 86)
 position = Vector2(1089, 285)
 
 [node name="Player" parent="Actors" instance=ExtResource("1_lr41f")]
-position = Vector2(162, 670)
+position = Vector2(-1847, 670)
 collision_mask = 5
 metadata/_edit_group_ = true
 
@@ -1118,6 +1119,17 @@ autoplay = true
 bus = &"Music"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Background" type="CanvasLayer" parent="ParallaxBackground"]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("26_vg4cr")
 
 [node name="Farthest" type="CanvasLayer" parent="ParallaxBackground"]
 layer = -1
