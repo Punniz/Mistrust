@@ -1829,7 +1829,6 @@ speed = 200.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Actors/Enemies/GroundScout3"]
 position = Vector2(-5204, -270)
 rotation = 0.000738099
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_efuyj")
 frame_progress = 0.118457
 
