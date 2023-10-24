@@ -639,7 +639,7 @@ position = Vector2(-16147, 445)
 texture = ExtResource("2_junlc")
 
 [node name="Barricade" parent="Environment/Fort1" instance=ExtResource("11_a0mlc")]
-position = Vector2(-20253, 654)
+position = Vector2(-17932, 654)
 
 [node name="Fort2" type="Node2D" parent="Environment"]
 position = Vector2(4166, 17)
@@ -1674,7 +1674,7 @@ script = SubResource("GDScript_w8gnn")
 position = Vector2(1089, 285)
 
 [node name="Player" parent="Actors" instance=ExtResource("1_lr41f")]
-position = Vector2(-123, 632)
+position = Vector2(-14929, 632)
 collision_mask = 5
 metadata/_edit_group_ = true
 
@@ -1694,6 +1694,7 @@ bus = &"Ambient"
 
 [node name="MusicTrack" type="AudioStreamPlayer" parent="AudioManager"]
 stream = ExtResource("18_ow35r")
+volume_db = -5.0
 autoplay = true
 bus = &"Music"
 
@@ -2054,3 +2055,29 @@ autoplay = "start"
 libraries = {
 "": SubResource("AnimationLibrary_uu84f")
 }
+
+[node name="ControlsLabel" type="Label" parent="."]
+offset_left = -17340.0
+offset_top = 388.0
+offset_right = -16888.0
+offset_bottom = 562.0
+theme_override_colors/font_color = Color(0.0313726, 0.243137, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Movement:
+AD / ←→ to go left and right.
+WS / ↑↓ to climb the ladders"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlsLabel2" type="Label" parent="."]
+offset_left = -14882.0
+offset_top = 388.0
+offset_right = -14326.0
+offset_bottom = 562.0
+theme_override_colors/font_color = Color(0.0313726, 0.243137, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Hiding:
+While in a bush
+Space Bar"
+horizontal_alignment = 1
+vertical_alignment = 1
