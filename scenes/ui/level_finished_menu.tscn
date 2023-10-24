@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://4qcduhyvqeli"]
+[gd_scene load_steps=8 format=3 uid="uid://4qcduhyvqeli"]
 
 [ext_resource type="Script" path="res://scripts/ui/level_finished_menu.gd" id="1_a7nuf"]
 [ext_resource type="Theme" uid="uid://bgl1w0ys3q4oe" path="res://resources/main_theme.tres" id="1_o5ney"]
 [ext_resource type="Texture2D" path="res://assets/textures/level_finished_texture.png" id="2_hlpmp"]
+[ext_resource type="AudioStream" uid="uid://did8kxgsiif47" path="res://assets/audio/other/game_won_music.ogg" id="4_jx3ik"]
 
 [sub_resource type="Animation" id="Animation_5wm05"]
 length = 0.001
@@ -72,11 +73,6 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_2hnjw")
-}
-
 [node name="QuitToMainMenuButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 50.0
@@ -84,6 +80,15 @@ offset_top = 556.0
 offset_right = 480.0
 offset_bottom = 654.0
 text = "QuitToMainMenu"
+
+[node name="MusicTrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jx3ik")
+bus = &"Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2hnjw")
+}
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="QuitToMainMenuButton" to="." method="_on_quit_to_main_menu_button_pressed"]

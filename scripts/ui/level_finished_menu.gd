@@ -18,3 +18,4 @@ func _on_quit_to_main_menu_button_pressed() -> void:
 func _on_visibility_changed() -> void:
 	if self.visible:
 		self.first_element_to_focus.call_deferred("grab_focus")
+		$MusicTrack.call_deferred("play")
