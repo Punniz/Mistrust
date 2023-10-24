@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=73 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="Texture2D" uid="uid://bf32qs7alktqm" path="res://assets/background/green_tree2.png" id="1_bwuc1"]
 [ext_resource type="Texture2D" uid="uid://qpetavxrgxfk" path="res://assets/background/full_tree3.png" id="1_hn31e"]
@@ -104,6 +104,150 @@ size = Vector2(504, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ah12g"]
 size = Vector2(28, 125)
+
+[sub_resource type="Curve2D" id="Curve2D_ffjx6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 98.4629, 1.02563, 0, 0, 0, 0, 1502.57, 1.02563)
+}
+point_count = 2
+
+[sub_resource type="GDScript" id="GDScript_723qg"]
+script/source = "extends Path2D
+#class_name Drone
+
+
+@export var speed: float = 100.0
+
+
+@onready var path_follow: PathFollow2D = $PathFollow2D
+
+
+func _ready() -> void:
+	Events.player_caught.connect(on_player_caught)
+
+
+func on_player_caught() -> void:
+	self.stop()
+
+
+func stop() -> void:
+	self.set_physics_process(false)
+
+
+func _physics_process(delta: float) -> void:
+	if path_follow.progress_ratio == 0 or path_follow.progress_ratio == 1:
+		speed = -speed
+	
+	path_follow.progress += speed * delta
+"
+
+[sub_resource type="Curve2D" id="Curve2D_fh6q2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 381.768, -12.0891, 0, 0, 0, 0, 567, -1)
+}
+point_count = 3
+
+[sub_resource type="GDScript" id="GDScript_b4ftj"]
+script/source = "extends Path2D
+#class_name Drone
+
+
+@export var speed: float = 100.0
+
+
+@onready var path_follow: PathFollow2D = $PathFollow2D
+
+
+func _ready() -> void:
+	Events.player_caught.connect(on_player_caught)
+
+
+func on_player_caught() -> void:
+	self.stop()
+
+
+func stop() -> void:
+	self.set_physics_process(false)
+
+
+func _physics_process(delta: float) -> void:
+	if path_follow.progress_ratio == 0 or path_follow.progress_ratio == 1:
+		speed = -speed
+	
+	path_follow.progress += speed * delta
+"
+
+[sub_resource type="Curve2D" id="Curve2D_vplrj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -350, -13.4615, 0, 0, 0, 0, 381.768, -12.0891, 0, 0, 0, 0, 1357.69, -7.69231)
+}
+point_count = 3
+
+[sub_resource type="GDScript" id="GDScript_bfy88"]
+script/source = "extends Path2D
+#class_name Drone
+
+
+@export var speed: float = 100.0
+
+
+@onready var path_follow: PathFollow2D = $PathFollow2D
+
+
+func _ready() -> void:
+	Events.player_caught.connect(on_player_caught)
+
+
+func on_player_caught() -> void:
+	self.stop()
+
+
+func stop() -> void:
+	self.set_physics_process(false)
+
+
+func _physics_process(delta: float) -> void:
+	if path_follow.progress_ratio == 0 or path_follow.progress_ratio == 1:
+		speed = -speed
+	
+	path_follow.progress += speed * delta
+"
+
+[sub_resource type="Curve2D" id="Curve2D_y1hw6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -42.3076, -11.5385, 0, 0, 0, 0, 381.768, -12.0891, 0, 0, 0, 0, 1105.77, -13.4615)
+}
+point_count = 3
+
+[sub_resource type="GDScript" id="GDScript_w8gnn"]
+script/source = "extends Path2D
+#class_name Drone
+
+
+@export var speed: float = 100.0
+
+
+@onready var path_follow: PathFollow2D = $PathFollow2D
+
+
+func _ready() -> void:
+	Events.player_caught.connect(on_player_caught)
+
+
+func on_player_caught() -> void:
+	self.stop()
+
+
+func stop() -> void:
+	self.set_physics_process(false)
+
+
+func _physics_process(delta: float) -> void:
+	if path_follow.progress_ratio == 0 or path_follow.progress_ratio == 1:
+		speed = -speed
+	
+	path_follow.progress += speed * delta
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcg3e"]
 
@@ -478,28 +622,12 @@ texture = ExtResource("11_44ts1")
 position = Vector2(1778, 122)
 texture = ExtResource("11_44ts1")
 
-[node name="Wall3" type="Sprite2D" parent="Environment/Fort1/woodFloor1"]
-position = Vector2(608, 302)
-texture = ExtResource("11_4y058")
-
-[node name="Wall4" type="Sprite2D" parent="Environment/Fort1/woodFloor1"]
-position = Vector2(608, 263)
-texture = ExtResource("11_4y058")
-
-[node name="Wall5" type="Sprite2D" parent="Environment/Fort1/woodFloor1"]
-position = Vector2(1437, 302)
-texture = ExtResource("11_4y058")
-
-[node name="Wall6" type="Sprite2D" parent="Environment/Fort1/woodFloor1"]
-position = Vector2(1437, 263)
-texture = ExtResource("11_4y058")
-
 [node name="Wall" type="CollisionShape2D" parent="Environment/Fort1/woodFloor1"]
-position = Vector2(607.75, 284.75)
+position = Vector2(898, 276)
 shape = SubResource("RectangleShape2D_ipjdw")
 
 [node name="Wall2" type="CollisionShape2D" parent="Environment/Fort1/woodFloor1"]
-position = Vector2(1437.12, 282.875)
+position = Vector2(1202, 274)
 shape = SubResource("RectangleShape2D_ipjdw")
 
 [node name="bridge" type="CollisionShape2D" parent="Environment/Fort1/woodFloor1"]
@@ -1096,9 +1224,30 @@ position = Vector2(-9161, 566)
 texture = ExtResource("9_wsflm")
 
 [node name="Bush4" type="Node2D" parent="Environment"]
-position = Vector2(-6432, -283)
+position = Vector2(-6439, -288)
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Bush4"]
+position = Vector2(-9161, 566)
+texture = ExtResource("7_5o4s8")
+
+[node name="Bush5" type="Node2D" parent="Environment"]
+position = Vector2(-2162, -593)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Bush5"]
+position = Vector2(-9161, 566)
+texture = ExtResource("7_5o4s8")
+
+[node name="Bush6" type="Node2D" parent="Environment"]
+position = Vector2(3407, -425)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Bush6"]
+position = Vector2(-9161, 566)
+texture = ExtResource("7_5o4s8")
+
+[node name="Bush7" type="Node2D" parent="Environment"]
+position = Vector2(3819, -632)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Bush7"]
 position = Vector2(-9161, 566)
 texture = ExtResource("7_5o4s8")
 
@@ -1372,18 +1521,53 @@ texture = ExtResource("11_44ts1")
 
 [node name="Drone" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
 position = Vector2(-16357, 132)
-
-[node name="Drone2" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
-position = Vector2(-14335, 331)
+scale = Vector2(0.975, 0.975)
+curve = SubResource("Curve2D_ffjx6")
+script = SubResource("GDScript_723qg")
 
 [node name="Drone3" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
-position = Vector2(-12053, -153)
+position = Vector2(-14413, 465)
+scale = Vector2(0.975, 0.975)
+curve = SubResource("Curve2D_ffjx6")
+script = SubResource("GDScript_723qg")
+
+[node name="Drone2" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
+position = Vector2(-11732, -331)
+scale = Vector2(1.47, 1.47)
 
 [node name="Drone4" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
-position = Vector2(-6957, 108)
+position = Vector2(-9420, 400)
+curve = SubResource("Curve2D_fh6q2")
+script = SubResource("GDScript_b4ftj")
 
 [node name="Drone5" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
-position = Vector2(-5924, -89)
+position = Vector2(-8107, 405)
+curve = SubResource("Curve2D_fh6q2")
+script = SubResource("GDScript_b4ftj")
+
+[node name="Drone6" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
+position = Vector2(-6433, 65)
+scale = Vector2(0.52, 0.52)
+curve = SubResource("Curve2D_vplrj")
+script = SubResource("GDScript_bfy88")
+
+[node name="Drone9" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
+position = Vector2(-2977, 500)
+scale = Vector2(0.52, 0.52)
+curve = SubResource("Curve2D_vplrj")
+script = SubResource("GDScript_bfy88")
+
+[node name="Drone7" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
+position = Vector2(-5605, -85)
+scale = Vector2(0.52, 0.52)
+curve = SubResource("Curve2D_y1hw6")
+script = SubResource("GDScript_w8gnn")
+
+[node name="Drone8" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
+position = Vector2(-4152, 491)
+scale = Vector2(0.52, 0.52)
+curve = SubResource("Curve2D_y1hw6")
+script = SubResource("GDScript_w8gnn")
 
 [node name="GroundScout" parent="Actors/Enemies" instance=ExtResource("6_a4241")]
 position = Vector2(1089, 285)
