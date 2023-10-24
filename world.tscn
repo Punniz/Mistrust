@@ -350,48 +350,56 @@ metadata/_edit_lock_ = true
 position = Vector2(-19453, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("26_vg4cr")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="Backgrounds"]
 position = Vector2(-15613, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("26_vg4cr")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="Backgrounds"]
 position = Vector2(-11774, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("26_vg4cr")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D4" type="Sprite2D" parent="Backgrounds"]
 position = Vector2(-7934, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("26_vg4cr")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D5" type="Sprite2D" parent="Backgrounds"]
 position = Vector2(-4094, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("26_vg4cr")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D6" type="Sprite2D" parent="Backgrounds"]
 position = Vector2(-254, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("26_vg4cr")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D7" type="Sprite2D" parent="Backgrounds"]
 position = Vector2(3586, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("26_vg4cr")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D8" type="Sprite2D" parent="Backgrounds"]
 position = Vector2(7426, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("26_vg4cr")
+metadata/_edit_lock_ = true
 
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Building1" type="Node2D" parent="Environment"]
 
 [node name="woodFloor2" type="StaticBody2D" parent="Environment/Building1"]
-position = Vector2(0, 324)
+position = Vector2(0, 337)
 collision_layer = 3
 collision_mask = 0
 
@@ -426,7 +434,7 @@ position = Vector2(584, -4)
 texture = ExtResource("9_4on2a")
 
 [node name="grassFloor1" type="StaticBody2D" parent="Environment/Building1"]
-position = Vector2(0, 711)
+position = Vector2(0, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -444,33 +452,33 @@ texture = ExtResource("3_u0onr")
 [node name="Row1" type="Node2D" parent="Environment/Building1"]
 
 [node name="Walls" type="Sprite2D" parent="Environment/Building1/Row1"]
-position = Vector2(91, 581)
+position = Vector2(91, 594)
 texture = ExtResource("7_5o4s8")
 
 [node name="Walls2" type="Sprite2D" parent="Environment/Building1/Row1"]
-position = Vector2(265, 580)
+position = Vector2(265, 593)
 texture = ExtResource("8_778d5")
 
 [node name="Walls3" type="Sprite2D" parent="Environment/Building1/Row1"]
-position = Vector2(440, 581)
+position = Vector2(440, 594)
 texture = ExtResource("8_778d5")
 
 [node name="Walls4" type="Sprite2D" parent="Environment/Building1/Row1"]
-position = Vector2(615, 580)
+position = Vector2(615, 593)
 rotation = -3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("7_5o4s8")
 
 [node name="Walls5" type="Sprite2D" parent="Environment/Building1/Row1"]
-position = Vector2(790, 579)
+position = Vector2(790, 592)
 texture = ExtResource("7_5o4s8")
 
 [node name="Walls6" type="Sprite2D" parent="Environment/Building1/Row1"]
-position = Vector2(965, 580)
+position = Vector2(965, 593)
 texture = ExtResource("8_778d5")
 
 [node name="Walls7" type="Sprite2D" parent="Environment/Building1/Row1"]
-position = Vector2(1141, 580)
+position = Vector2(1141, 593)
 rotation = -3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("7_5o4s8")
@@ -480,33 +488,33 @@ position = Vector2(1232, -175)
 scale = Vector2(-1, 1)
 
 [node name="Walls" type="Sprite2D" parent="Environment/Building1/Row2"]
-position = Vector2(91, 581)
+position = Vector2(91, 594)
 texture = ExtResource("8_778d5")
 
 [node name="Walls2" type="Sprite2D" parent="Environment/Building1/Row2"]
-position = Vector2(265, 580)
+position = Vector2(265, 593)
 texture = ExtResource("8_778d5")
 
 [node name="Walls3" type="Sprite2D" parent="Environment/Building1/Row2"]
-position = Vector2(440, 581)
+position = Vector2(440, 594)
 texture = ExtResource("9_usd4y")
 
 [node name="Walls4" type="Sprite2D" parent="Environment/Building1/Row2"]
-position = Vector2(615, 580)
+position = Vector2(615, 593)
 rotation = -3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("7_5o4s8")
 
 [node name="Walls5" type="Sprite2D" parent="Environment/Building1/Row2"]
-position = Vector2(790, 579)
+position = Vector2(790, 592)
 texture = ExtResource("7_5o4s8")
 
 [node name="Walls6" type="Sprite2D" parent="Environment/Building1/Row2"]
-position = Vector2(965, 580)
+position = Vector2(965, 593)
 texture = ExtResource("7_5o4s8")
 
 [node name="Walls7" type="Sprite2D" parent="Environment/Building1/Row2"]
-position = Vector2(1141, 580)
+position = Vector2(1141, 593)
 rotation = -3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("8_778d5")
@@ -516,39 +524,39 @@ position = Vector2(1231, -349)
 scale = Vector2(-1, 1)
 
 [node name="Walls" type="Sprite2D" parent="Environment/Building1/Row3"]
-position = Vector2(91, 581)
+position = Vector2(91, 594)
 texture = ExtResource("7_5o4s8")
 
 [node name="Walls2" type="Sprite2D" parent="Environment/Building1/Row3"]
-position = Vector2(265, 580)
+position = Vector2(265, 593)
 texture = ExtResource("8_778d5")
 
 [node name="Walls3" type="Sprite2D" parent="Environment/Building1/Row3"]
-position = Vector2(440, 581)
+position = Vector2(440, 594)
 texture = ExtResource("8_778d5")
 
 [node name="Walls4" type="Sprite2D" parent="Environment/Building1/Row3"]
-position = Vector2(615, 580)
+position = Vector2(615, 593)
 rotation = -3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("7_5o4s8")
 
 [node name="Walls5" type="Sprite2D" parent="Environment/Building1/Row3"]
-position = Vector2(790, 579)
+position = Vector2(790, 592)
 texture = ExtResource("7_5o4s8")
 
 [node name="Walls6" type="Sprite2D" parent="Environment/Building1/Row3"]
-position = Vector2(965, 580)
+position = Vector2(965, 593)
 texture = ExtResource("8_778d5")
 
 [node name="Walls7" type="Sprite2D" parent="Environment/Building1/Row3"]
-position = Vector2(1141, 580)
+position = Vector2(1141, 593)
 rotation = -3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("7_5o4s8")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Environment/Building1"]
-position = Vector2(613.5, 141)
+position = Vector2(613.5, 154)
 scale = Vector2(7.31548, 1)
 collision_layer = 3
 collision_mask = 0
@@ -563,7 +571,7 @@ position = Vector2(-1.02522, 0)
 shape = SubResource("RectangleShape2D_g7ogo")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Environment/Building1"]
-position = Vector2(-7, 141)
+position = Vector2(-7, 154)
 rotation = 1.57079
 scale = Vector2(7.31548, 1)
 collision_layer = 3
@@ -579,7 +587,7 @@ position = Vector2(20.2311, 4.76837e-07)
 shape = SubResource("RectangleShape2D_ho3ia")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Environment/Building1"]
-position = Vector2(1220, 141)
+position = Vector2(1220, 154)
 rotation = 1.57079
 scale = Vector2(7.31548, 1)
 collision_layer = 3
@@ -1007,7 +1015,7 @@ position = Vector2(93, -33)
 texture = ExtResource("3_u0onr")
 
 [node name="grassFloor20" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(1046, 721)
+position = Vector2(1046, 734)
 collision_layer = 3
 collision_mask = 0
 
@@ -1669,7 +1677,7 @@ position = Vector2(-14895, 690)
 direction = Vector2(-1, 0)
 
 [node name="Player" parent="Actors" instance=ExtResource("1_lr41f")]
-position = Vector2(-17622, 690)
+position = Vector2(-241, 690)
 collision_mask = 5
 metadata/_edit_group_ = true
 
@@ -1753,6 +1761,7 @@ texture = ExtResource("3_v3rvs")
 position = Vector2(1172.64, 431.244)
 scale = Vector2(6, 6)
 texture = ExtResource("10_r7tvg")
+metadata/_edit_lock_ = true
 
 [node name="GreenTree6" type="Sprite2D" parent="ParallaxBackground/Farthest"]
 position = Vector2(10279, 1409.67)
