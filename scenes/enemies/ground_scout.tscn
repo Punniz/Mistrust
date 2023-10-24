@@ -301,7 +301,7 @@ shape = SubResource("RectangleShape2D_ktxay")
 position = Vector2(341, -90)
 rotation = -1.57079
 scale = Vector2(0.987598, 2.90364)
-color = Color(0.505882, 0, 0.290196, 1)
+color = Color(0.672305, 1.76881e-06, 6.257e-07, 1)
 texture = ExtResource("3_7lxkp")
 
 [node name="PlayerDetector" parent="." instance=ExtResource("3_saeqq")]

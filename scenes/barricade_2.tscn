@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cxpmwrkxeyqj2" path="res://assets/environment/wood_log_tall.png" id="3_kp825"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04j8e"]
-size = Vector2(177, 135)
+size = Vector2(177, 180)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sq2u2"]
 polygon = PackedVector2Array(-84, 0, -84, -60, -6, -60, -61, -115, -41, -135, 26, -68, 74, -116, 93, -96, 58, -60, 84, -60, 84, 0)
@@ -29,7 +29,7 @@ rotation = -0.785398
 texture = ExtResource("3_kp825")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4.5, -67.5)
+position = Vector2(4.5, -70)
 shape = SubResource("RectangleShape2D_04j8e")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]

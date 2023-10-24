@@ -837,14 +837,6 @@ texture = ExtResource("3_u0onr")
 position = Vector2(1357, -262)
 texture = ExtResource("3_u0onr")
 
-[node name="WoodenFloor15" type="Sprite2D" parent="Environment/Fort2/woodFloor1"]
-position = Vector2(1525, -262)
-texture = ExtResource("3_u0onr")
-
-[node name="WoodenFloor16" type="Sprite2D" parent="Environment/Fort2/woodFloor1"]
-position = Vector2(1693, -262)
-texture = ExtResource("3_u0onr")
-
 [node name="WoodenFloor17" type="Sprite2D" parent="Environment/Fort2/woodFloor1"]
 position = Vector2(1745, -262)
 texture = ExtResource("3_u0onr")
@@ -1296,14 +1288,11 @@ position = Vector2(-14209, 657)
 modulate = Color(1, 1, 1, 1)
 position = Vector2(-12344, 657)
 
-[node name="HidingSpotBush4" parent="Environment/HidingSpots" instance=ExtResource("15_1foga")]
-z_index = -1
-position = Vector2(-2685, 674)
-collision_layer = 1
-collision_mask = 1
-
 [node name="HidingSpotBush5" parent="Environment/HidingSpots" instance=ExtResource("15_1foga")]
 position = Vector2(-3877, 659)
+
+[node name="HidingSpotBush7" parent="Environment/HidingSpots" instance=ExtResource("15_1foga")]
+position = Vector2(-2080, 659)
 
 [node name="Fort4" type="Node2D" parent="Environment"]
 
@@ -1676,10 +1665,11 @@ curve = SubResource("Curve2D_y1hw6")
 script = SubResource("GDScript_w8gnn")
 
 [node name="GroundScout2" parent="Actors/Enemies" instance=ExtResource("6_a4241")]
-position = Vector2(-14895, 670)
+position = Vector2(-14895, 690)
+direction = Vector2(-1, 0)
 
 [node name="Player" parent="Actors" instance=ExtResource("1_lr41f")]
-position = Vector2(-17614, 670)
+position = Vector2(-17622, 690)
 collision_mask = 5
 metadata/_edit_group_ = true
 
@@ -2086,7 +2076,7 @@ offset_bottom = 651.0
 theme_override_colors/font_color = Color(0.0313726, 0.243137, 1, 1)
 theme_override_font_sizes/font_size = 40
 text = "Hiding:
-While in a bush
-Space Bar"
+While in a green light object
+Hold Space Bar"
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -4,12 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://cqet2kdioda3b" path="res://assets/environment/wood_log_short.png" id="2_f5e5j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3i0o0"]
-size = Vector2(168, 163)
+size = Vector2(168, 203)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_18pb3"]
 polygon = PackedVector2Array(-84, 0, -84, -60, -53, -60, -37, -76, -81, -120, -38, -162, 64, -60, 84, -60, 84, 0)
 
 [node name="Barricade" type="StaticBody2D"]
+collision_layer = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -30.3899)
@@ -26,7 +27,7 @@ rotation = 0.785397
 texture = ExtResource("2_f5e5j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -81.5)
+position = Vector2(0, -83.5)
 shape = SubResource("RectangleShape2D_3i0o0")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]

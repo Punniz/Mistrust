@@ -21,8 +21,9 @@ position = Vector2(0, -86)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, -86)
+scale = Vector2(0.390625, 0.390625)
 color = Color(0, 0.501961, 0.145098, 1)
-energy = 0.8
+energy = 1.5
 texture = ExtResource("2_pktxd")
 texture_scale = 2.0
 
