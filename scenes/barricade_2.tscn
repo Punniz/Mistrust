@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dycs0q2lutdr1"]
+[gd_scene load_steps=6 format=3 uid="uid://dycs0q2lutdr1"]
 
 [ext_resource type="Texture2D" uid="uid://b74ufrseinngy" path="res://assets/environment/wood_log.png" id="1_2doyo"]
 [ext_resource type="Texture2D" uid="uid://cqet2kdioda3b" path="res://assets/environment/wood_log_short.png" id="2_8b63b"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04j8e"]
 size = Vector2(177, 135)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sq2u2"]
+polygon = PackedVector2Array(-84, 0, -84, -60, -6, -60, -61, -115, -41, -135, 26, -68, 74, -116, 93, -96, 58, -60, 84, -60, 84, 0)
 
 [node name="Barricade2" type="StaticBody2D"]
 collision_layer = 3
@@ -28,3 +31,6 @@ texture = ExtResource("3_kp825")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4.5, -67.5)
 shape = SubResource("RectangleShape2D_04j8e")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_sq2u2")

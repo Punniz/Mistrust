@@ -6,3 +6,4 @@ extends Node
 signal player_caught
 # After player finished playing animation caught
 signal game_over
+signal player_finished_level

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://qpetavxrgxfk" path="res://assets/background/full_tree3.png" id="1_hn31e"]
 [ext_resource type="PackedScene" uid="uid://bfu2peuf5fcxb" path="res://scenes/player.tscn" id="1_lr41f"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_oe8lk"]
+[ext_resource type="PackedScene" uid="uid://168mcih3rmq4" path="res://scenes/end_level_area.tscn" id="2_2n8mu"]
 [ext_resource type="PackedScene" uid="uid://2en76f76byyg" path="res://scenes/climbable.tscn" id="2_5y4qr"]
 [ext_resource type="Texture2D" uid="uid://ceeub3k3ei7je" path="res://assets/background/green_tree3.png" id="2_8xtnj"]
 [ext_resource type="Texture2D" uid="uid://c5tnd4vtrghfe" path="res://assets/background/green_tree6.png" id="2_d1ow5"]
@@ -251,8 +252,6 @@ func _physics_process(delta: float) -> void:
 	path_follow.progress += speed * delta
 "
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcg3e"]
-
 [sub_resource type="Animation" id="Animation_lqyoh"]
 length = 0.001
 tracks/0/type = "value"
@@ -291,6 +290,9 @@ _data = {
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_oe8lk")
+
+[node name="EndLevelArea" parent="." instance=ExtResource("2_2n8mu")]
+position = Vector2(2057, 189)
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -856,6 +858,51 @@ shape = SubResource("RectangleShape2D_75es3")
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Floors/grassFloor2"]
+position = Vector2(93, -33)
+texture = ExtResource("3_u0onr")
+
+[node name="grassFloor20" type="StaticBody2D" parent="Environment/Floors"]
+position = Vector2(1046, 711)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor20"]
+position = Vector2(645, -17)
+shape = SubResource("RectangleShape2D_75es3")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Environment/Floors/grassFloor20"]
+occluder = SubResource("OccluderPolygon2D_nmv5l")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Floors/grassFloor20"]
+position = Vector2(93, -33)
+texture = ExtResource("3_u0onr")
+
+[node name="grassFloor21" type="StaticBody2D" parent="Environment/Floors"]
+position = Vector2(2097, 711)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor21"]
+position = Vector2(645, -17)
+shape = SubResource("RectangleShape2D_75es3")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Environment/Floors/grassFloor21"]
+occluder = SubResource("OccluderPolygon2D_nmv5l")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Floors/grassFloor21"]
+position = Vector2(93, -33)
+texture = ExtResource("3_u0onr")
+
+[node name="grassFloor22" type="StaticBody2D" parent="Environment/Floors"]
+position = Vector2(3483, 711)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor22"]
+position = Vector2(645, -17)
+shape = SubResource("RectangleShape2D_75es3")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Environment/Floors/grassFloor22"]
+occluder = SubResource("OccluderPolygon2D_nmv5l")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Floors/grassFloor22"]
 position = Vector2(93, -33)
 texture = ExtResource("3_u0onr")
 
@@ -1554,9 +1601,6 @@ position = Vector2(-5618, 672)
 [node name="Barricade17" parent="Environment" instance=ExtResource("12_heuap")]
 position = Vector2(7, 288)
 
-[node name="Barricade18" parent="Environment" instance=ExtResource("12_heuap")]
-position = Vector2(1364, 332)
-
 [node name="Barricade16" parent="Environment" instance=ExtResource("11_a0mlc")]
 position = Vector2(-2497, 282)
 
@@ -1565,6 +1609,12 @@ position = Vector2(-3079, 281)
 
 [node name="Barricade14" parent="Environment" instance=ExtResource("11_a0mlc")]
 position = Vector2(-4476, 289)
+
+[node name="Barricade21" parent="Environment" instance=ExtResource("12_heuap")]
+position = Vector2(1217, 298)
+
+[node name="Barricade22" parent="Environment" instance=ExtResource("12_heuap")]
+position = Vector2(883, 298)
 
 [node name="Actors" type="Node2D" parent="."]
 
@@ -1627,12 +1677,6 @@ position = Vector2(1089, 285)
 position = Vector2(-123, 632)
 collision_mask = 5
 metadata/_edit_group_ = true
-
-[node name="EndLevelArea" type="Area2D" parent="."]
-position = Vector2(1507, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EndLevelArea"]
-shape = SubResource("RectangleShape2D_pcg3e")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.168627, 0.168627, 0.168627, 1)
