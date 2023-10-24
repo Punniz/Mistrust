@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcdm5gabpcat0"]
+[gd_scene load_steps=11 format=3 uid="uid://bcdm5gabpcat0"]
 
 [ext_resource type="Script" path="res://scripts/enemies/drone.gd" id="1_s7l0p"]
 [ext_resource type="Texture2D" uid="uid://7nkswarvlb02" path="res://assets/textures/enemies/drone_spritesheet.png" id="2_c6o5o"]
 [ext_resource type="PackedScene" uid="uid://42mretuad31m" path="res://scenes/enemies/player_detector.tscn" id="3_evsxm"]
 [ext_resource type="Texture2D" uid="uid://ddmb3521gjqf" path="res://light_cone_texture.png" id="3_x2l7k"]
 [ext_resource type="Texture2D" uid="uid://6ixs0jh1t3by" path="res://assets/light_texture.png" id="4_4g7vp"]
+[ext_resource type="AudioStream" uid="uid://dd4abry7ic1tx" path="res://assets/audio/enemies/drone_move.ogg" id="6_bwswv"]
 
 [sub_resource type="Curve2D" id="Curve2D_1ntm2"]
 _data = {
@@ -124,7 +125,10 @@ energy = 4.0
 shadow_enabled = true
 texture = ExtResource("3_x2l7k")
 
-[node name="MoveTrack" type="AudioStreamPlayer" parent="PathFollow2D"]
+[node name="MoveTrack" type="AudioStreamPlayer2D" parent="PathFollow2D"]
+stream = ExtResource("6_bwswv")
+volume_db = -7.0
+autoplay = true
 bus = &"Sound Effects"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PathFollow2D"]

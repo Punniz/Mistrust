@@ -6,6 +6,7 @@ class_name Drone
 
 
 @onready var path_follow: PathFollow2D = $PathFollow2D
+@onready var move_track: AudioStreamPlayer2D = $MoveTrack
 
 
 func _ready() -> void:
@@ -18,6 +19,7 @@ func on_player_caught() -> void:
 
 func stop() -> void:
 	self.set_physics_process(false)
+#	move_track.stop()
 
 
 func _physics_process(delta: float) -> void:
