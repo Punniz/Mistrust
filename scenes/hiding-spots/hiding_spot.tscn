@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://drcbkll5k6i0e"]
+
+[ext_resource type="Script" path="res://scripts/hiding_spot.gd" id="1_pqsgd"]
+[ext_resource type="Texture2D" uid="uid://6ixs0jh1t3by" path="res://assets/light_texture.png" id="2_pktxd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cr67g"]
+size = Vector2(198, 183)
+
+[node name="HidingSpot" type="Area2D"]
+modulate = Color(0.772549, 0.509804, 0, 1)
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_pqsgd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -86.5)
+shape = SubResource("RectangleShape2D_cr67g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -86)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -86)
+color = Color(0, 0.501961, 0.145098, 1)
+energy = 0.8
+texture = ExtResource("2_pktxd")
+texture_scale = 2.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

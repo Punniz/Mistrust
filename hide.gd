@@ -15,6 +15,7 @@ func enter_state() -> void:
 #	animator.modulate = Color(0.5, 0.5, 0.5, 1)  # Darken the sprite
 	hide_audio_player.play()
 	animation_state_machine.travel("hide")
+	actor.is_hiding = true
 	#print("in hide state")
 
 func update_state() -> void:
@@ -24,6 +25,7 @@ func exit_state() -> void:
 #	animator.modulate = Color(1, 1, 1, 1)  # Reset to original color
 	reveal_audio_player.play()
 	animation_state_machine.travel("reveal")
+	actor.is_hiding = false
 	#print("exit hide state")
 
 func _physics_process(_delta) -> void:

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/ui/level_finished_menu.gd" id="1_a7nuf"]
 [ext_resource type="Theme" uid="uid://bgl1w0ys3q4oe" path="res://resources/main_theme.tres" id="1_o5ney"]
-[ext_resource type="Texture2D" path="res://assets/textures/level_finished_texture.png" id="2_hlpmp"]
+[ext_resource type="Texture2D" uid="uid://t44831jjb3bg" path="res://assets/textures/level_finished_texture.png" id="2_hlpmp"]
 [ext_resource type="AudioStream" uid="uid://did8kxgsiif47" path="res://assets/audio/other/game_won_music.ogg" id="4_jx3ik"]
 
 [sub_resource type="Animation" id="Animation_5wm05"]

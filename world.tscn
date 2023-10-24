@@ -24,7 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://b74ufrseinngy" path="res://assets/environment/wood_log.png" id="9_4on2a"]
 [ext_resource type="Texture2D" uid="uid://nhm2817qmybe" path="res://assets/background/black_tree1.png" id="9_gapgv"]
 [ext_resource type="Texture2D" uid="uid://c156kmabfopup" path="res://assets/environment/metal_wall_torn.png" id="9_usd4y"]
-[ext_resource type="Texture2D" uid="uid://oom702fbwn5n" path="res://assets/environment/bush.png" id="9_wsflm"]
 [ext_resource type="Texture2D" uid="uid://cnauhho7ehbln" path="res://assets/background/full_tree2.png" id="9_ycmcg"]
 [ext_resource type="Texture2D" uid="uid://bwb4ewhttdrkx" path="res://assets/background/green_tree5.png" id="10_r7tvg"]
 [ext_resource type="Texture2D" uid="uid://bh50giwtwx22x" path="res://assets/background/black_tree2.png" id="10_yhxob"]
@@ -34,6 +33,8 @@
 [ext_resource type="Texture2D" uid="uid://gvdbjij48ol8" path="res://assets/background/black_tree3.png" id="11_pvq70"]
 [ext_resource type="Texture2D" uid="uid://ckk4r81ivge5a" path="res://assets/background/leaf_splash.png" id="11_vlumh"]
 [ext_resource type="PackedScene" uid="uid://dycs0q2lutdr1" path="res://scenes/barricade_2.tscn" id="12_heuap"]
+[ext_resource type="PackedScene" uid="uid://by8f5xx1yhbwn" path="res://scenes/hiding-spots/hiding_spot_bush.tscn" id="15_1foga"]
+[ext_resource type="PackedScene" uid="uid://ctfmlfvh2u2lt" path="res://scenes/hiding-spots/hiding_spot_tole.tscn" id="16_b2h5y"]
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="16_x2hlv"]
 [ext_resource type="AudioStream" uid="uid://c1udxmfm4t06d" path="res://assets/audio/other/forest_ambience.ogg" id="17_l7df0"]
 [ext_resource type="AudioStream" uid="uid://dto41b03quvi0" path="res://assets/audio/other/world_music.ogg" id="18_ow35r"]
@@ -95,9 +96,6 @@ size = Vector2(135, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ipjdw"]
 size = Vector2(27.75, 111.75)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_q8jtr"]
-radius = 120.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rn6xf"]
 size = Vector2(114.5, 16)
@@ -472,6 +470,7 @@ texture = ExtResource("7_5o4s8")
 
 [node name="woodFloor1" type="StaticBody2D" parent="Environment/Fort3"]
 position = Vector2(-3342, 319)
+collision_layer = 3
 collision_mask = 0
 
 [node name="WoodenFloor2" type="Sprite2D" parent="Environment/Fort3/woodFloor1"]
@@ -552,6 +551,7 @@ position = Vector2(0, 17)
 
 [node name="woodFloor1" type="StaticBody2D" parent="Environment/Fort1"]
 position = Vector2(-16614, 315)
+collision_layer = 3
 collision_mask = 0
 
 [node name="Ladder3" type="Sprite2D" parent="Environment/Fort1/woodFloor1"]
@@ -646,6 +646,7 @@ position = Vector2(4166, 17)
 
 [node name="woodFloor1" type="StaticBody2D" parent="Environment/Fort2"]
 position = Vector2(-16614, 315)
+collision_layer = 3
 collision_mask = 0
 
 [node name="WoodenFloor2" type="Sprite2D" parent="Environment/Fort2/woodFloor1"]
@@ -848,6 +849,7 @@ position = Vector2(-11736, 566)
 
 [node name="grassFloor2" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(-1272, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor2"]
@@ -863,6 +865,7 @@ texture = ExtResource("3_u0onr")
 
 [node name="grassFloor20" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(1046, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor20"]
@@ -878,6 +881,7 @@ texture = ExtResource("3_u0onr")
 
 [node name="grassFloor21" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(2097, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor21"]
@@ -893,6 +897,7 @@ texture = ExtResource("3_u0onr")
 
 [node name="grassFloor22" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(3483, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor22"]
@@ -908,6 +913,7 @@ texture = ExtResource("3_u0onr")
 
 [node name="grassFloor3" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(-2544, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor3"]
@@ -919,6 +925,7 @@ occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor4" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(-3816, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor4"]
@@ -930,6 +937,7 @@ occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor5" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(-5088, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor5"]
@@ -941,6 +949,7 @@ occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor6" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(-6360, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor6"]
@@ -952,6 +961,7 @@ occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor7" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(-7632, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor7"]
@@ -963,6 +973,7 @@ occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor8" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(-8904, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor8"]
@@ -974,6 +985,7 @@ occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor9" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(-10176, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor9"]
@@ -985,6 +997,7 @@ occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor10" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(-11448, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor10"]
@@ -996,6 +1009,7 @@ occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor11" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(-12720, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor11"]
@@ -1007,6 +1021,7 @@ occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor12" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(-13992, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor12"]
@@ -1018,6 +1033,7 @@ occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor13" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(-15264, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor13"]
@@ -1029,6 +1045,7 @@ occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor14" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(-16536, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor14"]
@@ -1040,6 +1057,7 @@ occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor15" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(-17808, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor15"]
@@ -1051,6 +1069,7 @@ occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor16" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(-19080, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor16"]
@@ -1062,6 +1081,7 @@ occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor17" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(-20352, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor17"]
@@ -1073,6 +1093,7 @@ occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor18" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(-21624, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor18"]
@@ -1084,6 +1105,7 @@ occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor19" type="StaticBody2D" parent="Environment/Floors"]
 position = Vector2(-22896, 711)
+collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Floors/grassFloor19"]
@@ -1110,63 +1132,6 @@ texture = ExtResource("2_junlc")
 position = Vector2(-1, -406)
 texture = ExtResource("2_junlc")
 
-[node name="HidingSpot" type="Node2D" parent="Environment/Climbable"]
-position = Vector2(-292, -789)
-
-[node name="Bush" type="Area2D" parent="Environment/Climbable/HidingSpot"]
-modulate = Color(0.772549, 0.509804, 0, 1)
-position = Vector2(685, 569)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Climbable/HidingSpot/Bush"]
-position = Vector2(0, -385)
-shape = SubResource("CircleShape2D_q8jtr")
-
-[node name="Bush2" type="Area2D" parent="Environment/Climbable/HidingSpot"]
-modulate = Color(0.772549, 0.509804, 0, 1)
-z_index = -1
-position = Vector2(-2676, 918)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Climbable/HidingSpot/Bush2"]
-z_index = -1
-position = Vector2(-7, -326)
-shape = SubResource("CircleShape2D_q8jtr")
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Climbable/HidingSpot/Bush2"]
-z_index = -1
-position = Vector2(-9, -330)
-texture = ExtResource("9_wsflm")
-
-[node name="Bush3" type="Area2D" parent="Environment/Climbable/HidingSpot"]
-modulate = Color(0.772549, 0.509804, 0, 1)
-z_index = -1
-position = Vector2(-3868, 903)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Climbable/HidingSpot/Bush3"]
-z_index = -1
-position = Vector2(-7, -326)
-shape = SubResource("CircleShape2D_q8jtr")
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Climbable/HidingSpot/Bush3"]
-z_index = -1
-position = Vector2(-9, -330)
-texture = ExtResource("9_wsflm")
-
-[node name="Tote" type="Area2D" parent="Environment/Climbable/HidingSpot"]
-modulate = Color(0.772549, 0.509804, 0, 1)
-z_index = -1
-position = Vector2(-2679, 532)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Climbable/HidingSpot/Tote"]
-z_index = -1
-position = Vector2(-7, -326)
-scale = Vector2(0.795, 0.795)
-shape = SubResource("CircleShape2D_q8jtr")
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Climbable/HidingSpot/Tote"]
-z_index = -1
-position = Vector2(-9, -330)
-texture = ExtResource("8_778d5")
-
 [node name="Climbable2" parent="Environment" instance=ExtResource("2_5y4qr")]
 position = Vector2(292, 792)
 
@@ -1183,63 +1148,6 @@ texture = ExtResource("2_junlc")
 [node name="Ladder2" type="Sprite2D" parent="Environment/Climbable2"]
 position = Vector2(-1, -406)
 texture = ExtResource("2_junlc")
-
-[node name="HidingSpot" type="Node2D" parent="Environment/Climbable2"]
-position = Vector2(-292, -789)
-
-[node name="Bush" type="Area2D" parent="Environment/Climbable2/HidingSpot"]
-modulate = Color(0.772549, 0.509804, 0, 1)
-position = Vector2(685, 569)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Climbable2/HidingSpot/Bush"]
-position = Vector2(0, -385)
-shape = SubResource("CircleShape2D_q8jtr")
-
-[node name="Bush2" type="Area2D" parent="Environment/Climbable2/HidingSpot"]
-modulate = Color(0.772549, 0.509804, 0, 1)
-z_index = -1
-position = Vector2(-2676, 918)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Climbable2/HidingSpot/Bush2"]
-z_index = -1
-position = Vector2(-7, -326)
-shape = SubResource("CircleShape2D_q8jtr")
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Climbable2/HidingSpot/Bush2"]
-z_index = -1
-position = Vector2(-9, -330)
-texture = ExtResource("9_wsflm")
-
-[node name="Bush3" type="Area2D" parent="Environment/Climbable2/HidingSpot"]
-modulate = Color(0.772549, 0.509804, 0, 1)
-z_index = -1
-position = Vector2(-3868, 903)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Climbable2/HidingSpot/Bush3"]
-z_index = -1
-position = Vector2(-7, -326)
-shape = SubResource("CircleShape2D_q8jtr")
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Climbable2/HidingSpot/Bush3"]
-z_index = -1
-position = Vector2(-9, -330)
-texture = ExtResource("9_wsflm")
-
-[node name="Tote" type="Area2D" parent="Environment/Climbable2/HidingSpot"]
-modulate = Color(0.772549, 0.509804, 0, 1)
-z_index = -1
-position = Vector2(-2679, 532)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Climbable2/HidingSpot/Tote"]
-z_index = -1
-position = Vector2(-7, -326)
-scale = Vector2(0.795, 0.795)
-shape = SubResource("CircleShape2D_q8jtr")
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Climbable2/HidingSpot/Tote"]
-z_index = -1
-position = Vector2(-9, -330)
-texture = ExtResource("8_778d5")
 
 [node name="Climbable" parent="Environment/Climbable2" instance=ExtResource("2_5y4qr")]
 position = Vector2(-11157, -226)
@@ -1260,54 +1168,40 @@ texture = ExtResource("2_junlc")
 position = Vector2(-11159, -58)
 texture = ExtResource("2_junlc")
 
-[node name="Bush" type="Node2D" parent="Environment"]
+[node name="HidingSpots" type="Node2D" parent="Environment"]
 position = Vector2(17, 42)
 
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Bush"]
-position = Vector2(-9161, 566)
-texture = ExtResource("9_wsflm")
+[node name="HidingSpotBush" parent="Environment/HidingSpots" instance=ExtResource("15_1foga")]
+position = Vector2(-9161, 652)
 
-[node name="Bush4" type="Node2D" parent="Environment"]
-position = Vector2(-6439, -288)
+[node name="HidingSpotBush2" parent="Environment/HidingSpots" instance=ExtResource("15_1foga")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-7868, 663)
 
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Bush4"]
-position = Vector2(-9161, 566)
-texture = ExtResource("7_5o4s8")
+[node name="HidingSpotTole2" parent="Environment/HidingSpots" instance=ExtResource("16_b2h5y")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-11340, 23)
 
-[node name="Bush5" type="Node2D" parent="Environment"]
-position = Vector2(-2162, -593)
+[node name="HidingSpotTole3" parent="Environment/HidingSpots" instance=ExtResource("16_b2h5y")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-5771, 192)
 
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Bush5"]
-position = Vector2(-9161, 566)
-texture = ExtResource("7_5o4s8")
+[node name="HidingSpotTole4" parent="Environment/HidingSpots" instance=ExtResource("16_b2h5y")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-5359, -18)
 
-[node name="Bush6" type="Node2D" parent="Environment"]
-position = Vector2(3407, -425)
+[node name="HidingSpotBush3" parent="Environment/HidingSpots" instance=ExtResource("15_1foga")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-13733, 657)
 
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Bush6"]
-position = Vector2(-9161, 566)
-texture = ExtResource("7_5o4s8")
+[node name="HidingSpotBush4" parent="Environment/HidingSpots" instance=ExtResource("15_1foga")]
+z_index = -1
+position = Vector2(-2685, 674)
+collision_layer = 1
+collision_mask = 1
 
-[node name="Bush7" type="Node2D" parent="Environment"]
-position = Vector2(3819, -632)
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Bush7"]
-position = Vector2(-9161, 566)
-texture = ExtResource("7_5o4s8")
-
-[node name="Bush3" type="Node2D" parent="Environment"]
-position = Vector2(-4555, 46)
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Bush3"]
-position = Vector2(-9161, 566)
-texture = ExtResource("9_wsflm")
-
-[node name="Bush2" type="Node2D" parent="Environment"]
-position = Vector2(1310, 50)
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Bush2"]
-position = Vector2(-9161, 566)
-texture = ExtResource("9_wsflm")
+[node name="HidingSpotBush5" parent="Environment/HidingSpots" instance=ExtResource("15_1foga")]
+position = Vector2(-3877, 659)
 
 [node name="Fort4" type="Node2D" parent="Environment"]
 
@@ -1633,7 +1527,7 @@ curve = SubResource("Curve2D_ffjx6")
 script = SubResource("GDScript_723qg")
 
 [node name="Drone2" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
-position = Vector2(-11732, -331)
+position = Vector2(-11732, -215)
 scale = Vector2(1.47, 1.47)
 
 [node name="Drone4" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
@@ -1674,12 +1568,12 @@ script = SubResource("GDScript_w8gnn")
 position = Vector2(1089, 285)
 
 [node name="Player" parent="Actors" instance=ExtResource("1_lr41f")]
-position = Vector2(-14929, 632)
+position = Vector2(-16057, 632)
 collision_mask = 5
 metadata/_edit_group_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.168627, 0.168627, 0.168627, 1)
+color = Color(0.0784314, 0.0784314, 0.0784314, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.0

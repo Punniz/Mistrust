@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://by8f5xx1yhbwn"]
+
+[ext_resource type="PackedScene" uid="uid://drcbkll5k6i0e" path="res://scenes/hiding-spots/hiding_spot.tscn" id="1_cpbx8"]
+[ext_resource type="Texture2D" uid="uid://oom702fbwn5n" path="res://assets/environment/bush.png" id="2_exjhw"]
+
+[node name="HidingSpotBush" instance=ExtResource("1_cpbx8")]
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_exjhw")

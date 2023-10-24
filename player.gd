@@ -13,6 +13,7 @@ var direction: Vector2 = Vector2(0.0, 0.0)
 var is_colliding_with_climbable: bool = false
 
 var is_hiding: bool = false
+var is_in_bush: bool = false
 
 
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -67,3 +68,6 @@ func _physics_process(_delta: float) -> void:
 		self.velocity.x = direction.x * self.speed
 	
 	self.move_and_slide()
+	
+	print(self.name, ": is_hiding: ", is_hiding)
+	print(self.name, ": is_in_bush: ", is_in_bush)

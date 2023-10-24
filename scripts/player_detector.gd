@@ -20,6 +20,10 @@ func _physics_process(_delta: float) -> void:
 	for raycast in raycasts.get_children():
 		if raycast.is_colliding():
 			if raycast.get_collider() is Player:
+				if raycast.get_collider().is_hiding and raycast.get_collider().is_in_bush:
+					print("Hiding: ", raycast.get_collider().is_hiding)
+					print("In bush: ", raycast.get_collider().is_in_bush)
+					return
 				self.disable()
 				Events.player_caught.emit()
 

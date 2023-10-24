@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctfmlfvh2u2lt"]
+
+[ext_resource type="PackedScene" uid="uid://drcbkll5k6i0e" path="res://scenes/hiding-spots/hiding_spot.tscn" id="1_25apn"]
+[ext_resource type="Texture2D" uid="uid://bbubsuey5yiwm" path="res://assets/environment/metal_wall_medium.png" id="2_k7rmh"]
+
+[node name="HidingSpotTole" instance=ExtResource("1_25apn")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, -91.5)
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(0, -92)
+texture = ExtResource("2_k7rmh")
