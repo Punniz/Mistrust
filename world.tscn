@@ -775,7 +775,7 @@ position = Vector2(-16147, 445)
 texture = ExtResource("2_junlc")
 
 [node name="Barricade" parent="Environment/Fort1" instance=ExtResource("11_a0mlc")]
-position = Vector2(-17932, 654)
+position = Vector2(-17975, 666)
 
 [node name="Fort2" type="Node2D" parent="Environment"]
 position = Vector2(4166, 17)
@@ -991,7 +991,7 @@ position = Vector2(-11736, 566)
 [node name="Floors" type="Node2D" parent="Environment"]
 
 [node name="grassFloor2" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(-1272, 711)
+position = Vector2(-1272, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1007,7 +1007,7 @@ position = Vector2(93, -33)
 texture = ExtResource("3_u0onr")
 
 [node name="grassFloor20" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(1046, 711)
+position = Vector2(1046, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1023,7 +1023,7 @@ position = Vector2(93, -33)
 texture = ExtResource("3_u0onr")
 
 [node name="grassFloor21" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(2097, 711)
+position = Vector2(2097, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1039,7 +1039,7 @@ position = Vector2(93, -33)
 texture = ExtResource("3_u0onr")
 
 [node name="grassFloor22" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(3483, 711)
+position = Vector2(3483, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1055,7 +1055,7 @@ position = Vector2(93, -33)
 texture = ExtResource("3_u0onr")
 
 [node name="grassFloor3" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(-2544, 711)
+position = Vector2(-2544, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1067,7 +1067,7 @@ shape = SubResource("RectangleShape2D_75es3")
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor4" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(-3816, 711)
+position = Vector2(-3816, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1079,7 +1079,7 @@ shape = SubResource("RectangleShape2D_75es3")
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor5" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(-5088, 711)
+position = Vector2(-5088, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1091,7 +1091,7 @@ shape = SubResource("RectangleShape2D_75es3")
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor6" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(-6360, 711)
+position = Vector2(-6360, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1103,7 +1103,7 @@ shape = SubResource("RectangleShape2D_75es3")
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor7" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(-7632, 711)
+position = Vector2(-7632, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1115,7 +1115,7 @@ shape = SubResource("RectangleShape2D_75es3")
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor8" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(-8904, 711)
+position = Vector2(-8904, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1127,7 +1127,7 @@ shape = SubResource("RectangleShape2D_75es3")
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor9" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(-10176, 711)
+position = Vector2(-10176, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1139,7 +1139,7 @@ shape = SubResource("RectangleShape2D_75es3")
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor10" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(-11448, 711)
+position = Vector2(-11448, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1151,7 +1151,7 @@ shape = SubResource("RectangleShape2D_75es3")
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor11" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(-12720, 711)
+position = Vector2(-12720, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1163,7 +1163,7 @@ shape = SubResource("RectangleShape2D_75es3")
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor12" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(-13992, 711)
+position = Vector2(-13992, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1175,7 +1175,7 @@ shape = SubResource("RectangleShape2D_75es3")
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor13" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(-15264, 711)
+position = Vector2(-15264, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1187,7 +1187,7 @@ shape = SubResource("RectangleShape2D_75es3")
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor14" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(-16536, 711)
+position = Vector2(-16536, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1199,7 +1199,7 @@ shape = SubResource("RectangleShape2D_75es3")
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor15" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(-17808, 711)
+position = Vector2(-17808, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1211,7 +1211,7 @@ shape = SubResource("RectangleShape2D_75es3")
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor16" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(-19080, 711)
+position = Vector2(-19080, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1223,7 +1223,7 @@ shape = SubResource("RectangleShape2D_75es3")
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor17" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(-20352, 711)
+position = Vector2(-20352, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1235,7 +1235,7 @@ shape = SubResource("RectangleShape2D_75es3")
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor18" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(-21624, 711)
+position = Vector2(-21624, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1247,7 +1247,7 @@ shape = SubResource("RectangleShape2D_75es3")
 occluder = SubResource("OccluderPolygon2D_nmv5l")
 
 [node name="grassFloor19" type="StaticBody2D" parent="Environment/Floors"]
-position = Vector2(-22896, 711)
+position = Vector2(-22896, 721)
 collision_layer = 3
 collision_mask = 0
 
@@ -1568,10 +1568,10 @@ position = Vector2(-4574, 605)
 texture = ExtResource("11_44ts1")
 
 [node name="Barricade2" parent="Environment" instance=ExtResource("12_heuap")]
-position = Vector2(-15722, 666)
+position = Vector2(-15765, 678)
 
 [node name="Barricade12" parent="Environment" instance=ExtResource("12_heuap")]
-position = Vector2(-15203, 666)
+position = Vector2(-15246, 678)
 
 [node name="Barricade3" parent="Environment" instance=ExtResource("12_heuap")]
 position = Vector2(-16323, 375)
@@ -1580,7 +1580,7 @@ position = Vector2(-16323, 375)
 position = Vector2(-14854, 375)
 
 [node name="Barricade4" parent="Environment" instance=ExtResource("12_heuap")]
-position = Vector2(-11163, 666)
+position = Vector2(-11163, 678)
 
 [node name="Barricade6" parent="Environment" instance=ExtResource("12_heuap")]
 position = Vector2(-12151, 373)
@@ -1607,10 +1607,10 @@ position = Vector2(-5823, 50)
 position = Vector2(-6799, 245)
 
 [node name="Barricade18" parent="Environment" instance=ExtResource("11_a0mlc")]
-position = Vector2(-6474, 689)
+position = Vector2(-6474, 678)
 
 [node name="Barricade10" parent="Environment" instance=ExtResource("11_a0mlc")]
-position = Vector2(-5618, 672)
+position = Vector2(-5618, 678)
 
 [node name="Barricade16" parent="Environment" instance=ExtResource("11_a0mlc")]
 position = Vector2(-2497, 282)

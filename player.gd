@@ -69,5 +69,5 @@ func _physics_process(_delta: float) -> void:
 	
 	self.move_and_slide()
 	
-	print(self.name, ": is_hiding: ", is_hiding)
-	print(self.name, ": is_in_bush: ", is_in_bush)
+#	print(self.name, ": is_hiding: ", is_hiding)
+#	print(self.name, ": is_in_bush: ", is_in_bush)
