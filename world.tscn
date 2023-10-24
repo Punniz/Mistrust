@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=65 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="Texture2D" uid="uid://bf32qs7alktqm" path="res://assets/background/green_tree2.png" id="1_bwuc1"]
 [ext_resource type="Texture2D" uid="uid://qpetavxrgxfk" path="res://assets/background/full_tree3.png" id="1_hn31e"]
@@ -95,6 +95,15 @@ size = Vector2(135, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q8jtr"]
 radius = 120.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rn6xf"]
+size = Vector2(114.5, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7qjy"]
+size = Vector2(504, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ah12g"]
+size = Vector2(28, 125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcg3e"]
 
@@ -668,6 +677,10 @@ texture = ExtResource("11_4y058")
 position = Vector2(1292, -22)
 shape = SubResource("RectangleShape2D_ipjdw")
 
+[node name="Wall4" type="CollisionShape2D" parent="Environment/Fort2/woodFloor1"]
+position = Vector2(1292, 279)
+shape = SubResource("RectangleShape2D_ipjdw")
+
 [node name="Wall9" type="Sprite2D" parent="Environment/Fort2/woodFloor1"]
 position = Vector2(1292, -2)
 texture = ExtResource("11_4y058")
@@ -1075,21 +1088,308 @@ texture = ExtResource("2_junlc")
 position = Vector2(-11159, -58)
 texture = ExtResource("2_junlc")
 
+[node name="Bush" type="Node2D" parent="Environment"]
+position = Vector2(17, 42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Bush"]
+position = Vector2(-9161, 566)
+texture = ExtResource("9_wsflm")
+
+[node name="Bush4" type="Node2D" parent="Environment"]
+position = Vector2(-6432, -283)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Bush4"]
+position = Vector2(-9161, 566)
+texture = ExtResource("7_5o4s8")
+
+[node name="Bush3" type="Node2D" parent="Environment"]
+position = Vector2(-4555, 46)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Bush3"]
+position = Vector2(-9161, 566)
+texture = ExtResource("9_wsflm")
+
+[node name="Bush2" type="Node2D" parent="Environment"]
+position = Vector2(1310, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Bush2"]
+position = Vector2(-9161, 566)
+texture = ExtResource("9_wsflm")
+
+[node name="Fort4" type="Node2D" parent="Environment"]
+
+[node name="Ladder" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-6664, 531)
+texture = ExtResource("2_junlc")
+
+[node name="Ladder10" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-6664, 651)
+texture = ExtResource("2_junlc")
+
+[node name="Ladder2" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-6664, 340)
+texture = ExtResource("2_junlc")
+
+[node name="Ladder3" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-6327, 340)
+texture = ExtResource("2_junlc")
+
+[node name="Ladder4" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-5880, 340)
+texture = ExtResource("2_junlc")
+
+[node name="Ladder5" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-5629, 133)
+texture = ExtResource("2_junlc")
+
+[node name="Ladder6" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-5036, 133)
+texture = ExtResource("2_junlc")
+
+[node name="Ladder7" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-4671, 340)
+texture = ExtResource("2_junlc")
+
+[node name="Ladder8" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-4671, 532)
+texture = ExtResource("2_junlc")
+
+[node name="Ladder9" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-4671, 652)
+texture = ExtResource("2_junlc")
+
+[node name="woodFloor" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-6690, 237)
+texture = ExtResource("3_u0onr")
+
+[node name="woodFloor2" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-6522, 237)
+texture = ExtResource("3_u0onr")
+
+[node name="woodFloor3" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-6354, 237)
+texture = ExtResource("3_u0onr")
+
+[node name="woodFloor4" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-6186, 237)
+texture = ExtResource("3_u0onr")
+
+[node name="woodFloor9" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-6018, 237)
+texture = ExtResource("3_u0onr")
+
+[node name="woodFloor10" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-5850, 237)
+texture = ExtResource("3_u0onr")
+
+[node name="woodFloor6" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-6272, 444)
+texture = ExtResource("3_u0onr")
+
+[node name="woodFloor7" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-6104, 444)
+texture = ExtResource("3_u0onr")
+
+[node name="woodFloor8" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-5936, 444)
+texture = ExtResource("3_u0onr")
+
+[node name="woodFloor11" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-5685, 237)
+texture = ExtResource("3_u0onr")
+
+[node name="woodFloor12" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-5685, 237)
+texture = ExtResource("3_u0onr")
+
+[node name="woodFloor13" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-5656, 30)
+texture = ExtResource("3_u0onr")
+
+[node name="woodFloor14" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-5513, 30)
+texture = ExtResource("3_u0onr")
+
+[node name="woodFloor15" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-5345, 30)
+texture = ExtResource("3_u0onr")
+
+[node name="woodFloor16" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-5177, 30)
+texture = ExtResource("3_u0onr")
+
+[node name="woodFloor17" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-5009, 30)
+texture = ExtResource("3_u0onr")
+
+[node name="woodFloor18" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-4980, 237)
+texture = ExtResource("3_u0onr")
+
+[node name="woodFloor19" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-4812, 237)
+texture = ExtResource("3_u0onr")
+
+[node name="woodFloor20" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-4644, 237)
+texture = ExtResource("3_u0onr")
+
+[node name="Climbable" parent="Environment/Fort4" instance=ExtResource("2_5y4qr")]
+position = Vector2(-6663, 733)
+
+[node name="Climbable6" parent="Environment/Fort4" instance=ExtResource("2_5y4qr")]
+position = Vector2(-4671, 733)
+
+[node name="Climbable2" parent="Environment/Fort4" instance=ExtResource("27_rdv44")]
+position = Vector2(-6327, 733)
+
+[node name="Climbable3" parent="Environment/Fort4" instance=ExtResource("27_rdv44")]
+position = Vector2(-5880, 733)
+
+[node name="Climbable4" parent="Environment/Fort4" instance=ExtResource("27_rdv44")]
+position = Vector2(-5629, 527)
+
+[node name="Climbable5" parent="Environment/Fort4" instance=ExtResource("27_rdv44")]
+position = Vector2(-5036, 527)
+
+[node name="woodFloor5" type="StaticBody2D" parent="Environment/Fort4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Fort4/woodFloor5"]
+position = Vector2(-6495.25, 237)
+shape = SubResource("RectangleShape2D_rn6xf")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Environment/Fort4/woodFloor5"]
+position = Vector2(-6049, 237)
+shape = SubResource("RectangleShape2D_rn6xf")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Environment/Fort4/woodFloor5"]
+position = Vector2(-5659, 237)
+shape = SubResource("RectangleShape2D_rn6xf")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Environment/Fort4/woodFloor5"]
+position = Vector2(-5712, 237)
+shape = SubResource("RectangleShape2D_rn6xf")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Environment/Fort4/woodFloor5"]
+position = Vector2(-5461, 31)
+shape = SubResource("RectangleShape2D_rn6xf")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Environment/Fort4/woodFloor5"]
+position = Vector2(-5347, 31)
+shape = SubResource("RectangleShape2D_rn6xf")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Environment/Fort4/woodFloor5"]
+position = Vector2(-5461, 31)
+shape = SubResource("RectangleShape2D_rn6xf")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Environment/Fort4/woodFloor5"]
+position = Vector2(-5347, 31)
+shape = SubResource("RectangleShape2D_rn6xf")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Environment/Fort4/woodFloor5"]
+position = Vector2(-5233, 31)
+shape = SubResource("RectangleShape2D_rn6xf")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Environment/Fort4/woodFloor5"]
+position = Vector2(-5204, 31)
+shape = SubResource("RectangleShape2D_rn6xf")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Environment/Fort4/woodFloor5"]
+position = Vector2(-5007, 237)
+shape = SubResource("RectangleShape2D_rn6xf")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Environment/Fort4/woodFloor5"]
+position = Vector2(-4892, 237)
+shape = SubResource("RectangleShape2D_rn6xf")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Environment/Fort4/woodFloor5"]
+position = Vector2(-4839, 237)
+shape = SubResource("RectangleShape2D_rn6xf")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Environment/Fort4/woodFloor5"]
+position = Vector2(-6163, 237)
+shape = SubResource("RectangleShape2D_rn6xf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Environment/Fort4/woodFloor5"]
+position = Vector2(-6104, 443.5)
+shape = SubResource("RectangleShape2D_j7qjy")
+
+[node name="Wall" type="CollisionShape2D" parent="Environment/Fort4/woodFloor5"]
+position = Vector2(-5615, 582.5)
+shape = SubResource("RectangleShape2D_ah12g")
+
+[node name="Wall" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-6760, 317)
+texture = ExtResource("11_44ts1")
+
+[node name="Wall2" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-6760, 461)
+texture = ExtResource("11_44ts1")
+
+[node name="Wall3" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-6760, 605)
+texture = ExtResource("11_44ts1")
+
+[node name="Wall4" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-5615, 317)
+texture = ExtResource("11_44ts1")
+
+[node name="Wall5" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-5615, 461)
+texture = ExtResource("11_44ts1")
+
+[node name="Wall6" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-5615, 605)
+texture = ExtResource("11_44ts1")
+
+[node name="Wall7" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-5050, 317)
+texture = ExtResource("11_44ts1")
+
+[node name="Wall8" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-5050, 461)
+texture = ExtResource("11_44ts1")
+
+[node name="Wall9" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-5050, 605)
+texture = ExtResource("11_44ts1")
+
+[node name="Wall10" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-4574, 317)
+texture = ExtResource("11_44ts1")
+
+[node name="Wall11" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-4574, 461)
+texture = ExtResource("11_44ts1")
+
+[node name="Wall12" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-4574, 605)
+texture = ExtResource("11_44ts1")
+
 [node name="Actors" type="Node2D" parent="."]
 
 [node name="Enemies" type="Node2D" parent="Actors"]
 
 [node name="Drone" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
-position = Vector2(383, 349)
+position = Vector2(-16357, 132)
 
 [node name="Drone2" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
-position = Vector2(107, 86)
+position = Vector2(-14335, 331)
+
+[node name="Drone3" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
+position = Vector2(-12053, -153)
+
+[node name="Drone4" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
+position = Vector2(-6957, 108)
+
+[node name="Drone5" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
+position = Vector2(-5924, -89)
 
 [node name="GroundScout" parent="Actors/Enemies" instance=ExtResource("6_a4241")]
 position = Vector2(1089, 285)
 
 [node name="Player" parent="Actors" instance=ExtResource("1_lr41f")]
-position = Vector2(-1847, 670)
+position = Vector2(-17788, 632)
 collision_mask = 5
 metadata/_edit_group_ = true
 
