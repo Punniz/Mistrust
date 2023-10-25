@@ -752,7 +752,7 @@ scale = Vector2(0.32, 0.32)
 texture = ExtResource("16_yciqr")
 
 [node name="Sprite2D12" type="Sprite2D" parent="Environment/Wood Background 1"]
-position = Vector2(-15023, 301)
+position = Vector2(-15023, 302)
 scale = Vector2(0.32, 0.32)
 texture = ExtResource("16_yciqr")
 
@@ -1253,6 +1253,14 @@ texture = ExtResource("2_junlc")
 
 [node name="WoodenFloor2" type="Sprite2D" parent="Environment/Fort1/woodFloor1"]
 position = Vector2(326, 42)
+texture = ExtResource("3_u0onr")
+
+[node name="WoodenFloor12" type="Sprite2D" parent="Environment/Fort1/woodFloor1"]
+position = Vector2(327, 42)
+texture = ExtResource("3_u0onr")
+
+[node name="WoodenFloor13" type="Sprite2D" parent="Environment/Fort1/woodFloor1"]
+position = Vector2(663, 42)
 texture = ExtResource("3_u0onr")
 
 [node name="WoodenFloor3" type="Sprite2D" parent="Environment/Fort1/woodFloor1"]
