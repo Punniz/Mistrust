@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=112 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="Texture2D" uid="uid://bf32qs7alktqm" path="res://assets/background/green_tree2.png" id="1_bwuc1"]
 [ext_resource type="Texture2D" uid="uid://qpetavxrgxfk" path="res://assets/background/full_tree3.png" id="1_hn31e"]
@@ -131,6 +131,48 @@ polygon = PackedVector2Array(823, -270, 1472, -270, 1472, -254, 823, -254)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_303iv"]
 polygon = PackedVector2Array(1694, -270, 1717, -270, 1717, -254, 1694, -254)
+
+[sub_resource type="GDScript" id="GDScript_c77lv"]
+script/source = "extends Node2D
+class_name Climbable
+
+
+@onready var static_body_player_shape: CollisionShape2D = $StaticBodyPlayer/CollisionShape2D
+
+
+var colliding_entity: Node2D = null
+
+
+func _ready() -> void:
+	set_physics_process(false)
+
+
+func _on_climb_area_body_entered(body: Node2D) -> void:
+	body.is_colliding_with_climbable = true
+	static_body_player_shape.set_deferred(\"disabled\", true)
+
+
+func _on_climb_area_body_exited(body: Node2D) -> void:
+	body.is_colliding_with_climbable = false
+	static_body_player_shape.set_deferred(\"disabled\", false)
+
+
+func _on_drop_through_area_body_entered(body: Node2D) -> void:
+	set_physics_process(true)
+	colliding_entity = body
+
+
+func _on_drop_through_area_body_exited(_body: Node2D) -> void:
+	set_physics_process(false)
+	colliding_entity = null
+
+
+func _physics_process(_delta: float) -> void:
+	if colliding_entity == null: return
+	
+	if colliding_entity.direction.y == 1:
+		static_body_player_shape.disabled = true
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rn6xf"]
 size = Vector2(114.5, 16)
@@ -2080,10 +2122,13 @@ position = Vector2(-6663, 733)
 position = Vector2(-4671, 733)
 
 [node name="Climbable2" parent="Environment/Fort4" instance=ExtResource("27_rdv44")]
-position = Vector2(-6327, 733)
+position = Vector2(-6328, 481)
+scale = Vector2(1, 0.5)
+script = SubResource("GDScript_c77lv")
 
 [node name="Climbable3" parent="Environment/Fort4" instance=ExtResource("27_rdv44")]
-position = Vector2(-5880, 733)
+position = Vector2(-5880, 481)
+scale = Vector2(1, 0.5)
 
 [node name="Climbable4" parent="Environment/Fort4" instance=ExtResource("27_rdv44")]
 position = Vector2(-5629, 527)
