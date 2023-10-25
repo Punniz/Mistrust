@@ -468,15 +468,15 @@ position = Vector2(2057, 189)
 [node name="Background Fences" type="Node2D" parent="Environment"]
 
 [node name="Fence" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-13519.5, 618.5)
+position = Vector2(-13340.5, 630.5)
 texture = ExtResource("18_sqc8j")
 
 [node name="Fence2" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-13309.5, 614.5)
+position = Vector2(-13130.5, 626.5)
 texture = ExtResource("19_pfd2l")
 
 [node name="Fence3" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-13099.5, 613.5)
+position = Vector2(-12920.5, 625.5)
 rotation = 3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("18_sqc8j")
@@ -496,15 +496,15 @@ scale = Vector2(1, -1)
 texture = ExtResource("18_sqc8j")
 
 [node name="Fence34" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-12887.5, 614.5)
+position = Vector2(-12708.5, 626.5)
 texture = ExtResource("18_sqc8j")
 
 [node name="Fence35" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-12677.5, 610.5)
+position = Vector2(-12498.5, 622.5)
 texture = ExtResource("19_pfd2l")
 
 [node name="Fence36" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-12467.5, 609.5)
+position = Vector2(-12288.5, 621.5)
 rotation = 3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("18_sqc8j")
@@ -642,27 +642,19 @@ position = Vector2(-3208.5, 607.5)
 texture = ExtResource("18_sqc8j")
 
 [node name="Fence25" type="Sprite2D" parent="Environment/Background Fences/Fence27"]
-position = Vector2(-3394, -445)
+position = Vector2(-3358, -445)
 texture = ExtResource("18_sqc8j")
 
-[node name="Fence26" type="Sprite2D" parent="Environment/Background Fences/Fence27"]
-position = Vector2(-3184, -449)
-texture = ExtResource("19_pfd2l")
-
-[node name="Fence28" type="Sprite2D" parent="Environment/Background Fences/Fence27"]
-position = Vector2(-2763.5, -451.5)
-texture = ExtResource("19_pfd2l")
-
 [node name="Fence33" type="Sprite2D" parent="Environment/Background Fences/Fence27"]
-position = Vector2(-3184, -449)
+position = Vector2(-3148, -449)
 texture = ExtResource("19_pfd2l")
 
 [node name="Fence34" type="Sprite2D" parent="Environment/Background Fences/Fence27"]
-position = Vector2(-2763.5, -451.5)
+position = Vector2(-2727.5, -451.5)
 texture = ExtResource("19_pfd2l")
 
 [node name="Fence27" type="Sprite2D" parent="Environment/Background Fences/Fence27"]
-position = Vector2(-2974, -450)
+position = Vector2(-2938, -450)
 texture = ExtResource("18_sqc8j")
 
 [node name="Fence35" type="Sprite2D" parent="Environment/Background Fences/Fence27"]
@@ -1864,6 +1856,7 @@ modulate = Color(1, 1, 1, 1)
 position = Vector2(-11340, 23)
 
 [node name="HidingSpotTole3" parent="Environment/HidingSpots" instance=ExtResource("16_b2h5y")]
+visible = false
 modulate = Color(1, 1, 1, 1)
 position = Vector2(-5771, 192)
 
@@ -2208,11 +2201,8 @@ scale = Vector2(0.545, 0.545)
 [node name="Barricade13" parent="Environment/Barricades" instance=ExtResource("11_a0mlc")]
 position = Vector2(-6799, 245)
 
-[node name="Barricade18" parent="Environment/Barricades" instance=ExtResource("11_a0mlc")]
-position = Vector2(-6474, 678)
-
 [node name="Barricade10" parent="Environment/Barricades" instance=ExtResource("11_a0mlc")]
-position = Vector2(-5618, 678)
+position = Vector2(-5331, 678)
 
 [node name="Barricade16" parent="Environment/Barricades" instance=ExtResource("11_a0mlc")]
 position = Vector2(-2497, 282)
@@ -2345,7 +2335,7 @@ scale = Vector2(6, 6)
 texture = ExtResource("2_8xtnj")
 
 [node name="GreenTree9" type="Sprite2D" parent="ParallaxBackground/Farthest"]
-position = Vector2(-14964, 458.208)
+position = Vector2(-9992.3, 277.35)
 scale = Vector2(6, 6)
 texture = ExtResource("1_bwuc1")
 
@@ -2360,7 +2350,7 @@ scale = Vector2(6, 6)
 texture = ExtResource("1_bwuc1")
 
 [node name="GreenTree12" type="Sprite2D" parent="ParallaxBackground/Farthest"]
-position = Vector2(-31077.2, 508.286)
+position = Vector2(-23112.5, 685.67)
 scale = Vector2(6, 6)
 texture = ExtResource("2_8xtnj")
 
