@@ -2003,6 +2003,14 @@ texture = ExtResource("3_u0onr")
 position = Vector2(-4644, 237)
 texture = ExtResource("3_u0onr")
 
+[node name="woodFloor21" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-4918, 30)
+texture = ExtResource("3_u0onr")
+
+[node name="woodFloor22" type="Sprite2D" parent="Environment/Fort4"]
+position = Vector2(-5747, 30)
+texture = ExtResource("3_u0onr")
+
 [node name="Climbable" parent="Environment/Fort4" instance=ExtResource("2_5y4qr")]
 position = Vector2(-6663, 733)
 
@@ -2612,11 +2620,6 @@ texture = ExtResource("11_pvq70")
 [node name="BlackTree5" type="Sprite2D" parent="ParallaxBackground/Closest"]
 position = Vector2(-15852.2, 250.435)
 texture = ExtResource("11_pvq70")
-
-[node name="BlackTree4" type="Sprite2D" parent="ParallaxBackground/Closest"]
-position = Vector2(-3515.65, 230.435)
-scale = Vector2(0.96, 0.96)
-texture = ExtResource("9_gapgv")
 
 [node name="BlackTree6" type="Sprite2D" parent="ParallaxBackground/Closest"]
 position = Vector2(-11032.2, 218.261)
