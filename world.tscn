@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=108 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="Texture2D" uid="uid://bf32qs7alktqm" path="res://assets/background/green_tree2.png" id="1_bwuc1"]
 [ext_resource type="Texture2D" uid="uid://qpetavxrgxfk" path="res://assets/background/full_tree3.png" id="1_hn31e"]
@@ -42,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://drbcyqmo150a7" path="res://assets/background/fence3.png" id="18_sqc8j"]
 [ext_resource type="Texture2D" uid="uid://cb3rsvt7m263y" path="res://assets/background/fence2.png" id="19_pfd2l"]
 [ext_resource type="Texture2D" uid="uid://bbqogrgsruoqo" path="res://assets/mom_spreadsheet.png" id="20_bu5h1"]
+[ext_resource type="AudioStream" uid="uid://dd4abry7ic1tx" path="res://assets/audio/enemies/drone_move.ogg" id="21_ik0kh"]
 [ext_resource type="Texture2D" uid="uid://bgq0s5duy6tx3" path="res://assets/background/background.png" id="26_vg4cr"]
 [ext_resource type="PackedScene" uid="uid://q0k06l8pvoiq" path="res://scenes/climbable_short.tscn" id="27_rdv44"]
 [ext_resource type="PackedScene" uid="uid://dosgnylult5j4" path="res://scenes/background/borders_layout.tscn" id="33_1v5es"]
@@ -2189,6 +2190,9 @@ script = SubResource("GDScript_723qg")
 position = Vector2(-11732, -293)
 scale = Vector2(2, 2)
 
+[node name="MoveTrack" type="AudioStreamPlayer2D" parent="Actors/Enemies/Drone2"]
+stream = ExtResource("21_ik0kh")
+
 [node name="Drone4" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
 position = Vector2(-9420, 400)
 curve = SubResource("Curve2D_fh6q2")
@@ -2239,7 +2243,7 @@ position = Vector2(-5104, -199)
 shape = SubResource("RectangleShape2D_kt67r")
 
 [node name="Player" parent="Actors" instance=ExtResource("1_lr41f")]
-position = Vector2(-15057, 327)
+position = Vector2(-17322, 646)
 collision_mask = 5
 metadata/_edit_group_ = true
 
