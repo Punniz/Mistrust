@@ -914,6 +914,14 @@ texture = ExtResource("3_u0onr")
 position = Vector2(1745, -262)
 texture = ExtResource("3_u0onr")
 
+[node name="WoodenFloor18" type="Sprite2D" parent="Environment/Fort2/woodFloor1"]
+position = Vector2(1555, -262)
+texture = ExtResource("3_u0onr")
+
+[node name="WoodenFloor19" type="Sprite2D" parent="Environment/Fort2/woodFloor1"]
+position = Vector2(1611, -262)
+texture = ExtResource("3_u0onr")
+
 [node name="Pillar1" type="Sprite2D" parent="Environment/Fort2/woodFloor1"]
 position = Vector2(256, 266)
 texture = ExtResource("11_44ts1")
@@ -1048,6 +1056,21 @@ texture = ExtResource("2_junlc")
 [node name="Ladder4" type="Sprite2D" parent="Environment/Fort2"]
 position = Vector2(-15904, 140)
 texture = ExtResource("2_junlc")
+
+[node name="Ladder5" type="Sprite2D" parent="Environment/Fort2"]
+position = Vector2(-15029, 141)
+texture = ExtResource("2_junlc")
+
+[node name="Ladder6" type="Sprite2D" parent="Environment/Fort2"]
+position = Vector2(-15029, 333)
+texture = ExtResource("2_junlc")
+
+[node name="Ladder7" type="Sprite2D" parent="Environment/Fort2"]
+position = Vector2(-15029, 525)
+texture = ExtResource("2_junlc")
+
+[node name="Climbable" parent="Environment/Fort2" instance=ExtResource("2_5y4qr")]
+position = Vector2(-15030, 549)
 
 [node name="ClimbableShorter" parent="Environment" instance=ExtResource("27_rdv44")]
 position = Vector2(-16145, 870)
