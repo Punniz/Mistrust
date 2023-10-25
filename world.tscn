@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=111 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="Texture2D" uid="uid://bf32qs7alktqm" path="res://assets/background/green_tree2.png" id="1_bwuc1"]
 [ext_resource type="Texture2D" uid="uid://qpetavxrgxfk" path="res://assets/background/full_tree3.png" id="1_hn31e"]
@@ -141,9 +141,6 @@ size = Vector2(225, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7qjy"]
 size = Vector2(504, 15)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ah12g"]
-size = Vector2(28, 125)
-
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jpt7y"]
 polygon = PackedVector2Array(-6552, 229, -6438, 229, -6438, 245, -6552, 245)
 
@@ -205,6 +202,42 @@ _data = {
 point_count = 3
 
 [sub_resource type="GDScript" id="GDScript_b4ftj"]
+script/source = "extends Path2D
+#class_name Drone
+
+
+@export var speed: float = 100.0
+
+
+@onready var path_follow: PathFollow2D = $PathFollow2D
+
+
+func _ready() -> void:
+	Events.player_caught.connect(on_player_caught)
+
+
+func on_player_caught() -> void:
+	self.stop()
+
+
+func stop() -> void:
+	self.set_physics_process(false)
+
+
+func _physics_process(delta: float) -> void:
+	if path_follow.progress_ratio == 0 or path_follow.progress_ratio == 1:
+		speed = -speed
+	
+	path_follow.progress += speed * delta
+"
+
+[sub_resource type="Curve2D" id="Curve2D_5m46x"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -350, -13.4615, 0, 0, 0, 0, 381.768, -12.0891, 0, 0, 0, 0, 823, -14)
+}
+point_count = 3
+
+[sub_resource type="GDScript" id="GDScript_4g5of"]
 script/source = "extends Path2D
 #class_name Drone
 
@@ -2120,10 +2153,6 @@ shape = SubResource("RectangleShape2D_28iyj")
 position = Vector2(-6104, 443.5)
 shape = SubResource("RectangleShape2D_j7qjy")
 
-[node name="Wall" type="CollisionShape2D" parent="Environment/Fort4/woodFloor5"]
-position = Vector2(-5615, 582.5)
-shape = SubResource("RectangleShape2D_ah12g")
-
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Environment/Fort4/woodFloor5"]
 occluder = SubResource("OccluderPolygon2D_jpt7y")
 
@@ -2277,8 +2306,8 @@ script = SubResource("GDScript_b4ftj")
 
 [node name="Drone6" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
 position = Vector2(-6433, 65)
-curve = SubResource("Curve2D_vplrj")
-script = SubResource("GDScript_bfy88")
+curve = SubResource("Curve2D_5m46x")
+script = SubResource("GDScript_4g5of")
 
 [node name="Drone9" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
 position = Vector2(-2977, 500)
