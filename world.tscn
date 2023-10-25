@@ -134,7 +134,7 @@ polygon = PackedVector2Array(1694, -270, 1717, -270, 1717, -254, 1694, -254)
 
 [sub_resource type="GDScript" id="GDScript_c77lv"]
 script/source = "extends Node2D
-class_name Climbable
+#class_name Climbable
 
 
 @onready var static_body_player_shape: CollisionShape2D = $StaticBodyPlayer/CollisionShape2D
@@ -2389,7 +2389,7 @@ position = Vector2(-5104, -199)
 shape = SubResource("RectangleShape2D_kt67r")
 
 [node name="Player" parent="Actors" instance=ExtResource("1_lr41f")]
-position = Vector2(-17322, 646)
+position = Vector2(-6635, 646)
 collision_mask = 5
 metadata/_edit_group_ = true
 
