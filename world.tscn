@@ -495,6 +495,20 @@ rotation = 3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("18_sqc8j")
 
+[node name="Fence34" type="Sprite2D" parent="Environment/Background Fences"]
+position = Vector2(-12887.5, 614.5)
+texture = ExtResource("18_sqc8j")
+
+[node name="Fence35" type="Sprite2D" parent="Environment/Background Fences"]
+position = Vector2(-12677.5, 610.5)
+texture = ExtResource("19_pfd2l")
+
+[node name="Fence36" type="Sprite2D" parent="Environment/Background Fences"]
+position = Vector2(-12467.5, 609.5)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("18_sqc8j")
+
 [node name="Fence7" type="Sprite2D" parent="Environment/Background Fences"]
 position = Vector2(-15725.5, 615.5)
 texture = ExtResource("18_sqc8j")
@@ -673,17 +687,17 @@ scale = Vector2(-1, 1)
 texture = ExtResource("18_sqc8j")
 
 [node name="Fence30" type="Sprite2D" parent="Environment/Background Fences/Fence27"]
-position = Vector2(-2238, -656.5)
+position = Vector2(-2244, -654.5)
 scale = Vector2(-1, 1)
 texture = ExtResource("19_pfd2l")
 
 [node name="Fence31" type="Sprite2D" parent="Environment/Background Fences/Fence27"]
-position = Vector2(-1817.5, -659)
+position = Vector2(-1823.5, -657)
 scale = Vector2(-1, 1)
 texture = ExtResource("19_pfd2l")
 
 [node name="Fence32" type="Sprite2D" parent="Environment/Background Fences/Fence27"]
-position = Vector2(-2028, -657.5)
+position = Vector2(-2034, -655.5)
 scale = Vector2(-1, 1)
 texture = ExtResource("18_sqc8j")
 
@@ -2170,7 +2184,8 @@ position = Vector2(-12121, 366)
 position = Vector2(-10669, 62)
 
 [node name="Barricade11" parent="Environment/Barricades" instance=ExtResource("12_heuap")]
-position = Vector2(-4841, 50)
+position = Vector2(-4880, 22)
+scale = Vector2(0.545, 0.545)
 
 [node name="Barricade7" parent="Environment/Barricades" instance=ExtResource("11_a0mlc")]
 position = Vector2(-11226, 366)
@@ -2179,7 +2194,8 @@ position = Vector2(-11226, 366)
 position = Vector2(-12016, 62)
 
 [node name="Barricade8" parent="Environment/Barricades" instance=ExtResource("11_a0mlc")]
-position = Vector2(-5823, 50)
+position = Vector2(-5785, 22)
+scale = Vector2(0.545, 0.545)
 
 [node name="Barricade13" parent="Environment/Barricades" instance=ExtResource("11_a0mlc")]
 position = Vector2(-6799, 245)
