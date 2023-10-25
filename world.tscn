@@ -2570,8 +2570,8 @@ position = Vector2(6066.96, 401.739)
 texture = ExtResource("11_pvq70")
 
 [node name="BlackTree2" type="Sprite2D" parent="ParallaxBackground/Closest"]
-position = Vector2(-1170, 366.667)
-scale = Vector2(1.5, 1.5)
+position = Vector2(-1195.65, 163.478)
+scale = Vector2(1.12, 1.12)
 texture = ExtResource("10_yhxob")
 
 [node name="BlackTree13" type="Sprite2D" parent="ParallaxBackground/Closest"]
@@ -2580,19 +2580,15 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("10_yhxob")
 
 [node name="BlackTree3" type="Sprite2D" parent="ParallaxBackground/Closest"]
-position = Vector2(-4780.87, 375.652)
-texture = ExtResource("11_pvq70")
-
-[node name="BlackTree10" type="Sprite2D" parent="ParallaxBackground/Closest"]
-position = Vector2(-13545.2, 393.043)
+position = Vector2(-4744.35, 245.217)
 texture = ExtResource("11_pvq70")
 
 [node name="BlackTree12" type="Sprite2D" parent="ParallaxBackground/Closest"]
-position = Vector2(-13545.2, 393.043)
+position = Vector2(-13528.7, 226.957)
 texture = ExtResource("11_pvq70")
 
 [node name="BlackTree7" type="Sprite2D" parent="ParallaxBackground/Closest"]
-position = Vector2(-7966.96, 375.652)
+position = Vector2(-7112.17, 219.13)
 texture = ExtResource("11_pvq70")
 
 [node name="BlackTree11" type="Sprite2D" parent="ParallaxBackground/Closest"]
@@ -2604,15 +2600,17 @@ position = Vector2(-20966.1, 235.652)
 texture = ExtResource("11_pvq70")
 
 [node name="BlackTree5" type="Sprite2D" parent="ParallaxBackground/Closest"]
-position = Vector2(-15587.8, 578.261)
+position = Vector2(-15423.5, 243.478)
 texture = ExtResource("11_pvq70")
 
 [node name="BlackTree4" type="Sprite2D" parent="ParallaxBackground/Closest"]
-position = Vector2(-3614.44, 371.111)
+position = Vector2(-3515.65, 230.435)
+scale = Vector2(0.96, 0.96)
 texture = ExtResource("9_gapgv")
 
 [node name="BlackTree6" type="Sprite2D" parent="ParallaxBackground/Closest"]
-position = Vector2(-11188.7, 495.652)
+position = Vector2(-11032.2, 218.261)
+scale = Vector2(1.035, 1.035)
 texture = ExtResource("9_gapgv")
 
 [node name="Leafborder5" type="Sprite2D" parent="ParallaxBackground/Closest"]
