@@ -2608,7 +2608,7 @@ position = Vector2(-20966.1, 235.652)
 texture = ExtResource("11_pvq70")
 
 [node name="BlackTree5" type="Sprite2D" parent="ParallaxBackground/Closest"]
-position = Vector2(-15423.5, 243.478)
+position = Vector2(-15852.2, 250.435)
 texture = ExtResource("11_pvq70")
 
 [node name="BlackTree4" type="Sprite2D" parent="ParallaxBackground/Closest"]
