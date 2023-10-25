@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://b5s1myf1gwty8"]
+[gd_scene load_steps=110 format=3 uid="uid://b5s1myf1gwty8"]
 
 [ext_resource type="Texture2D" uid="uid://bf32qs7alktqm" path="res://assets/background/green_tree2.png" id="1_bwuc1"]
 [ext_resource type="Texture2D" uid="uid://qpetavxrgxfk" path="res://assets/background/full_tree3.png" id="1_hn31e"]
@@ -241,6 +241,42 @@ _data = {
 point_count = 3
 
 [sub_resource type="GDScript" id="GDScript_bfy88"]
+script/source = "extends Path2D
+#class_name Drone
+
+
+@export var speed: float = 100.0
+
+
+@onready var path_follow: PathFollow2D = $PathFollow2D
+
+
+func _ready() -> void:
+	Events.player_caught.connect(on_player_caught)
+
+
+func on_player_caught() -> void:
+	self.stop()
+
+
+func stop() -> void:
+	self.set_physics_process(false)
+
+
+func _physics_process(delta: float) -> void:
+	if path_follow.progress_ratio == 0 or path_follow.progress_ratio == 1:
+		speed = -speed
+	
+	path_follow.progress += speed * delta
+"
+
+[sub_resource type="Curve2D" id="Curve2D_07kkn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -42.3076, -11.5385, 0, 0, 0, 0, 381.768, -12.0891, 0, 0, 0, 0, 706, -12)
+}
+point_count = 3
+
+[sub_resource type="GDScript" id="GDScript_542ed"]
 script/source = "extends Path2D
 #class_name Drone
 
@@ -2251,8 +2287,8 @@ script = SubResource("GDScript_bfy88")
 
 [node name="Drone7" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
 position = Vector2(-5605, -85)
-curve = SubResource("Curve2D_y1hw6")
-script = SubResource("GDScript_w8gnn")
+curve = SubResource("Curve2D_07kkn")
+script = SubResource("GDScript_542ed")
 
 [node name="Drone8" parent="Actors/Enemies" instance=ExtResource("5_0vjn5")]
 position = Vector2(-4152, 491)
