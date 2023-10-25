@@ -481,15 +481,15 @@ scale = Vector2(1, -1)
 texture = ExtResource("18_sqc8j")
 
 [node name="Fence4" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-14127.5, 585.5)
+position = Vector2(-14125.5, 632.5)
 texture = ExtResource("18_sqc8j")
 
 [node name="Fence5" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-13917.5, 581.5)
+position = Vector2(-13915.5, 628.5)
 texture = ExtResource("19_pfd2l")
 
 [node name="Fence6" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-13707.5, 580.5)
+position = Vector2(-13705.5, 627.5)
 rotation = 3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("18_sqc8j")
@@ -508,16 +508,22 @@ rotation = 3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("18_sqc8j")
 
+[node name="Fence33" type="Sprite2D" parent="Environment/Background Fences"]
+position = Vector2(-14939, 613)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("18_sqc8j")
+
 [node name="Fence10" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-11997.5, 589.5)
+position = Vector2(-11996.5, 617.5)
 texture = ExtResource("18_sqc8j")
 
 [node name="Fence11" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-11787.5, 585.5)
+position = Vector2(-11786.5, 613.5)
 texture = ExtResource("19_pfd2l")
 
 [node name="Fence12" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-11577.5, 584.5)
+position = Vector2(-11576.5, 612.5)
 rotation = 3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("18_sqc8j")
@@ -537,37 +543,37 @@ scale = Vector2(1, -1)
 texture = ExtResource("18_sqc8j")
 
 [node name="Fence13" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-9799.5, 612.5)
+position = Vector2(-9814.5, 619.5)
 texture = ExtResource("18_sqc8j")
 
 [node name="Fence14" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-9589.5, 608.5)
+position = Vector2(-9604.5, 615.5)
 texture = ExtResource("19_pfd2l")
 
 [node name="Fence15" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-9379.5, 607.5)
+position = Vector2(-9394.5, 614.5)
 texture = ExtResource("18_sqc8j")
 
 [node name="Fence16" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-8799.5, 609.5)
+position = Vector2(-8805.5, 628.5)
 rotation = 3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("18_sqc8j")
 
 [node name="Fence17" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-8589.5, 605.5)
+position = Vector2(-8595.5, 624.5)
 rotation = 3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("19_pfd2l")
 
 [node name="Fence18" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-8379.5, 604.5)
+position = Vector2(-8385.5, 623.5)
 rotation = 3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("18_sqc8j")
 
 [node name="Fence28" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-7581.5, 613.5)
+position = Vector2(-7580.5, 635.5)
 rotation = 3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("18_sqc8j")
@@ -579,7 +585,7 @@ scale = Vector2(-1, -1)
 texture = ExtResource("18_sqc8j")
 
 [node name="Fence29" type="Sprite2D" parent="Environment/Background Fences"]
-position = Vector2(-7371.5, 609.5)
+position = Vector2(-7370.5, 631.5)
 rotation = 3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("19_pfd2l")
@@ -2166,10 +2172,10 @@ position = Vector2(-15765, 678)
 position = Vector2(-15246, 678)
 
 [node name="Barricade3" parent="Environment/Barricades" instance=ExtResource("12_heuap")]
-position = Vector2(-16323, 375)
+position = Vector2(-16288, 378)
 
 [node name="Barricade" parent="Environment/Barricades" instance=ExtResource("11_a0mlc")]
-position = Vector2(-14854, 375)
+position = Vector2(-14905, 366)
 
 [node name="Barricade4" parent="Environment/Barricades" instance=ExtResource("12_heuap")]
 position = Vector2(-11163, 678)
