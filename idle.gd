@@ -11,12 +11,12 @@ extends State
 
 func _ready():
 	set_process(true)
-	print(self.name, ": animation_tree: ", animation_tree)
-	print(self.name, ": animation_node_sm : ", animation_tree_sm_playback)
+#	print(self.name, ": animation_tree: ", animation_tree)
+#	print(self.name, ": animation_node_sm : ", animation_tree_sm_playback)
 
 
 func enter_state() -> void:
-	print("enter idle state")
+	#print("enter idle state")
 
 	animation_state_machine.travel("idle")
 
@@ -27,10 +27,10 @@ func update_state() -> void:
 
 
 func exit_state():
-	print("exit idle state")
+	#print("exit idle state")
 	pass
 
 
-func _physics_process(delta: float) -> void: # probably can delete
+func _physics_process(_delta: float) -> void: # probably can delete
 	# Idle logic here
 	pass

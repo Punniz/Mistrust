@@ -1,0 +1,192 @@
+[gd_scene load_steps=13 format=3 uid="uid://m174jo30upk5"]
+
+[ext_resource type="Theme" uid="uid://bgl1w0ys3q4oe" path="res://resources/main_theme.tres" id="1_mdijf"]
+[ext_resource type="PackedScene" uid="uid://7vh2g36b8mwy" path="res://scenes/ui/quit_to_desktop_button.tscn" id="2_3wner"]
+[ext_resource type="Script" path="res://scripts/ui/main_menu_ui.gd" id="2_vyax6"]
+[ext_resource type="PackedScene" uid="uid://bmvyt47t7t0k3" path="res://scenes/ui/cutscene.tscn" id="3_yyg7m"]
+[ext_resource type="PackedScene" uid="uid://dv1cc4v70ivb3" path="res://scenes/ui/credits_menu_ui.tscn" id="4_dh56c"]
+[ext_resource type="PackedScene" path="res://scenes/ui/version_label.tscn" id="5_ecf6o"]
+[ext_resource type="Texture2D" uid="uid://badsuxn42ogqy" path="res://assets/textures/game_title.png" id="5_tnlee"]
+[ext_resource type="AudioStream" uid="uid://dlny46egfv46o" path="res://assets/audio/other/main_menu_music.ogg" id="8_jxm4s"]
+[ext_resource type="AudioStream" uid="uid://c4cwrsonsr2n8" path="res://assets/audio/other/start_game.wav" id="9_advbd"]
+
+[sub_resource type="Animation" id="Animation_cba55"]
+resource_name = "RESET"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jvotm"]
+resource_name = "play_button_pressed"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StartGameTrack:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_350tf"]
+_data = {
+"RESET": SubResource("Animation_cba55"),
+"play_button_pressed": SubResource("Animation_jvotm")
+}
+
+[node name="MainMenuUI" type="Control" node_paths=PackedStringArray("first_element_to_focus")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_mdijf")
+script = ExtResource("2_vyax6")
+scene_to_load = ExtResource("3_yyg7m")
+first_element_to_focus = NodePath("VBoxContainer/PlayButton")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -483.0
+offset_top = 73.0
+offset_right = 493.0
+offset_bottom = 295.0
+grow_horizontal = 2
+texture = ExtResource("5_tnlee")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -427.0
+offset_top = -169.0
+offset_right = 428.0
+offset_bottom = 362.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../QuitToDesktopButton")
+focus_neighbor_top = NodePath("../QuitToDesktopButton")
+focus_neighbor_right = NodePath("../CreditsButton")
+focus_neighbor_bottom = NodePath("../CreditsButton")
+focus_next = NodePath("../CreditsButton")
+focus_previous = NodePath("../QuitToDesktopButton")
+text = "Play"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../PlayButton")
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_right = NodePath("../QuitToDesktopButton")
+focus_neighbor_bottom = NodePath("../QuitToDesktopButton")
+focus_next = NodePath("../QuitToDesktopButton")
+focus_previous = NodePath("../PlayButton")
+text = "Credits
+"
+
+[node name="QuitToDesktopButton" parent="VBoxContainer" instance=ExtResource("2_3wner")]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../CreditsButton")
+focus_neighbor_top = NodePath("../CreditsButton")
+focus_neighbor_right = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../PlayButton")
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../CreditsButton")
+
+[node name="VersionLabel" parent="." instance=ExtResource("5_ecf6o")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -121.5
+offset_top = -109.0
+offset_right = 121.5
+offset_bottom = -64.0
+
+[node name="FadeColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_350tf")
+}
+
+[node name="CreditsMenuUI" parent="." instance=ExtResource("4_dh56c")]
+visible = false
+layout_mode = 1
+
+[node name="MusicTrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_jxm4s")
+autoplay = true
+bus = &"Music"
+
+[node name="StartGameTrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_advbd")
+bus = &"Sound Effects"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="CreditsMenuUI/BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="CreditsMenuUI"]

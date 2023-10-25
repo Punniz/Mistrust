@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://168mcih3rmq4"]
+
+[ext_resource type="Script" path="res://scripts/end_level_area.gd" id="1_0voc5"]
+[ext_resource type="PackedScene" uid="uid://4qcduhyvqeli" path="res://scenes/ui/level_finished_menu.tscn" id="2_50gq0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcg3e"]
+size = Vector2(1000, 1000)
+
+[node name="EndLevelArea" type="Area2D"]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_0voc5")
+level_finished_scene = ExtResource("2_50gq0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pcg3e")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
