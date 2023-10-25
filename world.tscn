@@ -2738,8 +2738,8 @@ offset_bottom = 651.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 40
 text = "Movement:
-AD / ←→ to go left and right.
-WS / ↑↓ to climb the ladders"
+A and D to go left and right.
+W and S to climb the ladders."
 horizontal_alignment = 1
 vertical_alignment = 1
 
