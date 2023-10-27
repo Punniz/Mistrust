@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bda2a3jqeustb"]
+[gd_scene load_steps=5 format=3 uid="uid://bda2a3jqeustb"]
 
 [ext_resource type="Theme" uid="uid://bgl1w0ys3q4oe" path="res://resources/main_theme.tres" id="1_q5lqe"]
 [ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1_vj87k"]
 [ext_resource type="PackedScene" uid="uid://7vh2g36b8mwy" path="res://scenes/ui/quit_to_desktop_button.tscn" id="1_whxkf"]
+[ext_resource type="FontFile" uid="uid://b28h6yqots054" path="res://Minecraft.ttf" id="3_6i457"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -57,6 +58,7 @@ theme_override_constants/separation = 100
 
 [node name="TitleLabel" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_6i457")
 theme_override_font_sizes/font_size = 60
 text = "Pause"
 horizontal_alignment = 1
@@ -72,6 +74,7 @@ focus_neighbor_right = NodePath("../QuitToDesktopButton")
 focus_neighbor_bottom = NodePath("../QuitToDesktopButton")
 focus_next = NodePath("../QuitToDesktopButton")
 focus_previous = NodePath("../QuitToDesktopButton")
+theme_override_fonts/font = ExtResource("3_6i457")
 text = "Resume"
 
 [node name="QuitToDesktopButton" parent="Panel/VBoxContainer" instance=ExtResource("1_whxkf")]
@@ -84,6 +87,7 @@ focus_neighbor_right = NodePath("../ResumeButton")
 focus_neighbor_bottom = NodePath("../ResumeButton")
 focus_next = NodePath("../ResumeButton")
 focus_previous = NodePath("../ResumeButton")
+theme_override_fonts/font = ExtResource("3_6i457")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

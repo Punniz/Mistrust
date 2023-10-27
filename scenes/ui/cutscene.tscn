@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmvyt47t7t0k3"]
+[gd_scene load_steps=10 format=3 uid="uid://bmvyt47t7t0k3"]
 
 [ext_resource type="Theme" uid="uid://bgl1w0ys3q4oe" path="res://resources/main_theme.tres" id="1_cjji1"]
 [ext_resource type="Script" path="res://scripts/ui/cutscene.gd" id="1_crdtw"]
 [ext_resource type="PackedScene" uid="uid://b5s1myf1gwty8" path="res://world.tscn" id="2_8y87v"]
 [ext_resource type="VideoStream" path="res://assets/cutscene.ogv" id="4_v22ro"]
+[ext_resource type="FontFile" uid="uid://b28h6yqots054" path="res://Minecraft.ttf" id="5_jo8ba"]
 
 [sub_resource type="Animation" id="Animation_hwhgs"]
 length = 0.001
@@ -96,5 +97,15 @@ libraries = {
 "": SubResource("AnimationLibrary_sb3qy")
 }
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1713.0
+offset_top = 15.0
+offset_right = 1897.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("5_jo8ba")
+text = "Skip"
+
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="Button" to="." method="_on_skip_button_pressed"]
