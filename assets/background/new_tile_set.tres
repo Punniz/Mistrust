@@ -1,0 +1,55 @@
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://cel0nfdqqv3ra"]
+
+[ext_resource type="Texture2D" uid="uid://c2bc34ix07ygr" path="res://assets/background/parallax foreground.png" id="1_0ek3a"]
+[ext_resource type="Texture2D" uid="uid://c0rauegw41ykc" path="res://assets/background/full_tree1.png" id="1_l2yhf"]
+[ext_resource type="Texture2D" uid="uid://3svda7k74e1w" path="res://assets/background/parallax_foreground_farther.png" id="2_d2d2l"]
+[ext_resource type="Texture2D" uid="uid://cnauhho7ehbln" path="res://assets/background/full_tree2.png" id="3_v2crc"]
+[ext_resource type="Texture2D" uid="uid://qpetavxrgxfk" path="res://assets/background/full_tree3.png" id="4_gcpph"]
+[ext_resource type="Texture2D" uid="uid://ckk4r81ivge5a" path="res://assets/background/leaf_splash.png" id="6_msnvg"]
+[ext_resource type="Texture2D" uid="uid://c4ewxob47ot16" path="res://assets/background/bgBush.png" id="7_85s8k"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_83v68"]
+texture = ExtResource("1_l2yhf")
+texture_region_size = Vector2i(840, 750)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s7ce1"]
+resource_name = "Grass"
+texture = ExtResource("1_0ek3a")
+texture_region_size = Vector2i(2580, 260)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8kb5b"]
+texture = ExtResource("3_v2crc")
+texture_region_size = Vector2i(700, 780)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ivwex"]
+texture = ExtResource("4_gcpph")
+texture_region_size = Vector2i(680, 780)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s3t7p"]
+texture = ExtResource("2_d2d2l")
+texture_region_size = Vector2i(2580, 220)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bi15k"]
+texture = ExtResource("6_msnvg")
+texture_region_size = Vector2i(965, 352)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m2dgh"]
+texture = ExtResource("7_85s8k")
+texture_region_size = Vector2i(2588, 100)
+0:7/size_in_atlas = Vector2i(1, 3)
+0:7/0 = 0
+
+[resource]
+sources/2 = SubResource("TileSetAtlasSource_s7ce1")
+sources/5 = SubResource("TileSetAtlasSource_s3t7p")
+sources/1 = SubResource("TileSetAtlasSource_83v68")
+sources/3 = SubResource("TileSetAtlasSource_8kb5b")
+sources/4 = SubResource("TileSetAtlasSource_ivwex")
+sources/6 = SubResource("TileSetAtlasSource_bi15k")
+sources/7 = SubResource("TileSetAtlasSource_m2dgh")

@@ -13,6 +13,8 @@ func _ready() -> void:
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
+func _on_skip_button_pressed() -> void:
+	self.transition_to_next_scene()
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "end":
@@ -30,3 +32,4 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 func transition_to_next_scene() -> void:
 	self.animation_player.play("end")
+

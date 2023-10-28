@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bi5t1tvwbiuag"]
+[gd_scene load_steps=7 format=3 uid="uid://bi5t1tvwbiuag"]
 
 [ext_resource type="Script" path="res://scripts/ui/game_over_menu.gd" id="1_ik8cq"]
 [ext_resource type="Theme" uid="uid://bgl1w0ys3q4oe" path="res://resources/main_theme.tres" id="1_rm5ae"]
 [ext_resource type="Texture2D" uid="uid://ckboxhiphscjg" path="res://assets/textures/game_over_texture.png" id="2_lduk0"]
 [ext_resource type="AudioStream" uid="uid://bxofauq341trr" path="res://assets/audio/other/game_over_stinger.ogg" id="4_dbnpl"]
+[ext_resource type="FontFile" uid="uid://b28h6yqots054" path="res://Minecraft.ttf" id="4_exwwj"]
 [ext_resource type="AudioStream" uid="uid://b48hbe478r6ep" path="res://assets/audio/other/game_over.ogg" id="5_vsmsf"]
 
 [node name="GameOverMenu" type="Control" node_paths=PackedStringArray("first_element_to_focus")]
@@ -43,11 +44,13 @@ theme_override_constants/separation = 80
 [node name="RetryButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_exwwj")
 text = "Retry"
 
 [node name="QuitToMainMenuButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_exwwj")
 text = "Quit To Main Menu"
 
 [node name="ColorRect" type="ColorRect" parent="."]
