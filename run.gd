@@ -31,9 +31,10 @@ func _physics_process(_delta) -> void:
 	is_idle = actor.velocity.x == 0 and actor.velocity.y == 0
 	
 	# Stop wood and grass audio if actor is not moving
-	if is_idle:
+	if is_idle and not Input.is_action_pressed("interact"):
 		wood_audio_player.stop()
 		grass_audio_player.stop()
+		animation_state_machine.travel("idle")
 	
 	# Audio handling based on surface
 	if is_ray_hit:
