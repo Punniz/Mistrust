@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bfu2peuf5fcxb"]
+[gd_scene load_steps=52 format=3 uid="uid://bfu2peuf5fcxb"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_tdkwl"]
 [ext_resource type="Texture2D" uid="uid://2h8t7lkpwm5f" path="res://assets/textures/player/player_animations.png" id="2_6wm3s"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://2ojp0woxnc17" path="res://assets/audio/player/MAIN_CHAR_Wood_Run_LP.wav" id="10_ld2rc"]
 [ext_resource type="AudioStream" uid="uid://dhfl2xi4y8xo7" path="res://assets/audio/player/MAIN_CHAR_Hide_SFX.wav" id="11_1uoav"]
 [ext_resource type="AudioStream" uid="uid://b7lkp0brbrg6a" path="res://assets/audio/player/MAIN_CHAR_Show_SFX.wav" id="12_8mirb"]
+[ext_resource type="Script" path="res://autoloads/scripts/state.gd" id="14_8n3yc"]
 
 [sub_resource type="GDScript" id="GDScript_hcyft"]
 
@@ -360,6 +361,9 @@ animation_tree = NodePath("../../AnimationTree")
 script = ExtResource("7_2n7qf")
 actor = NodePath("../..")
 animation_tree = NodePath("../../AnimationTree")
+
+[node name="WalkState" type="Node" parent="UserStateMachine"]
+script = ExtResource("14_8n3yc")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
